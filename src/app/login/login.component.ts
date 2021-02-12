@@ -1,46 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+	email = 'kevin@comfeco.com';
+	password = '123456';
 
-  email = 'kevin@comfeco.com';
-  password = '123456';
+	constructor(private auth: AngularFireAuth, private router: Router) {}
 
-  constructor(
-    private auth: AngularFireAuth,
-    private router: Router) { }
+	async login(): Promise<void> {
+		try {
+			const singIn = await this.auth.signInWithEmailAndPassword(this.email, this.password);
+			if (singIn) {
+				void this.router.navigate(['profile']);
+			}
+		} catch (error) {
+			console.error('Error cl:', error);
+		}
+	}
 
-  ngOnInit(): void {
-  }
-
-  login(){
-    this.auth.signInWithEmailAndPassword(this.email,this.password)
-    .then( res => {
-      console.log(res);
-      this.router.navigate(['profile']);
-    })
-    .catch(err => console.error('Error cl:',err));
-  }
-
-  register(){
-    this.auth.createUserWithEmailAndPassword(this.email,this.password)
-    .then((user) => {
-      // Signed in
-      // ...
-      console.log(user);
-      this.router.navigate(['profile']);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode,': ',errorMessage);
-    });
-  }
-
+	async register(): Promise<void> {
+		try {
+			const singIn = await this.auth.createUserWithEmailAndPassword(this.email, this.password);
+			if (singIn) {
+				console.log(singIn);
+				void this.router.navigate(['profile']);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
 }
