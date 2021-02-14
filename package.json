@@ -8,7 +8,7 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e",
-		"format": "prettier --write src/app/**/*.ts"
+		"format": "prettier --write \"./**/*.{ts,json,html}\""
 	},
 	"private": true,
 	"dependencies": {
