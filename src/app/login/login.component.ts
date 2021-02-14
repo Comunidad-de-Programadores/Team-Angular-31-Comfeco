@@ -23,15 +23,11 @@ export class LoginComponent {
 		}
 	}
 
-	async register(): Promise<void> {
-		try {
-			const singIn = await this.auth.createUserWithEmailAndPassword(this.email, this.password);
-			if (singIn) {
-				console.log(singIn);
-				void this.router.navigate(['profile']);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}
+  resetPassword(){
+    this.auth.sendPasswordResetEmail(this.email)
+    .then(
+    () => alert('A password reset link has been sent to your emailaddress'), 
+    (rejectionReason) => alert(rejectionReason)) 
+    .catch(e => alert('An error occurred while attempting to reset your password'));
+  }
 }
