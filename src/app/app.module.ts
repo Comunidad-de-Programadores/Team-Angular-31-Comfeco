@@ -7,15 +7,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+import { SocialLoginComponent } from './common/components/social-login/social-login.component';
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, SocialLoginComponent],
 	imports: [
 		BrowserModule,
 		FormsModule,
 		AngularFireAuthModule,
 		AngularFireModule.initializeApp(environment.firebase),
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		AppRoutingModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
