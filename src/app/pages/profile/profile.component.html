@@ -3,12 +3,11 @@
 	<code> {{ user | json }}</code>
 </div>
 <div class="mb-3 row">
-
-    <label for="staticEmail" class="col-sm-2 col-form-label">Test</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" [(ngModel)]="name" >
-    </div>
-  </div>
+	<label for="staticEmail" class="col-sm-2 col-form-label">Test</label>
+	<div class="col-sm-10">
+		<input type="text" class="form-control" [(ngModel)]="name" />
+	</div>
+</div>
 <button (click)="edit()">Editar</button>
 
 <app-social-login></app-social-login>
