@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit {
 				// Verificar si el código de reseteo es válido
 				this.auth
 					.verifyPasswordResetCode(this.actionCode)
-					.then((email) => {
+					.then(() => {
 						this.actionCodeChecked = true;
 					})
 					.catch((e) => {
@@ -45,7 +45,7 @@ export class ResetPasswordComponent implements OnInit {
 		});
 	}
 
-	handleResetPassword() {
+	handleResetPassword(): void {
 		if (this.newPassword != this.confirmPassword) {
 			alert('New Password and Confirm Password do not match');
 			return;
@@ -53,7 +53,7 @@ export class ResetPasswordComponent implements OnInit {
 		// Save the new password.
 		this.auth
 			.confirmPasswordReset(this.actionCode, this.newPassword)
-			.then((resp) => {
+			.then(() => {
 				// Password reset has been confirmed and new password updated.
 				alert('New password has been saved');
 				void this.router.navigate(['/login']);
