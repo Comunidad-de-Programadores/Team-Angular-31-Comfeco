@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'team-angular31-comfeco';
+	title = 'team-angular31-comfeco 2021';
 }
