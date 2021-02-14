@@ -1,25 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+	selector: 'app-profile',
+	templateUrl: './profile.component.html',
+	styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
+	name = '';
+	constructor(public auth: AngularFireAuth) {}
 
-  name = '';
-  constructor(public auth: AngularFireAuth) { }
-
-  ngOnInit(): void {
-  }
-
-  edit(){
-    this.auth.currentUser.then((result) => { 
-      result?.updateProfile({
-          displayName: this.name
-        }) 
-    }); 
-  }
-
+	async edit(): Promise<void> {
+		const authUser = await this.auth.currentUser;
+		try {
+			void authUser?.updateProfile({ displayName: this.name });
+		} catch (error) {
+			console.log(error);
+		}
+	}
 }
