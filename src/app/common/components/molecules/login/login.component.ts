@@ -23,8 +23,8 @@ export class LoginComponent {
 		}
 	}
 
-	async resetPassword(): Promise<void> {
-		const auth = await this.auth
+	resetPassword() {
+		void this.auth
 			.sendPasswordResetEmail(this.email)
 			.then(
 				() => alert('A password reset link has been sent to your emailaddress'),
