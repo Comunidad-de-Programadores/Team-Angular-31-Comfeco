@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './common/components/molecules/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
