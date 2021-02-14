@@ -23,13 +23,13 @@ export class LoginComponent {
 		}
 	}
 
-	resetPassword() {
+	resetPassword(): void {
 		void this.auth
 			.sendPasswordResetEmail(this.email)
 			.then(
 				() => alert('A password reset link has been sent to your emailaddress'),
 				(rejectionReason) => alert(rejectionReason)
 			)
-			.catch((e) => alert('An error occurred while attempting to reset your password'));
+			.catch(() => alert('An error occurred while attempting to reset your password'));
 	}
 }
