@@ -1,0 +1,13 @@
+*{
+  box-sizing: content-box;
+  margin: 0;
+}
+.navbar-brand{
+display: flex;
+  padding: 5px;
+  background-color: blanchedalmond;
+}
+
+.navbar-brand__item-logo{
+  width: 6em;
+}
