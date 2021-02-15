@@ -50,4 +50,42 @@ body {
 	input[type='text'] {
 		color: $color-text;
 	}
+
+	$web: 993px;
+	.cdk-overlay-dark-backdrop {
+		background: rgba(0, 0, 0, 0);
+	}
+
+	.blur {
+		filter: blur(2px);
+	}
+
+	.modal-terms {
+		.mat-dialog-container {
+			border-radius: 40px;
+			background-color: #ffefe7;
+			color: $color-text-alternative;
+			min-height: 70%;
+			height: 450px;
+			h2 {
+				font-size: 13px;
+				font-weight: bold;
+			}
+			p {
+				font-size: 11px;
+			}
+			button {
+				font-size: 12px;
+			}
+		}
+	}
+
+	@media screen and (min-width: $web) {
+		.modal-terms {
+			.mat-dialog-container {
+				width: 380px;
+				height: 500px;
+			}
+		}
+	}
 }
