@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from '@team31/components-atoms/header/header.component';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageModule } from './pages/page.module';
 
