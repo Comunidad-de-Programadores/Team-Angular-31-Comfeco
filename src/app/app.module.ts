@@ -14,13 +14,7 @@ import { LoginComponent } from './common/components/molecules/login/login.compon
 import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		LoginComponent,
-		ProfileComponent,
-		SocialLoginComponent,
-		SocialFooterComponent
-	],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
