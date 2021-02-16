@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 @Component({
 	selector: 'app-login',
-	templateUrl: './login.component.html',
+	templateUrl: './login.component.ts',
 	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
