@@ -12,43 +12,56 @@ import { VariableStatic } from '../../../static/variable-static';
 	styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+	private emailPattern: RegExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	data: IDataDialog = {
 		titleModal: 'Vacio',
 		contentModal: 'Lleno'
 	};
-	public registerForm = new FormGroup({
-		userName: new FormControl(),
-		email: new FormControl(),
-		pass: new FormControl(),
-		confirmPass: new FormControl()
-	});
+	public createForm() {
+		   return new FormGroup({
+			userName: new FormControl('', 
+			                             [Validators.required, 
+										  Validators.minLength(5)]),
+			email: new FormControl('', 
+			                          [Validators.required,
+				                      Validators.pattern(this.emailPattern)]),
+			pass: new FormControl('', 
+			                        [Validators.required,
+									 Validators.minLength(8)]),
+			confirmPass: new FormControl('', 
+											[Validators.required,
+											 Validators.minLength(8)]),
+											 
+		});
+
+	}
+	
+	registerForm: FormGroup;
 
 	declarations: IRegister = {};
 	constructor(
-		private formBuilder: FormBuilder,
 		private modalService: ModalServiceService,
-		public dialog: MatDialog
+		public dialog: MatDialog,
+		private fb: FormBuilder
 	) {
+		this.registerForm = this.createForm();
 		this.declarations = {
 			button: 'Registrar',
 			enlace: 'Volver al login'
 		};
 	}
 
-	ngOnInit(): void {
-		this.registerForm = this.formBuilder.group({
-			userName: ['', Validators.required, Validators.minLength(4), Validators.maxLength(10)],
-			email: ['', Validators.required, Validators.email],
-			pass: ['', Validators.required, Validators.minLength(4), Validators.maxLength(10)],
-			confirmPass: ['', Validators.required, Validators.minLength(4), Validators.maxLength(10)]
-		});
-	}
+	ngOnInit(): void {}
 
-	onSubmit() {
-		console.log(this.registerForm.value);
+	onSubmit(): void {
+		console.log('Saved');
+		this.registerForm.reset();
 	}
 
 	clickModalTerms() {
 		this.modalService.open(VariableStatic.REGISTRATION_TERMS_CONDITIONS);
 	}
+
+
+	
 }
