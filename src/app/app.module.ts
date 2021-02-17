@@ -8,10 +8,6 @@ import { HeaderBannerModule } from '@team31/components-atoms/header-banner.modul
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SocialFooterComponent } from './common/components/atoms/social-footer/social-footer.component';
-import { SocialLoginComponent } from './common/components/atoms/social-login/social-login.component';
-import { LoginComponent } from './common/components/molecules/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
 	declarations: [AppComponent],
