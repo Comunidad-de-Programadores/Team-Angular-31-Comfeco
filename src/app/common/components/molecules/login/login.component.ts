@@ -16,6 +16,7 @@ export class LoginComponent {
 		try {
 			const singIn = await this.auth.singInWithEmailAndPassword(this.email, this.password);
 			if (singIn) {
+				console.log(singIn);
 				void this.router.navigate(['profile']);
 			}
 		} catch (error) {
