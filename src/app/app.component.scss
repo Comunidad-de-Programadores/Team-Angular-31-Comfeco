@@ -2,8 +2,15 @@
 	display: flex;
 	flex-direction: column;
 
+	&__content{
+		display: grid;
+		justify-items: center;
+		align-items: center;
+	}
+
 	&__footer {
 		position: fixed;
 		bottom: 0;
+		border: 1px solid red;
 	}
 }

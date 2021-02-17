@@ -10,5 +10,27 @@
 <br /> -->
 
 <app-card-container>
-	<app-card-container></app-card-container>
+	<form class="login-form">
+		<mat-form-field>
+			<mat-label>Correo electrónico</mat-label>
+			<input matInput placeholder="ejemplo@gmail.com" />
+			<mat-icon matSuffix>mode_edit</mat-icon>
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Contraseña</mat-label>
+			<input matInput placeholder="Contraseña" />
+			<mat-icon matSuffix>mode_edit</mat-icon>
+		</mat-form-field>
+
+		<a href="xd">¿Olvidaste tu contraseña?</a>
+
+		<button mat-raised-button color="primary" class="login-button">Log in</button>
+
+		<div class="login-slide">
+			<mat-slide-toggle>Mantener sesión</mat-slide-toggle>
+		</div>
+
+		<app-social-login text="¿Aún no eres miembro?" textLink="Regístrate"></app-social-login>
+	</form>
 </app-card-container>
