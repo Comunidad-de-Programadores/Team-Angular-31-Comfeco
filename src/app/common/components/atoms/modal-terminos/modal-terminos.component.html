@@ -1,12 +1,10 @@
 <div>
 	<h2>{{ data.titleModal }}</h2>
 	<p>{{ data.contentModal }}</p>
-	<button
-		mat-button
-		style="float: right"
-		*ngFor="let button of data.buttonsModal"
-		[mat-dialog-close]="button.close"
-	>
-		{{ button.value }}
-	</button>
+	<mat-dialog-actions align="end">
+		<button mat-button mat-dialog-close (click)="cancel()">Cancelar</button>
+		<button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="confirm()">
+			Aceptar
+		</button>
+	</mat-dialog-actions>
 </div>

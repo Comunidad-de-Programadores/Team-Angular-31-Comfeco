@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
 	) {
 		this.declarations = {
 			button: 'Registrar',
-
 			enlace: 'Volver al login'
 		};
 	}
