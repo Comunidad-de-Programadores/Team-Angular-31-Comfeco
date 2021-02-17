@@ -8,9 +8,10 @@
 		align-items: center;
 	}
 
-	&__footer {
-		position: fixed;
-		bottom: 0;
-		border: 1px solid red;
-	}
+  &__footer{
+  position: absolute;
+	bottom: 0;
+	width: 100%;
+  }
+
 }

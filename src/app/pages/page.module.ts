@@ -5,7 +5,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [LoginPageComponent],
-	exports: [LoginPageComponent],
-	imports: [MoleculesModule]
+	imports: [MoleculesModule],
+	exports: [LoginPageComponent]
 })
 export class PageModule {}

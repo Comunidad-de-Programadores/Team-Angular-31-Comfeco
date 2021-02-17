@@ -8,7 +8,6 @@ import { HeaderBannerModule } from '@team31/components-atoms/header-banner.modul
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageModule } from './pages/page.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -18,8 +17,7 @@ import { PageModule } from './pages/page.module';
 		AngularFireAuthModule,
 		AngularFireModule.initializeApp(environment.firebase),
 		BrowserAnimationsModule,
-		HeaderBannerModule,
-		PageModule
+		HeaderBannerModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
