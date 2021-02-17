@@ -1,53 +1,59 @@
 <app-card-container>
-    <div class="inputs">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+	<div class="inputs">
+		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+			<mat-form-field appearance="legacy">
+				<mat-label> Nombre de Usuario </mat-label>
+				<input matInput placeholder=" Nombre de Usuario " formControlName="userName" />
+				<mat-icon matSuffix> account_circle </mat-icon>
+			</mat-form-field>
 
-            <mat-form-field appearance="legacy">
-                <mat-label> Nombre de Usuario </mat-label>
-                <input matInput placeholder=" Nombre de Usuario " formControlName="userName">
-                <mat-icon matSuffix> account_circle </mat-icon>
-            </mat-form-field>
+			<mat-form-field appearance="legacy">
+				<mat-label> Correo Electronico </mat-label>
+				<input matInput placeholder=" Correo Electronico " formControlName="email" />
+				<mat-icon matSuffix> alternate_email_24p </mat-icon>
+			</mat-form-field>
 
-            <mat-form-field appearance="legacy">
-                <mat-label> Correo Electronico </mat-label>
-                <input matInput placeholder=" Correo Electronico " formControlName="email">
-                <mat-icon matSuffix> alternate_email_24p </mat-icon>
-            </mat-form-field>
+			<mat-form-field appearance="legacy">
+				<mat-label> Contraseña </mat-label>
+				<input matInput type="password" placeholder=" Contraseña " formControlName="pass" />
+				<mat-icon matSuffix> visibility </mat-icon>
+			</mat-form-field>
 
-            <mat-form-field appearance="legacy">
-                <mat-label> Contraseña </mat-label>
-                <input matInput type="password" placeholder=" Contraseña " formControlName="pass">
-                <mat-icon matSuffix> visibility </mat-icon>
-            </mat-form-field>
+			<mat-form-field appearance="legacy">
+				<mat-label> Confirmar Contraseña </mat-label>
+				<input
+					matInput
+					type="password"
+					placeholder=" Confirmar Contraseña "
+					formControlName="confirmPass"
+				/>
+				<mat-icon matSuffix> visibility </mat-icon>
+			</mat-form-field>
+		</form>
+	</div>
+	<div class="terms">
+		<section class="example-section">
+			<mat-checkbox class="example-margin" color="primary">
+				<p>
+					Acepto los <a (click)="clickModalTerms()">terminos y condiciones</a> de uso de la politica
+					de proteccion de datos. <br />
+					recibiras confirmacion del registro a traves del correo electronico.
+				</p>
+			</mat-checkbox>
+		</section>
+	</div>
+	<br />
+	<div class="buttons">
+		<button mat-raised-button type="submit" color="primary" [disabled]="!registerForm.valid">
+			{{ declarations.button }}
+		</button>
+		<a href="#"> {{ declarations.enlace }} </a>
+	</div>
 
-            <mat-form-field appearance="legacy">
-                <mat-label> Confirmar Contraseña </mat-label>
-                <input matInput type="password" placeholder=" Confirmar Contraseña " formControlName="confirmPass">
-                <mat-icon matSuffix> visibility </mat-icon>
-            </mat-form-field>
+	<app-social-login></app-social-login>
 
-        </form>
-    </div>
-    <div class="terms">
-        <section class="example-section">
-            <mat-checkbox class="example-margin" color="primary">
-                <p> Acepto los <a (click)="clickModalTerms()">terminos y condiciones</a> de uso de la politica de proteccion de datos.
-                    <br> recibiras confirmacion del registro a traves del correo electronico. </p>
-            </mat-checkbox>
-        </section>
-    </div>
-    <br>
-    <div class="buttons">
-
-        <button mat-raised-button type="submit" color="primary" [disabled]="!registerForm.valid"> {{ declarations.button }} </button>
-        <a href="#"> {{ declarations.enlace }} </a>
-
-    </div>
-
-    <app-social-login></app-social-login>
-
-    <div class="redirect">
-        <p>¿Ya tienes cuenta?</p>
-        <a href="#">Inicia Sesión</a>
-    </div>
+	<div class="redirect">
+		<p>¿Ya tienes cuenta?</p>
+		<a href="#">Inicia Sesión</a>
+	</div>
 </app-card-container>
