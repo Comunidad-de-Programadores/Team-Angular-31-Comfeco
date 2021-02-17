@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
 		MatInputModule,
 		MatButtonModule,
 		MatCheckboxModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		MatSlideToggleModule
 	],
 	exports: [LoginComponent, RegisterComponent]
 })

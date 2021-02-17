@@ -1,25 +1,15 @@
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { CardContainerComponent } from './card-container/card-container.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
-import { SocialFooterComponent } from './social-footer/social-footer.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
-import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-	declarations: [
-		SocialLoginComponent,
-		CardContainerComponent,
-		ModalTerminosComponent,
-		SocialFooterComponent
-	],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	declarations: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent],
 	imports: [MatDialogModule, CommonModule, MatButtonModule],
-	exports: [
-		SocialLoginComponent,
-		CardContainerComponent,
-		ModalTerminosComponent,
-		SocialFooterComponent
-	]
+	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent]
 })
 export class AtomModule {}
