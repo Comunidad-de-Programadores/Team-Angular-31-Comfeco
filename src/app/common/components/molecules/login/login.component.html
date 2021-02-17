@@ -10,22 +10,25 @@
 <br /> -->
 
 <app-card-container>
-    <form class="login-form">
-        <mat-form-field>
-            <mat-label>Correo electrónico</mat-label>
-            <input matInput placeholder="ejemplo@gmail.com" />
-            <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Contraseña</mat-label>
-            <input matInput placeholder="Contraseña" />
-            <mat-icon matSuffix>visibility</mat-icon>
-        </mat-form-field>
+	<form class="login-form">
+		<mat-form-field>
+			<mat-label>Correo electrónico</mat-label>
+			<input matInput placeholder="ejemplo@gmail.com" [(ngModel)]="email" name="email" />
+			<mat-icon matSuffix>mode_edit</mat-icon>
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Contraseña</mat-label>
+			<input matInput placeholder="Contraseña" [(ngModel)]="password" name="password" />
+			<mat-icon matSuffix>visibility</mat-icon>
+		</mat-form-field>
 
         <a href="xd">¿Olvidaste tu contraseña?</a>
 
-        <button mat-raised-button color="primary" class="login-button">Log in</button>
+
+		<button mat-raised-button color="primary" class="login-button" (click)="login()">Log in</button>
+
 
         <div class="login-slide">
             <mat-slide-toggle>Mantener sesión</mat-slide-toggle>

@@ -11,6 +11,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { AuthService } from 'src/app/common/services/auth.service';
+
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [LoginComponent, RegisterComponent],
@@ -25,6 +27,8 @@ import { CommonModule } from '@angular/common';
 		ReactiveFormsModule,
 		MatSlideToggleModule
 	],
+
 	exports: [LoginComponent, RegisterComponent]
+	providers: [AuthService]
 })
 export class MoleculesModule {}
