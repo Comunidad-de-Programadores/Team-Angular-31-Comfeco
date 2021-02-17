@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 
+import { AuthService } from 'src/app/common/services/auth.service';
+
 @NgModule({
 	declarations: [LoginComponent],
 	imports: [
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 		MatSlideToggleModule,
 		MatButtonModule
 	],
-	exports: [LoginComponent]
+	exports: [LoginComponent],
+	providers: [AuthService]
 })
 export class MoleculesModule {}
