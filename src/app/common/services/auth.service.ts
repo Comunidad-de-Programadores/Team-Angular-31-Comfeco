@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
 	constructor(private _authService: AngularFireAuth) {}
 
-	singInWithEmailAndPassword(email: string, password: string) {
+	singInWithEmailAndPassword(
+		email: string,
+		password: string
+	): Promise<firebase.auth.UserCredential> {
 		return this._authService.signInWithEmailAndPassword(email, password);
 	}
 
-	sendPasswordResetEmail(email: string) {
+	sendPasswordResetEmail(email: string): Promise<void> {
 		return this._authService.sendPasswordResetEmail(email);
 	}
 
@@ -16,7 +20,7 @@ export class AuthService {
 		return this._authService.verifyPasswordResetCode(actionCode);
 	}
 
-	confirmPasswordReset(actioncode: string, newPassword: string) {
+	confirmPasswordReset(actioncode: string, newPassword: string): Promise<void> {
 		return this._authService.confirmPasswordReset(actioncode, newPassword);
 	}
 }
