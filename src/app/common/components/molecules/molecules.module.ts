@@ -1,28 +1,34 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AtomModule } from '../atoms/atoms.module';
 import { LoginComponent } from './login/login.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AuthService } from 'src/app/common/services/auth.service';
 
 @NgModule({
-	declarations: [LoginComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	declarations: [LoginComponent, RegisterComponent],
 	imports: [
+		CommonModule,
 		AtomModule,
-		FormsModule,
 		MatFormFieldModule,
-		MatInputModule,
 		MatIconModule,
+		MatInputModule,
 		MatButtonModule,
-		MatSlideToggleModule,
-		MatButtonModule
+		MatCheckboxModule,
+		ReactiveFormsModule,
+		MatSlideToggleModule
 	],
-	exports: [LoginComponent],
+
+	exports: [LoginComponent, RegisterComponent]
 	providers: [AuthService]
 })
 export class MoleculesModule {}

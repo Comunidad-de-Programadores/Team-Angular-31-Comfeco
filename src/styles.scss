@@ -2,35 +2,21 @@
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 @import './assets/scss/variables.scss';
-
 // Plus imports for other components in your app.
-
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $team-angular31-comfeco-primary: mat-palette($mat-deep-orange);
 $team-angular31-comfeco-accent: mat-palette($mat-orange, A200, A100, A400);
-
 // The warn palette is optional (defaults to red).
 $team-angular31-comfeco-warn: mat-palette($mat-pink);
-
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$team-angular31-comfeco-theme: mat-light-theme(
-	(
-		color: (
-			primary: $team-angular31-comfeco-primary,
-			accent: $team-angular31-comfeco-accent,
-			warn: $team-angular31-comfeco-warn
-		)
-	)
-);
-
+$team-angular31-comfeco-theme: mat-light-theme( ( color: ( primary: $team-angular31-comfeco-primary, accent: $team-angular31-comfeco-accent, warn: $team-angular31-comfeco-warn)));
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -40,52 +26,80 @@ $team-angular31-comfeco-theme: mat-light-theme(
 
 html,
 body {
-	height: 100%;
+    height: 100%;
 }
+
 body {
-	margin: 0;
-	font-family: Roboto, 'Helvetica Neue', sans-serif;
-	color: $color-text;
-
-	input[type='text'] {
-		color: $color-text;
-	}
-
-	$web: 993px;
-	.cdk-overlay-dark-backdrop {
-		background: rgba(0, 0, 0, 0);
-	}
-
-	.blur {
-		filter: blur(2px);
-	}
-
-	.modal-terms {
-		.mat-dialog-container {
-			border-radius: 40px;
-			background-color: #ffefe7;
-			color: $color-text-alternative;
-			min-height: 70%;
-			height: 450px;
-			h2 {
-				font-size: 13px;
-				font-weight: bold;
-			}
-			p {
-				font-size: 11px;
-			}
-			button {
-				font-size: 12px;
-			}
-		}
-	}
-
-	@media screen and (min-width: $web) {
-		.modal-terms {
-			.mat-dialog-container {
-				width: 380px;
-				height: 500px;
-			}
-		}
-	}
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    color: $color-text;
+    input[type='text'] {
+        color: $color-text;
+    }
+    $web: 993px;
+    .cdk-overlay-dark-backdrop {
+        background: rgba(0, 0, 0, 0);
+    }
+    .blur {
+        filter: blur(2px);
+    }
+    .modal-terms {
+        .mat-dialog-container {
+            border-radius: 40px;
+            background-color: #ffefe7;
+            color: $color-text-alternative;
+            min-height: 70%;
+            height: 450px;
+            h2 {
+                font-size: 13px;
+                font-weight: bold;
+            }
+            p {
+                font-size: 11px;
+            }
+            button {
+                font-size: 12px;
+            }
+        }
+    }
+    .inputs {
+        .mat-form-field-infix {
+            width: 340px;
+        }
+    }
+    .buttons {
+        .mat-raised-button {
+            min-width: 363.5px;
+            margin-bottom: 1em;
+        }
+        a {
+            margin-left: 10em;
+            color: $color-primary;
+            font-weight: bolder;
+        }
+        margin-bottom: 2em;
+    }
+    .terms {
+        .mat-checkbox-layout {
+            white-space: pre;
+            font-size: 9px;
+            margin-top: 2em;
+        }
+    }
+    .redirect {
+        a {
+            margin-left: 4em;
+        }
+        p {
+            margin-left: 3em;
+        }
+    }
+    @media screen and (min-width: $web) {
+        .modal-terms {
+            .mat-dialog-container {
+                width: 380px;
+                height: 500px;
+            }
+        }
+    }
 }

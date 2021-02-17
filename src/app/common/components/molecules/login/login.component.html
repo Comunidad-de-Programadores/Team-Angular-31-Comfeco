@@ -10,6 +10,7 @@
 <br /> -->
 
 <app-card-container>
+
 	<form class="login-form">
 		<mat-form-field>
 			<mat-label>Correo electrónico</mat-label>
@@ -20,17 +21,19 @@
 		<mat-form-field>
 			<mat-label>Contraseña</mat-label>
 			<input matInput placeholder="Contraseña" [(ngModel)]="password" name="password" />
-			<mat-icon matSuffix>mode_edit</mat-icon>
+			<mat-icon matSuffix>visibility</mat-icon>
 		</mat-form-field>
 
-		<a href="xd">¿Olvidaste tu contraseña?</a>
+        <a href="xd">¿Olvidaste tu contraseña?</a>
+
 
 		<button mat-raised-button color="primary" class="login-button" (click)="login()">Log in</button>
 
-		<div class="login-slide">
-			<mat-slide-toggle>Mantener sesión</mat-slide-toggle>
-		</div>
 
-		<app-social-login text="¿Aún no eres miembro?" textLink="Regístrate"></app-social-login>
-	</form>
+        <div class="login-slide">
+            <mat-slide-toggle>Mantener sesión</mat-slide-toggle>
+        </div>
+
+        <app-social-login text="¿Aún no eres miembro?" textLink="Regístrate"></app-social-login>
+    </form>
 </app-card-container>
