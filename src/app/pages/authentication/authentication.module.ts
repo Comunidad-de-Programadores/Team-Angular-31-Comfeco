@@ -9,12 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { AuthService } from '@team31/services/auth.service';
+import { AuthenticationRoutingModule } from './authentication.routing.module';
 import { LoginPageComponent } from './login/login-page.component';
+import { RecoveryPasswordPageComponent } from './recovery-password/recovery-password-page.component';
 import { RegisterPageComponent } from './register/register-page.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [LoginPageComponent, RegisterPageComponent],
+	declarations: [LoginPageComponent, RegisterPageComponent, RecoveryPasswordPageComponent],
 	imports: [
 		CommonModule,
 		AtomModule,
@@ -25,10 +27,9 @@ import { RegisterPageComponent } from './register/register-page.component';
 		MatButtonModule,
 		MatCheckboxModule,
 		ReactiveFormsModule,
-		MatSlideToggleModule
+		MatSlideToggleModule,
+		AuthenticationRoutingModule
 	],
-
-	exports: [LoginPageComponent, RegisterPageComponent],
 	providers: [AuthService]
 })
 export class AuthenticationModule {}
