@@ -10,6 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { AuthService } from '@team31/services/auth.service';
 import { AuthenticationRoutingModule } from './authentication.routing.module';
+import { CustomValidatorsService } from './common/service/custom-validators.service';
 import { LoginPageComponent } from './login/login-page.component';
 import { RecoveryPasswordPageComponent } from './recovery-password/recovery-password-page.component';
 import { RegisterPageComponent } from './register/register-page.component';
@@ -30,6 +31,6 @@ import { RegisterPageComponent } from './register/register-page.component';
 		MatSlideToggleModule,
 		AuthenticationRoutingModule
 	],
-	providers: [AuthService]
+	providers: [AuthService, CustomValidatorsService]
 })
 export class AuthenticationModule {}

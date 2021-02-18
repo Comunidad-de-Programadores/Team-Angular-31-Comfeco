@@ -5,18 +5,54 @@
 				<mat-label> Nombre de Usuario </mat-label>
 				<input matInput placeholder=" Nombre de Usuario " formControlName="userName" />
 				<mat-icon matSuffix> account_circle </mat-icon>
+				<mat-error
+					*ngIf="
+						registerFormControl.userName.touched && registerFormControl.userName.errors?.required
+					"
+				>
+					User Name is required
+				</mat-error>
+				<mat-error
+					*ngIf="
+						registerFormControl.userName.touched &&
+						registerFormControl.userName.errors?.userNameNotAvailable
+					"
+				>
+					User Name is not available
+				</mat-error>
 			</mat-form-field>
-
 			<mat-form-field appearance="legacy">
 				<mat-label> Correo Electronico </mat-label>
 				<input matInput placeholder=" Correo Electronico " formControlName="email" />
 				<mat-icon matSuffix> alternate_email_24p </mat-icon>
+				<mat-error
+					*ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.required"
+				>
+					Email is required
+				</mat-error>
+				<mat-error
+					*ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email"
+				>
+					Enter a valid email address
+				</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="legacy">
 				<mat-label> Contraseña </mat-label>
 				<input matInput type="password" placeholder=" Contraseña " formControlName="pass" />
 				<mat-icon matSuffix> visibility </mat-icon>
+				<mat-error
+					*ngIf="registerFormControl.pass.touched && registerFormControl.pass.errors?.required"
+				>
+					Password is required
+				</mat-error>
+				<mat-error
+					*ngIf="
+						registerFormControl.pass.touched && registerFormControl.pass.errors?.invalidPassword
+					"
+				>
+					Password is required
+				</mat-error>
 			</mat-form-field>
 
 			<mat-form-field appearance="legacy">
@@ -28,6 +64,22 @@
 					formControlName="confirmPass"
 				/>
 				<mat-icon matSuffix> visibility </mat-icon>
+				<mat-error
+					*ngIf="
+						registerFormControl.confirmPass.touched &&
+						registerFormControl.confirmPass.errors?.required
+					"
+				>
+					Confirm Password is required
+				</mat-error>
+				<mat-error
+					*ngIf="
+						registerFormControl.confirmPass.touched &&
+						registerFormControl.confirmPass.errors?.passwordMismatch
+					"
+				>
+					Passwords doesnot match
+				</mat-error>
 			</mat-form-field>
 
 			<div class="terms">
