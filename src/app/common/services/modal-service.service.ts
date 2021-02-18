@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ModalTerminosComponent } from '@team31/components-atoms/modal-terminos/modal-terminos.component';
 import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
-import { ModalTerminosComponent } from '../components/atoms/modal-terminos/modal-terminos.component';
 import { IDataDialog } from '../models/data-dialog';
 
 @Injectable()
 export class ModalServiceService {
 	constructor(private dialog: MatDialog) {}
-	dialogRef!: MatDialogRef<ModalTerminosComponent>;
+	dialogRef!: MatDialogRef<ModalTerminosComponent, boolean>;
 
-	public open(options: IDataDialog) {
+	public open(options: IDataDialog): void {
 		this.dialogRef = this.dialog.open(ModalTerminosComponent, {
 			data: {
 				titleModal: options.titleModal,
@@ -18,12 +17,8 @@ export class ModalServiceService {
 			}
 		});
 	}
-	public confirmed(): Observable<any> {
-		return this.dialogRef.afterClosed().pipe(
-			take(1),
-			map((res) => {
-				return res;
-			})
-		);
+
+	public confirmed(): Observable<boolean | undefined> {
+		return this.dialogRef.afterClosed();
 	}
 }

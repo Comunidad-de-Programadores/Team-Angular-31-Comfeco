@@ -12,6 +12,9 @@
       ],
       "@team31/models/*": [
         "src/app/common/models/*"
+      ],
+      "@team31/services/*": [
+        "src/app/common/services/*"
       ]
     },
     "outDir": "./dist/out-tsc",

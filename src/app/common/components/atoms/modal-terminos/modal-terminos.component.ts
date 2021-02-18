@@ -1,6 +1,6 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IDataDialog } from '../../../models/data-dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IDataDialog } from '@team31/models/data-dialog';
 
 @Component({
 	selector: 'app-modal-terminos',

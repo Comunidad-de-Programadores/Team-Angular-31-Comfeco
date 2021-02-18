@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { IRegister } from '../../../models/register';
-import { ModalServiceService } from '../../../services/modal-service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { IDataDialog } from '../../../models/data-dialog';
-import { VariableStatic } from '../../../static/variable-static';
+import { IDataDialog } from '@team31/models/data-dialog';
+import { IRegister } from '@team31/models/register';
+import { ModalServiceService } from '@team31/services/modal-service.service';
+import { VariableStatic } from 'src/app/common/static/variable-static';
 
 @Component({
-	selector: 'app-register',
-	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.scss']
+	selector: 'app-register-page',
+	templateUrl: './register-page.component.html',
+	styleUrls: ['./register-page.component.scss']
 })
-export class RegisterComponent implements OnInit {
-	private emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+export class RegisterPageComponent {
+	private emailPattern = /^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 	data: IDataDialog = {
 		titleModal: 'Vacio',
 		contentModal: 'Lleno'
 	};
+
+	registerForm: FormGroup;
+
+	declarations: IRegister = {};
+
 	public createForm() {
 		return new FormGroup({
 			userName: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -26,9 +32,6 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 
-	registerForm: FormGroup;
-
-	declarations: IRegister = {};
 	constructor(
 		private modalService: ModalServiceService,
 		public dialog: MatDialog,
@@ -40,8 +43,6 @@ export class RegisterComponent implements OnInit {
 			enlace: 'Volver al login'
 		};
 	}
-
-	ngOnInit(): void {}
 
 	onSubmit(): void {
 		console.log('Saved');
