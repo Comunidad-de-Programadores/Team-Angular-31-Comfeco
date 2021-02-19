@@ -6,3 +6,22 @@
 .p {
     padding: 10px;
 }
+
+.register{
+    &__form{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-items: center;
+        margin: auto;
+    }
+
+    &__button{
+        width: 100%;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+}

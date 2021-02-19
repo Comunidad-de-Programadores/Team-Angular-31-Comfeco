@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CustomValidatorsService } from '../common/service/custom-validators.service';
 
 @Component({
 	selector: 'app-reset-password-page',
@@ -13,18 +15,33 @@ export class ResetPasswordPageComponent implements OnInit {
 	actionCodeChecked = false;
 	newPassword = '';
 	confirmPassword = '';
+	resetPasswordForm: FormGroup;
+	hidePassword = true;
+	hideConfirmPassword = true;
 
 	constructor(
 		private router: Router,
 		private activatedRoute: ActivatedRoute,
-		private auth: AngularFireAuth
-	) {}
+		private auth: AngularFireAuth,
+		private fb: FormBuilder,
+		private customvalidators: CustomValidatorsService
+	) {
+		this.resetPasswordForm = this.fb.group(
+			{
+				pass: ['', [Validators.required]],
+				confirmPass: ['', [Validators.required]]
+			},
+			{
+				validator: this.customvalidators.MatchPassword('pass', 'confirmPass')
+			}
+		);
+	}
 
 	ngOnInit(): void {
 		this.activatedRoute.queryParams.subscribe((params: Params) => {
 			// if we didn't receive any parameters,
 			// we can't do anything
-			if (!params) void this.router.navigate(['/login']);
+			// if (params) void this.router.navigate(['/login']);
 
 			this.mode = String(params['mode']);
 			this.actionCode = String(params['oobCode']);
@@ -45,14 +62,14 @@ export class ResetPasswordPageComponent implements OnInit {
 		});
 	}
 
-	handleResetPassword(): void {
-		if (this.newPassword != this.confirmPassword) {
-			alert('New Password and Confirm Password do not match');
-			return;
-		}
+	get resetPasswordFormControl(): FormGroup['controls'] {
+		return this.resetPasswordForm.controls;
+	}
+
+	resetPassword(): void {
 		// Save the new password.
 		this.auth
-			.confirmPasswordReset(this.actionCode, this.newPassword)
+			.confirmPasswordReset(this.actionCode, this.resetPasswordForm.controls['pass'].value)
 			.then(() => {
 				// Password reset has been confirmed and new password updated.
 				alert('New password has been saved');
