@@ -14,10 +14,16 @@ import { CustomValidatorsService } from './common/service/custom-validators.serv
 import { LoginPageComponent } from './login/login-page.component';
 import { RecoveryPasswordPageComponent } from './recovery-password/recovery-password-page.component';
 import { RegisterPageComponent } from './register/register-page.component';
+import { ResetPasswordPageComponent } from './reset-password/reset-password-page.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [LoginPageComponent, RegisterPageComponent, RecoveryPasswordPageComponent],
+	declarations: [
+		LoginPageComponent,
+		RegisterPageComponent,
+		RecoveryPasswordPageComponent,
+		ResetPasswordPageComponent
+	],
 	imports: [
 		CommonModule,
 		AtomModule,
