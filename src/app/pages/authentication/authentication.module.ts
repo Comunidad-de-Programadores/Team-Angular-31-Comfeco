@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ActivatedRouteSnapshot } from '@angular/router';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { AuthService } from '@team31/services/auth.service';
 import { ModalServiceService } from 'src/app/common/services/modal-service.service';
