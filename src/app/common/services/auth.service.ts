@@ -23,4 +23,15 @@ export class AuthService {
 	confirmPasswordReset(actioncode: string, newPassword: string): Promise<void> {
 		return this._authService.confirmPasswordReset(actioncode, newPassword);
 	}
+
+	createUser(email: string, password: string): Promise<firebase.auth.UserCredential> {
+		return this._authService.createUserWithEmailAndPassword(email, password);
+	}
+
+	async setUsername(username: string): Promise<void> {
+		const currentUser = await this._authService.currentUser;
+		void currentUser?.updateProfile({
+			displayName: username
+		});
+	}
 }

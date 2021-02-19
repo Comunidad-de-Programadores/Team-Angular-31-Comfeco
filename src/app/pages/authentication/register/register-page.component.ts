@@ -5,6 +5,8 @@ import { IRegister } from '@team31/models/register';
 import { ModalServiceService } from '@team31/services/modal-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomValidatorsService } from '../common/service/custom-validators.service';
+import { VariableStatic } from '../../../common/static/variable-static';
+import { AuthService } from '../../../common/services/auth.service';
 
 @Component({
 	selector: 'app-register-page',
@@ -18,27 +20,26 @@ export class RegisterPageComponent {
 		contentModal: 'Lleno'
 	};
 	registerForm: FormGroup;
-
+	hidePassword = true;
+	hideConfirmPassword = true;
 	declarations: IRegister = {};
 
 	constructor(
 		private modalService: ModalServiceService,
 		public dialog: MatDialog,
 		private fb: FormBuilder,
-		private customvalidators: CustomValidatorsService
+		private customvalidators: CustomValidatorsService,
+		private _authService: AuthService
 	) {
 		this.registerForm = this.fb.group(
 			{
 				userName: ['', [Validators.required, Validators.minLength(5)]],
 				email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-				pass: [
-					'',
-					Validators.compose([Validators.required, this.customvalidators.patternValidator()])
-				],
+				pass: ['', [Validators.required]],
 				confirmPass: ['', [Validators.required]]
 			},
 			{
-				validator: this.customvalidators.MatchPassword('pass', 'confirmPassword')
+				validator: this.customvalidators.MatchPassword('pass', 'confirmPass')
 			}
 		);
 		this.declarations = {
@@ -51,12 +52,22 @@ export class RegisterPageComponent {
 		return this.registerForm.controls;
 	}
 
-	onSubmit(): void {
-		console.log('Saved');
-		this.registerForm.reset();
+	async newUser(): Promise<void> {
+		// console.log(this.registerForm.controls['email'].value, this.registerForm.controls['pass'].value);
+		try {
+			const newUser = await this._authService.createUser(
+				this.registerForm.controls['email'].value,
+				this.registerForm.controls['pass'].value
+			);
+			if (newUser) {
+				await this._authService.setUsername(this.registerForm.controls['userName'].value);
+			}
+		} catch (error) {
+			console.error('Error cl:', error);
+		}
 	}
 
 	clickModalTerms(): void {
-		// this.modalService.open(VariableStatic.REGISTRATION_TERMS_CONDITIONS);
+		this.modalService.open(VariableStatic.REGISTRATION_TERMS_CONDITIONS);
 	}
 }

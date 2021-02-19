@@ -9,7 +9,7 @@ import { AuthService } from '@team31/services/auth.service';
 export class LoginPageComponent {
 	email = 'kevin@comfeco.com';
 	password = '123456';
-
+	hidePassword = true;
 	constructor(private auth: AuthService, private router: Router) {}
 
 	async login(): Promise<void> {
