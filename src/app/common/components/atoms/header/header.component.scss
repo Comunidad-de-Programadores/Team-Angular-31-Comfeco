@@ -2,11 +2,14 @@
 	box-sizing: content-box;
 	margin: 0;
 }
+
 .navbar-brand {
 	display: flex;
-	padding: 5px;
-}
+	padding: 2em;
+	align-items: center;
+	justify-content: space-between;
 
-.navbar-brand__item-logo {
-	width: 6em;
+	&__item-logo {
+		width: 20em;
+	}
 }
