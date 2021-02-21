@@ -1,15 +1,17 @@
-* {
-	box-sizing: content-box;
-	margin: 0;
-}
-
-.navbar-brand {
+@import '../../../../../assets/scss/variables.scss';
+.container {
 	display: flex;
-	padding: 2em;
+	padding: 1em;
 	align-items: center;
-	justify-content: space-between;
-
-	&__item-logo {
+	gap: 3em;
+	&__logo {
 		width: 20em;
+	}
+
+	&__menu {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		align-items: center;
 	}
 }

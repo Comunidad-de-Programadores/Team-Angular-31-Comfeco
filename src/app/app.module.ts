@@ -5,6 +5,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderBannerModule } from '@team31/components-atoms/header-banner.module';
+import { HeaderService } from '@team31/services/header.service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
 		BrowserAnimationsModule,
 		HeaderBannerModule
 	],
-	providers: [],
+	providers: [HeaderService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
