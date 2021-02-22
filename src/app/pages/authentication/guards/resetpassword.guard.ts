@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, ActivatedRoute } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '../../../common/services/auth.service';
 
 @Injectable()
@@ -7,13 +7,20 @@ export class ResetpasswordGuard implements CanActivate {
 	mode = '';
 	actionCode = '';
 	actionCodeChecked = false;
-	constructor(
-		private activatedRoute: ActivatedRoute,
-		private router: Router,
-		private auth: AuthService
-	) {}
+	constructor(private router: Router, private auth: AuthService) {}
 
-	canActivate(): boolean {
-		return true;
+	async canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
+		try {
+			if (!route.queryParams) return false;
+			if (route.queryParams['mode'] === 'resetPassword') {
+				await this.auth.verifyPasswordresetCode(route.queryParams['oobCode']);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (error) {
+			console.error('Error: ', error);
+			return false;
+		}
 	}
 }

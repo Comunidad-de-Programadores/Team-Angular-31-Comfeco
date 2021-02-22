@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IDataDialog } from '@team31/models/data-dialog';
 import { IRegister } from '@team31/models/register';
-import { ModalServiceService } from '@team31/services/modal-service.service';
+import { ModalService } from '@team31/services/modal.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomValidatorsService } from '../common/service/custom-validators.service';
 import { VariableStatic } from '../../../common/static/variable-static';
 import { AuthService } from '../../../common/services/auth.service';
+import { MessageService } from '../../../common/services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-register-page',
@@ -25,18 +27,21 @@ export class RegisterPageComponent {
 	declarations: IRegister = {};
 
 	constructor(
-		private modalService: ModalServiceService,
+		private modalService: ModalService,
 		public dialog: MatDialog,
 		private fb: FormBuilder,
 		private customvalidators: CustomValidatorsService,
-		private _authService: AuthService
+		private _authService: AuthService,
+		private _messageService: MessageService,
+		private router: Router
 	) {
 		this.registerForm = this.fb.group(
 			{
 				userName: ['', [Validators.required, Validators.minLength(5)]],
 				email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
 				pass: ['', [Validators.required]],
-				confirmPass: ['', [Validators.required]]
+				confirmPass: ['', [Validators.required]],
+				termsCheck: ['', [Validators.requiredTrue]]
 			},
 			{
 				validator: this.customvalidators.MatchPassword('pass', 'confirmPass')
@@ -61,9 +66,12 @@ export class RegisterPageComponent {
 			);
 			if (newUser) {
 				await this._authService.setUsername(this.registerForm.controls['userName'].value);
+				// this._messageService.openSnackBar('Usuario registrado exitosamente', 'start', 'top');
+				this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
+				void this.router.navigate(['/login']);
 			}
 		} catch (error) {
-			console.error('Error cl:', error);
+			this._messageService.openError(error, 'end', 'top');
 		}
 	}
 

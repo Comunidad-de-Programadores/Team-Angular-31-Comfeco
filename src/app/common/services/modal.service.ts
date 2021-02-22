@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalTerminosComponent } from '@team31/components-atoms/modal-terminos/modal-terminos.component';
 import { Observable } from 'rxjs';
-import { IDataDialog } from '../models/data-dialog';
+import { IDataDialog } from '@team31/models/data-dialog';
 
 @Injectable()
-export class ModalServiceService {
+export class ModalService {
 	constructor(private dialog: MatDialog) {}
 	dialogRef!: MatDialogRef<ModalTerminosComponent, boolean>;
 
