@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MessageService } from '../../../common/services/message.service';
 import { CustomValidatorsService } from '../common/service/custom-validators.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class ResetPasswordPageComponent implements OnInit {
 		private activatedRoute: ActivatedRoute,
 		private auth: AngularFireAuth,
 		private fb: FormBuilder,
-		private customvalidators: CustomValidatorsService
+		private customvalidators: CustomValidatorsService,
+		private _messageService: MessageService
 	) {
 		this.resetPasswordForm = this.fb.group(
 			{
@@ -72,7 +74,11 @@ export class ResetPasswordPageComponent implements OnInit {
 			.confirmPasswordReset(this.actionCode, this.resetPasswordForm.controls['pass'].value)
 			.then(() => {
 				// Password reset has been confirmed and new password updated.
-				alert('New password has been saved');
+				this._messageService.openInfo(
+					'Su contraseña ha sido actualizada, puede iniciar sesión',
+					'start',
+					'top'
+				);
 				void this.router.navigate(['/login']);
 			})
 			.catch((e) => {

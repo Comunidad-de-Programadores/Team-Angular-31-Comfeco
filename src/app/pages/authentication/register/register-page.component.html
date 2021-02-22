@@ -92,14 +92,22 @@
 			</mat-form-field>
 
 			<div class="terms">
-				<section class="example-section">
-					<mat-checkbox color="primary">
-						<p>
+				<section class="register__check">
+					<mat-checkbox color="primary" formControlName="termsCheck">
+						<!-- <p>
 							Acepto los <a (click)="clickModalTerms()">terminos y condiciones</a> de uso de la
 							politica de proteccion de datos. <br />
 							recibiras confirmacion del registro a traves del correo electronico.
-						</p>
+						</p> -->
 					</mat-checkbox>
+					<p>
+						Acepto los
+						<a (click)="clickModalTerms()">
+							<strong> terminos y condiciones </strong>
+						</a>
+						de uso de la politica de proteccion de datos. <br />
+						recibiras confirmacion del registro a traves del correo electronico.
+					</p>
 				</section>
 			</div>
 			<br />
@@ -122,9 +130,4 @@
 			link="/login"
 		></app-social-login>
 	</div>
-
-	<!-- <div class="redirect">
-		<p>¿Ya tienes cuenta?</p>
-		<a [routerLink]="[ '/login' ]">Inicia Sesión</a>
-	</div> -->
 </app-card-container>

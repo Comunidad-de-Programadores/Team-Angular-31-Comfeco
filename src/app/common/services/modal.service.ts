@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { IDataDialog } from '../models/data-dialog';
 
 @Injectable()
-export class ModalServiceService {
+export class ModalService {
 	constructor(private dialog: MatDialog) {}
 	dialogRef!: MatDialogRef<ModalTerminosComponent, boolean>;
 
