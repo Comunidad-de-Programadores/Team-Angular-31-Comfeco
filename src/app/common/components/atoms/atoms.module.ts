@@ -4,11 +4,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CardContainerComponent } from './card-container/card-container.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent],
+	declarations: [
+		SocialLoginComponent,
+		CardContainerComponent,
+		ModalTerminosComponent,
+		CarouselComponent
+	],
 	imports: [MatDialogModule, CommonModule],
-	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent]
+	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent, CarouselComponent]
 })
 export class AtomModule {}

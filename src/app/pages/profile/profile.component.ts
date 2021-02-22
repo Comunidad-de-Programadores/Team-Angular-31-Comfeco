@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/* import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
@@ -19,3 +19,4 @@ export class ProfileComponent {
 		}
 	}
 }
+ */
