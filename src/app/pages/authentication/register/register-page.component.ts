@@ -67,11 +67,11 @@ export class RegisterPageComponent {
 			if (newUser) {
 				await this._authService.setUsername(this.registerForm.controls['userName'].value);
 				// this._messageService.openSnackBar('Usuario registrado exitosamente', 'start', 'top');
-				this._messageService.openInfo('Usuario registrado exitosamente', 'start', 'top');
+				this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
 				void this.router.navigate(['/login']);
 			}
 		} catch (error) {
-			this._messageService.openError(error, 'start', 'top');
+			this._messageService.openError(error, 'end', 'top');
 		}
 	}
 

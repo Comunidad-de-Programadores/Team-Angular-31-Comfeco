@@ -76,7 +76,7 @@ export class ResetPasswordPageComponent implements OnInit {
 				// Password reset has been confirmed and new password updated.
 				this._messageService.openInfo(
 					'Su contraseña ha sido actualizada, puede iniciar sesión',
-					'start',
+					'end',
 					'top'
 				);
 				void this.router.navigate(['/login']);

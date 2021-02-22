@@ -24,7 +24,7 @@ export class LoginPageComponent {
 				console.log(singIn);
 			}
 		} catch (error) {
-			this._messageService.openError(error, 'start', 'top');
+			this._messageService.openError(error, 'end', 'top');
 			console.error('Error cl:', error);
 		}
 	}

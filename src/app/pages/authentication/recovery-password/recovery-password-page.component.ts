@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../common/services/auth.service';
-import { MessageService } from '../../../common/services/message.service';
+import { AuthService } from '@team31/services/auth.service';
+import { MessageService } from '@team31/services/message.service';
 
 @Component({
 	selector: 'app-recovery-password-page',
@@ -31,10 +31,10 @@ export class RecoveryPasswordPageComponent {
 	async sendPasswordResetEmail(): Promise<void> {
 		try {
 			await this._authService.sendPasswordResetEmail(this.recoveryForm.controls['email'].value);
-			this._messageService.openInfo('Correo de recuperación enviado', 'start', 'top');
+			this._messageService.openInfo('Correo de recuperación enviado', 'end', 'top');
 			void this.router.navigate(['/login']);
 		} catch (error) {
-			console.error('Error cl:', error);
+			this._messageService.openError('Correo de recuperación enviado', 'end', 'top');
 		}
 	}
 }
