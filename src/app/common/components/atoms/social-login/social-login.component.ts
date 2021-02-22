@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class SocialLoginComponent {
 	@Input() text = '';
 	@Input() textLink = '';
+	@Input() link = '';
 }

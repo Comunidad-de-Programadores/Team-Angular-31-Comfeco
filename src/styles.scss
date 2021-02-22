@@ -2,24 +2,18 @@
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 @import './assets/scss/variables.scss';
-
-
 // Plus imports for other components in your app.
-
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $team-angular31-comfeco-primary: mat-palette($mat-deep-orange);
 $team-angular31-comfeco-accent: mat-palette($mat-orange, A200, A100, A400);
-
 // The warn palette is optional (defaults to red).
 $team-angular31-comfeco-warn: mat-palette($mat-pink);
-
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $team-angular31-comfeco-theme: mat-light-theme(
@@ -31,7 +25,6 @@ $team-angular31-comfeco-theme: mat-light-theme(
 		)
 	)
 );
-
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -41,17 +34,21 @@ $team-angular31-comfeco-theme: mat-light-theme(
 
 html,
 body {
-	height: 100%;
+	*,
+	*:focus,
+	*:hover {
+		outline: none;
+	}
+	height: 100vh;
 }
+
 body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
 	color: $color-text;
-
 	input[type='text'] {
 		color: $color-text;
 	}
-
 	$web: 993px;
 	.cdk-overlay-dark-backdrop {
 		background: rgba(0, 0, 0, 0);
@@ -59,6 +56,12 @@ body {
 
 	.blur {
 		filter: blur(2px);
+	}
+
+	.url {
+		color: #019df4;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 
 	.modal-terms {
@@ -80,7 +83,52 @@ body {
 			}
 		}
 	}
-
+	.inputs {
+		.mat-form-field-infix {
+			width: 340px;
+		}
+	}
+	.buttons {
+		.mat-raised-button {
+			min-width: 363.5px;
+			margin-bottom: 1em;
+		}
+		a {
+			margin-left: 10em;
+			color: $color-primary;
+			font-weight: bolder;
+		}
+		margin-bottom: 2em;
+	}
+	.terms {
+		.mat-checkbox-layout {
+			white-space: pre;
+			font-size: 9px;
+			margin-top: 2em;
+		}
+	}
+	.redirect {
+		a {
+			margin-left: 4em;
+		}
+		p {
+			margin-left: 3em;
+		}
+	}
+	.mat-snack-bar-container{
+		color: white;
+		text-align: center;
+	}
+	.mat-simple-snackbar{
+		justify-content: center;
+		font-size: 1em;
+	}
+	.snackbar-error{
+		background-color: $color-error;
+	}
+	.snackbar-info{
+		background-color: $color-secondary;
+	}
 	@media screen and (min-width: $web) {
 		.modal-terms {
 			.mat-dialog-container {

@@ -1,0 +1,36 @@
+.redirect {
+    margin-top: 2em;
+    display: inline-flex;
+}
+
+.p {
+    padding: 10px;
+}
+
+.register{
+    &__form{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-items: center;
+        margin: auto;
+    }
+
+    &__button{
+        width: 100%;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+
+    &__check{
+        display: flex;
+        gap: .5em;
+        font-size: 10px;
+        line-height: 1.5em;  
+        font-size: 9px;
+        margin-top: 2em;
+    }
+}
