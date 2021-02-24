@@ -6,11 +6,17 @@ import { ModalTerminosComponent } from './modal-terminos/modal-terminos.componen
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent],
+	declarations: [
+		SocialLoginComponent,
+		CardContainerComponent,
+		ModalTerminosComponent,
+		CounterComponent
+	],
 	imports: [MatDialogModule, CommonModule, MatButtonModule, RouterModule],
-	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent]
+	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent, CounterComponent]
 })
 export class AtomModule {}

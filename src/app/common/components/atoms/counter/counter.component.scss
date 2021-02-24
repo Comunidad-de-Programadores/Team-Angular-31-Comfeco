@@ -1,0 +1,23 @@
+.counter{
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+
+  &__item{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+    overflow-wrap: break-word;
+  }
+
+  &__number{
+    font-size: 5em;
+    height: auto;
+  }
+
+  &__word{
+    font-size: 2em;
+  }
+}
