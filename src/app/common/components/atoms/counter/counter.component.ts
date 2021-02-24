@@ -9,18 +9,18 @@ import { Subscription, interval } from 'rxjs';
 export class CounterComponent implements OnDestroy {
 	private subscription: Subscription;
 
-	public dateNow = new Date();
-	public dDay = new Date('Jan 01 2022 00:00:00');
+	dateNow = new Date();
+	dDay = new Date('Jan 01 2022 00:00:00');
 	milliSecondsInASecond = 1000;
 	hoursInADay = 24;
 	minutesInAnHour = 60;
 	SecondsInAMinute = 60;
 
-	public timeDifference = 0;
-	public secondsToDday = 0;
-	public minutesToDday = 0;
-	public hoursToDday = 0;
-	public daysToDday = 0;
+	timeDifference = 0;
+	secondsToDday = 0;
+	minutesToDday = 0;
+	hoursToDday = 0;
+	daysToDday = 0;
 
 	constructor() {
 		this.subscription = interval(1000).subscribe(() => {
@@ -33,7 +33,7 @@ export class CounterComponent implements OnDestroy {
 		this.allocateTimeUnits(this.timeDifference);
 	}
 
-	private allocateTimeUnits(timeDifference: number) {
+	private allocateTimeUnits(timeDifference: number): void {
 		this.secondsToDday = Math.floor(
 			(timeDifference / this.milliSecondsInASecond) % this.SecondsInAMinute
 		);
