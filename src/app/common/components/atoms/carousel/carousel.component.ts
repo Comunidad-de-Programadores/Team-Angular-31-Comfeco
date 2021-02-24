@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 /* import * as Glide from '@glidejs/glide'; */
-import Glide from '@glidejs/glide';
+/* import Glide from '@glidejs/glide'; */
 
 @Component({
 	selector: 'app-carousel',
@@ -10,7 +10,7 @@ import Glide from '@glidejs/glide';
 export class CarouselComponent implements OnInit {
 	/* glide: Glide | undefined; */
 
-	ngOnInit() {
+	ngOnInit(): void {
 		console.log('hola');
 		/* this.glide = new Glide('.glide', {
 			type: 'carousel'
