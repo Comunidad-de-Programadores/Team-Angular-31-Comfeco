@@ -5,6 +5,7 @@ import { CardContainerComponent } from './card-container/card-container.componen
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -14,7 +15,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 		ModalTerminosComponent,
 		CarouselComponent
 	],
-	imports: [MatDialogModule, CommonModule],
+	imports: [MatDialogModule, CommonModule, CarouselModule],
 	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent, CarouselComponent]
 })
 export class AtomModule {}
