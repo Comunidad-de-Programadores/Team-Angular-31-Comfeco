@@ -35,8 +35,12 @@
 		<div *nguCarouselDef="let item" class="item">
 			<div class="tile">{{ item }}</div>
 		</div>
-		<button NguCarouselNext class="rightRs">></button>
-		<button NguCarouselPrev class="leftRs"><</button>
+		<button NguCarouselNext class="rightRs material-icons">
+			<span class="material-icons"> keyboard_arrow_right </span>
+		</button>
+		<button NguCarouselPrev class="leftRs">
+			<span class="material-icons"> keyboard_arrow_left </span>
+		</button>
 		<ul class="myPoint" NguCarouselPoint>
 			<li
 				*ngFor="let item of myCarousel.pointNumbers; let j = index"

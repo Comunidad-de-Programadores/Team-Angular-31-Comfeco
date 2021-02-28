@@ -1,3 +1,5 @@
+@import './../../../../../assets/scss/variables.scss';
+
 // .team31{
 
 //   &__carousel{
@@ -23,9 +25,6 @@
 
 // }
 
-// .material-icons {
-//   font-size: 80px;
-// }
 
 // .myPoint {
 //   list-style-type: none;
@@ -73,10 +72,12 @@
         bottom: 0;
         width: 50px;
         height: 50px;
-        box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+        // box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
         border-radius: 999px;
         left: 0;
         z-index: 1;
+        background: none;
+        border: none;
     }
  
     .rightRs {
@@ -86,9 +87,11 @@
         bottom: 0;
         width: 50px;
         height: 50px;
-        box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+        // box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
         border-radius: 999px;
         right: 0;
+        border: none;
+        background: none;
     }
 
 
@@ -104,18 +107,24 @@
 .myPoint  li {
     display: inline-block;
     border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.55);
+    // border: 2px solid rgba(0, 0, 0, 0.55);
+    border: 2px solid $color-secondary;
     padding: 4px;
     margin: 0 3px;
     transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
     transition: 0.4s;
 }
 .myPoint  li.active {
-      background: #6b6b6b;
+      background: $color-primary;
       transform: scale(1.2);
     }
 
 .contenedor__carousel{
   width: 100%;
-  border: 1px solid black;
+  // border: 1px solid black;
+}
+
+.material-icons {
+  font-size: 45px;
+  color: $color-primary;
 }
