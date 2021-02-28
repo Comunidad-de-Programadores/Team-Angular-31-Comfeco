@@ -7,7 +7,7 @@ import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 	styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements AfterViewInit {
-	@ViewChild('myCarousel') myCarousel: NguCarousel<any> | undefined;
+	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 
 	name = 'Angular';
 	slideNo = 0;
