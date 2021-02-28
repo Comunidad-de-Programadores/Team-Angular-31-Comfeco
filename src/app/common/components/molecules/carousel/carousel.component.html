@@ -1,38 +1,19 @@
-<!-- <div class="carousel">
-  <div class="carousel__contenedor">
-    <button aria-label="Anterior" class="carousel__anterior">
-      <i class="fas fa-chevron-left"></i>
-    </button>
+<div style="display: flexbox">
+	<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+		<div *nguCarouselDef="let item" class="item">
+			<div class="tile">
+				<h1>{{ item }}</h1>
+			</div>
+		</div>
 
-    <div class="carousel__lista">
-      <div class="carousel__elemento">
-        <img src="../../../../../assets/images/minion.jpg">
-      </div>
-      <div class="carousel__elemento">
-        <img src="../../../../../assets/images/minion.jpg">
-      </div>
-      <div class="carousel__elemento">
-        <img src="../../../../../assets/images/minion.jpg">
-      </div>
-      <div class="carousel__elemento">
-        <img src="../../../../../assets/images/minion.jpg">
-      </div>
-    </div>
-
-    <button aria-label="Siguiente" class="carousel__siguiente">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-
-  <div role="tablist" class="carousel__indicadores"></div>
-</div> -->
-
-<div class="glide">
-	<div class="glide__track" data-glide-el="track">
-		<ul class="glide__slides">
-			<li class="glide__slide">0</li>
-			<li class="glide__slide">1</li>
-			<li class="glide__slide">2</li>
+		<button NguCarouselNext class="rightRs">></button>
+		<button NguCarouselPrev class="leftRs"><</button>
+		<ul class="myPoint" NguCarouselPoint>
+			<li
+				*ngFor="let item of myCarousel.pointNumbers; let j = index"
+				[class.active]="j == myCarousel.activePoint"
+				(click)="myCarousel.moveTo(j)"
+			></li>
 		</ul>
-	</div>
+	</ngu-carousel>
 </div>

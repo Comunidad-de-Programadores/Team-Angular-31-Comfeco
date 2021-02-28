@@ -27,9 +27,7 @@
 						"tsConfig": "tsconfig.app.json",
 						"aot": true,
 						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["src/styles.scss",
-              "./node_modules/@glidejs/glide/src/assets/sass/glide.core.scss",
-              "./node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss"],
+						"styles": ["src/styles.scss"],
 						"scripts": []
 					},
 					"configurations": {
