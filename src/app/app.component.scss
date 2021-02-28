@@ -3,6 +3,8 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .header {
 	flex-shrink: 0;
@@ -19,6 +21,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	max-width: 1200px;
+	border: 1px solid black;
 }
 
 .footer {

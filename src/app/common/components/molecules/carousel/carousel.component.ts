@@ -15,8 +15,9 @@ export class CarouselComponent implements AfterViewInit {
 	resetAnim = true;
 	carouselItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 	carouselConfig: NguCarouselConfig = {
-		grid: { xs: 1, sm: 1, md: 1, lg: 5, all: 0 },
-		slide: 1,
+		grid: { xs: 1, sm: 3, md: 3, lg: 5, xl: 5, all: 0 },
+		// gridBreakpoints: { sm: 768, md: 992, lg: 1200, xl: 1400 },s
+		slide: 3,
 		interval: { timing: 4000, initialDelay: 1000 },
 		loop: false,
 		touch: true,
