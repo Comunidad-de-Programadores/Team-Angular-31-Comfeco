@@ -1,0 +1,52 @@
+<!-- <div class="team31__">
+	<ngu-carousel
+		#myCarousel
+		[inputs]="carouselConfig"
+		[dataSource]="carouselItems"
+		class="team31__carousel"
+	>
+		<button NguCarouselNext class="rightRs team31__buttonRight">
+			<span class="material-icons"> keyboard_arrow_right </span>
+		</button>
+
+			<div *nguCarouselDef="let item" class="item team31__items">
+				<div class="tile">
+					<h1>{{ item }}</h1>
+				</div>
+			</div>
+
+		<button NguCarouselPrev class="leftRs team31__buttonLeft">
+			<span class="material-icons"> keyboard_arrow_left </span>
+		</button>
+		
+		<ul class="myPoint team31__dots" NguCarouselPoint>
+			<li
+				*ngFor="let item of myCarousel.pointNumbers; let j = index"
+				[class.active]="j == myCarousel.activePoint"
+				(click)="myCarousel.moveTo(j)"
+			></li>
+		</ul>
+	</ngu-carousel>
+</div>
+
+ -->
+<div class="contenedor__carousel">
+	<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+		<div *nguCarouselDef="let item" class="item">
+			<div class="tile">{{ item }}</div>
+		</div>
+		<button NguCarouselNext class="rightRs material-icons">
+			<span class="material-icons"> keyboard_arrow_right </span>
+		</button>
+		<button NguCarouselPrev class="leftRs">
+			<span class="material-icons"> keyboard_arrow_left </span>
+		</button>
+		<ul class="myPoint" NguCarouselPoint>
+			<li
+				*ngFor="let item of myCarousel.pointNumbers; let j = index"
+				[class.active]="j == myCarousel.activePoint"
+				(click)="myCarousel.moveTo(j)"
+			></li>
+		</ul>
+	</ngu-carousel>
+</div>

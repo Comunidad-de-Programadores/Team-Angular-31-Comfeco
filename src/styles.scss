@@ -40,6 +40,7 @@ body {
 		outline: none;
 	}
 	height: 100vh;
+	box-sizing: border-box;
 }
 
 body {
@@ -129,7 +130,20 @@ body {
 	.snackbar-info{
 		background-color: $color-secondary;
 	}
-	@media screen and (min-width: $web) { 
+	// .ngucarousel{
+	// 	display: flex;
+	// 	width: 100%;
+	// 	margin: 0 auto;
+	// }
+	// .ngu-touch-container{
+	// 	width: 100%;
+	// 	overflow: hidden;
+	// }
+	.ngu-touch-container{
+		margin: 0 50px;
+		overflow: hidden;
+	}
+	@media screen and (min-width: $web) {
 		.modal-terms {
 			.mat-dialog-container {
 				width: 380px;
