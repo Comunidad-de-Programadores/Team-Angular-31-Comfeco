@@ -1,0 +1,21 @@
+.team31{
+
+  &__carousel{
+    display: flex;
+    width: 1000px;
+    height: 150px;
+    background-color: red;
+    flex-direction: row;
+  }
+
+  &__items{
+    border: 1px solid black;
+  }
+
+  &__buttonRight, &__buttonLeft{
+    background-color: white;
+    border: none;
+  }
+
+}
+

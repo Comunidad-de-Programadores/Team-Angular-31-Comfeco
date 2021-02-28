@@ -7,16 +7,16 @@ import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 	styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements AfterViewInit {
-	@ViewChild('myCarousel') myCarousel: NguCarousel<any>;
+	@ViewChild('myCarousel') myCarousel: NguCarousel<any> | undefined;
 
 	name = 'Angular';
 	slideNo = 0;
 	withAnim = true;
 	resetAnim = true;
-	carouselItems = [1, 2, 3, 4, 5, 6, 7, 8];
+	carouselItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 	carouselConfig: NguCarouselConfig = {
-		grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
-		slide: 3,
+		grid: { xs: 1, sm: 1, md: 1, lg: 5, all: 0 },
+		slide: 1,
 		interval: { timing: 4000, initialDelay: 1000 },
 		loop: false,
 		touch: true,
@@ -24,15 +24,15 @@ export class CarouselComponent implements AfterViewInit {
 	};
 	constructor(private cdr: ChangeDetectorRef) {}
 
-	ngAfterViewInit() {
+	ngAfterViewInit(): void {
 		this.cdr.detectChanges();
 	}
 
-	reset() {
-		this.myCarousel.reset(!this.resetAnim);
+	reset(): void {
+		this.myCarousel?.reset(!this.resetAnim);
 	}
 
-	moveTo(slide) {
-		this.myCarousel.moveTo(slide, !this.withAnim);
+	moveTo(slide: number): void {
+		this.myCarousel?.moveTo(slide, !this.withAnim);
 	}
 }
