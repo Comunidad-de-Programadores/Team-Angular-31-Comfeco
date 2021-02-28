@@ -5,7 +5,9 @@
 		[dataSource]="carouselItems"
 		class="team31__carousel"
 	>
-		<button NguCarouselNext class="rightRs team31__buttonRight">></button>
+		<button NguCarouselNext class="rightRs team31__buttonRight">
+			<span><i class="fab fa-keyboard_arrow_left"></i></span>
+		</button>
 
 		<!-- <div class="team31__center"> -->
 		<div *nguCarouselDef="let item" class="item team31__items">
@@ -15,7 +17,9 @@
 		</div>
 		<!-- </div> -->
 
-		<button NguCarouselPrev class="leftRs team31__buttonLeft"><</button>
+		<button NguCarouselPrev class="leftRs team31__buttonLeft">
+			<span><i class="fab fa-keyboard_arrow_right"></i></span>
+		</button>
 	</ngu-carousel>
 </div>
 
