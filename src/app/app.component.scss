@@ -15,15 +15,13 @@
 }
 
 .content {
-	flex: 1;
-	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// border: 1px solid black;
+	height: 100%;
 }
 
 .footer {
-	flex-shrink: 0;
+	flex-shrink: 1;
 	flex-grow: 0;
 }
