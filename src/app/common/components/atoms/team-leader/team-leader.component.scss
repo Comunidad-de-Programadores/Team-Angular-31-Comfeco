@@ -1,0 +1,24 @@
+
+
+.img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.card {
+  display: flex;
+	padding-bottom: 1em;
+	bottom: 0;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  background: linear-gradient(320.63deg, #FF5722 41.93%, rgba(255, 87, 34, 0) 41.93%);
+  border-radius: 0px 0px 19px 19px;
+}
+
+
+ .mat-card {
+    margin-top: 20px
+  }

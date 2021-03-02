@@ -7,6 +7,8 @@ import { SocialLoginComponent } from './social-login/social-login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
+import { TeamLeaderComponent } from './team-leader/team-leader.component';
+import { ImagePipe } from '../../pipes/image.pipe';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -14,9 +16,17 @@ import { CounterComponent } from './counter/counter.component';
 		SocialLoginComponent,
 		CardContainerComponent,
 		ModalTerminosComponent,
-		CounterComponent
+		CounterComponent,
+		TeamLeaderComponent,
+		ImagePipe
 	],
 	imports: [MatDialogModule, CommonModule, MatButtonModule, RouterModule],
-	exports: [SocialLoginComponent, CardContainerComponent, ModalTerminosComponent, CounterComponent]
+	exports: [
+		SocialLoginComponent,
+		CardContainerComponent,
+		ModalTerminosComponent,
+		CounterComponent,
+		TeamLeaderComponent
+	]
 })
 export class AtomModule {}
