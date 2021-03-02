@@ -108,7 +108,8 @@
     display: inline-block;
     border-radius: 50%;
     // border: 2px solid rgba(0, 0, 0, 0.55);
-    border: 2px solid $color-secondary;
+    // border: 2px solid $color-secondary;
+    background: $color-shadow;
     padding: 4px;
     margin: 0 3px;
     transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
