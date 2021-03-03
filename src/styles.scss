@@ -130,11 +130,6 @@ body {
 	.snackbar-info {
 		background-color: $color-secondary;
 	}
-
-	.ngu-touch-container {
-		margin: 0 50px;
-		overflow: hidden;
-	}
 	@media screen and (min-width: $web) {
 		.modal-terms {
 			.mat-dialog-container {
