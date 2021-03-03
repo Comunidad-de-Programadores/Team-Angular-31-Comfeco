@@ -129,7 +129,7 @@ body {
 	.snackbar-info{
 		background-color: $color-secondary;
 	}
-	@media screen and (min-width: $web) { 
+	@media screen and (min-width: $web) {
 		.modal-terms {
 			.mat-dialog-container {
 				width: 380px;

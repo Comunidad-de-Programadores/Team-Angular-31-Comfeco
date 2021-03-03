@@ -5,10 +5,10 @@ import { CardContainerComponent } from './card-container/card-container.componen
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
-import { ImagePipe } from '../../pipes/image.pipe';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -17,13 +17,13 @@ import { ImagePipe } from '../../pipes/image.pipe';
 		CardContainerComponent,
 		ModalTerminosComponent,
 		CounterComponent,
-		TeamLeaderComponent,
-		ImagePipe
+		TeamLeaderComponent
 	],
 	imports: [MatDialogModule, CommonModule, MatButtonModule, RouterModule],
 	exports: [
 		SocialLoginComponent,
 		CardContainerComponent,
+		MatCardModule,
 		ModalTerminosComponent,
 		CounterComponent,
 		TeamLeaderComponent

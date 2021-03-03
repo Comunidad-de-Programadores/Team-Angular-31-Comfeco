@@ -82,7 +82,7 @@ export const teamLeaderItems: ITeamLeaderItem[] = [
 	{
 		id: 14,
 		leader_name: 'Silvestre Vivo',
-		image: 'assets/images/team-leaders/svelte-silveste-vivo.jpg',
+		image: 'assets/images/team-leaders/svelte-silvestre-vivo.jpg',
 		type: Framework.Svelte
 	},
 	{

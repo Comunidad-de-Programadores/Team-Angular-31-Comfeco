@@ -1,12 +1,12 @@
-<!--
-<ng-container *ngFor="let teamLeader of teamLeaders"></ng-container> -->
+<mat-card class="card">
+	<div
+		class="card__teamleader"
+		[ngStyle]="{ 'background-image': 'url(' + teamLeaders.image + ')' }"
+	></div>
 
-<mat-card>
-	<img mat-card-image [src]="teamLeaders | image" />
+	<mat-card-content class="card__content">
+		<img mat-card-image [src]="teamLeaders.type" />
 
-	<mat-card-content>
-		<h3>{{ teamLeaders.leader_name }}</h3>
+		{{ teamLeaders.leader_name }}
 	</mat-card-content>
-
-	<mat-card-footer class="card"></mat-card-footer>
 </mat-card>
