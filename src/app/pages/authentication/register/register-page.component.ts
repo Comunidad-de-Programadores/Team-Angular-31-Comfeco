@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IDataDialog } from '@team31/models/data-dialog';
-import { IRegister } from '@team31/models/register';
+import { IDataDialog } from '@team31/models/interfaces/data-dialog.interface';
+import { IRegister } from '@team31/models/interfaces/register.interface';
 import { ModalService } from '@team31/services/modal.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomValidatorsService } from '../common/service/custom-validators.service';

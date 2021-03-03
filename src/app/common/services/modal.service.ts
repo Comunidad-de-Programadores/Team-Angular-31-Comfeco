@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalTerminosComponent } from '@team31/components-atoms/modal-terminos/modal-terminos.component';
 import { Observable } from 'rxjs';
-import { IDataDialog } from '@team31/models/data-dialog';
+import { IDataDialog } from '@team31/models/interfaces/data-dialog.interface';
 
 @Injectable()
 export class ModalService {
