@@ -1,7 +1,11 @@
 <div class="container">
 	<mat-icon matBadge="17" matBadgeColor="warn">notifications_active</mat-icon>
 	<div class="container__profile">
-		<label>Team Angular 31</label>
+		<label [matMenuTriggerFor]="profile">Team Angular 31</label>
 		<img src="assets/images/person.png" class="navbar-brand__item-logo" alt="Team Angular 31" />
 	</div>
 </div>
+<mat-menu #profile="matMenu" yPosition="below">
+	<button mat-menu-item>Mi Perfil</button>
+	<button mat-menu-item>Cerrar Sesión</button>
+</mat-menu>
