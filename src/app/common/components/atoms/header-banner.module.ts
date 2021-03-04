@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
+import { ModalService } from '@team31/services/modal.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -17,6 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 		UserProfileComponent
 	],
 	imports: [MatBadgeModule, MatIconModule, CommonModule],
+	providers: [ModalService],
 	exports: [HeaderComponent, FooterComponent]
 })
 export class HeaderBannerModule {}

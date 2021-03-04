@@ -1,5 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
+import { Sponsor, TeamLeader } from '@team31/models/carousel';
 
 @Component({
 	selector: 'app-carousel',
@@ -8,18 +9,19 @@ import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 })
 export class CarouselComponent implements AfterViewInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
-
+	// @Input() type: string | undefined;
+	@Input() carouselItems: Array<TeamLeader | Sponsor> | undefined;
 	name = 'Angular';
 	slideNo = 0;
 	withAnim = true;
 	resetAnim = true;
-	carouselItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+	// carouselItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 	carouselConfig: NguCarouselConfig = {
-		grid: { xs: 1, sm: 3, md: 3, lg: 5, xl: 5, all: 0 },
-		// gridBreakpoints: { sm: 768, md: 992, lg: 1200, xl: 1400 },s
+		grid: { xs: 1, sm: 3, md: 3, lg: 4, xl: 4, all: 0 },
+		// gridBreakpoints: { sm: 768, md: 992, lg: 1200, xl: 1400 },
 		slide: 3,
-		interval: { timing: 4000, initialDelay: 1000 },
-		loop: false,
+		interval: { timing: 3000, initialDelay: 1000 },
+		loop: true,
 		touch: true,
 		velocity: 0.2
 	};
