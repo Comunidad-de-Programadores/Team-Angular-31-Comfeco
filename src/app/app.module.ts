@@ -22,7 +22,8 @@ import { AppComponent } from './app.component';
 		AngularFireModule.initializeApp(environment.firebase),
 		BrowserAnimationsModule,
 		HeaderBannerModule,
-		MatDialogModule
+		MatDialogModule,
+		AtomModule
 	],
 	providers: [HeaderService, ModalService],
 	bootstrap: [AppComponent]
