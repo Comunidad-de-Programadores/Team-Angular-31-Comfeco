@@ -1,21 +1,14 @@
 <div class="contenedor__carousel">
 	<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
 		<div *nguCarouselDef="let item" class="item">
-			<!-- <div class="tile">
-				{{ item.name }}
-				<br />
-				{{ item.technology }}
-				<br />
-				{{ item.photo }}
-			</div> -->
-			<app-team-leader [teamLeaders]="item"></app-team-leader>
+			<img [src]="item.photo" alt="" class="image" />
 		</div>
-		<!-- <button NguCarouselNext class="rightRs material-icons">
+		<button NguCarouselNext class="rightRs material-icons">
 			<span class="material-icons"> keyboard_arrow_right </span>
 		</button>
 		<button NguCarouselPrev class="leftRs">
 			<span class="material-icons"> keyboard_arrow_left </span>
-		</button> -->
+		</button>
 		<ul class="myPoint" NguCarouselPoint>
 			<li
 				*ngFor="let item of myCarousel.pointNumbers; let j = index"

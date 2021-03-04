@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Sponsor, TeamLeader } from '@team31/models/carousel';
+import { ITeamLeaderItem, Framework } from '@team31/models/interfaces/team-leader-item.interface';
 
 @Component({
 	selector: 'app-principal',
@@ -7,46 +8,56 @@ import { Sponsor, TeamLeader } from '@team31/models/carousel';
 	styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent {
-	sourceTeamLeader: Array<TeamLeader>;
+	sourceTeamLeader: Array<ITeamLeaderItem>;
 	sourceSponsor: Array<Sponsor>;
 	constructor() {
 		this.sourceTeamLeader = [
 			{
-				name: 'Kevin',
-				photo: 'kevin.jpg',
-				technology: 'Angular'
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
 			},
 			{
-				name: 'Jimmy',
-				photo: 'jimmy.jpg',
-				technology: 'Angular'
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
 			},
 			{
-				name: 'Kurt',
-				photo: 'kurt.jpg',
-				technology: 'Angular'
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
 			},
 			{
-				name: 'William',
-				photo: 'william.jpg',
-				technology: 'Angular'
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
 			},
 			{
-				name: 'Whisgel',
-				photo: 'whisgel.jpg',
-				technology: 'Angular'
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
+			},
+			{
+				leader_name: 'Kevin',
+				image: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg',
+				type: Framework.Angular
 			}
 		];
 		this.sourceSponsor = [
-			{ photo: 'image1' },
-			{ photo: 'image2' },
-			{ photo: 'image3' },
-			{ photo: 'image4' },
-			{ photo: 'image5' },
-			{ photo: 'image6' },
-			{ photo: 'image7' },
-			{ photo: 'image8' },
-			{ photo: 'image9' }
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' },
+			{ photo: 'assets/images/team-leaders/angular-anartz-mugika-ledo.jpg' }
 		];
 	}
 }

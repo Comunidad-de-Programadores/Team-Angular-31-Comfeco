@@ -1,5 +1,5 @@
 export interface ITeamLeaderItem {
-	id: number;
+	id?: number;
 	leader_name: string;
 	image: string;
 	type: Framework;

@@ -1,16 +1,16 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
-import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.interface';
+import { Sponsor } from '@team31/models/carousel';
 
 @Component({
-	selector: 'app-carousel',
-	templateUrl: './carousel.component.html',
-	styleUrls: ['./carousel.component.scss']
+	selector: 'app-carousel-sponsors',
+	templateUrl: './carousel-sponsors.component.html',
+	styleUrls: ['./carousel-sponsors.component.scss']
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselSponsorsComponent implements AfterViewInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 	// @Input() type: string | undefined;
-	@Input() carouselItems: Array<ITeamLeaderItem> | undefined;
+	@Input() carouselItems: Array<Sponsor> | undefined;
 	name = 'Angular';
 	slideNo = 0;
 	withAnim = true;
@@ -19,12 +19,11 @@ export class CarouselComponent implements AfterViewInit {
 	carouselConfig: NguCarouselConfig = {
 		grid: { xs: 1, sm: 3, md: 3, lg: 4, xl: 4, all: 0 },
 		// gridBreakpoints: { sm: 768, md: 992, lg: 1200, xl: 1400 },
-		// slide: ,
+		slide: 3,
 		interval: { timing: 3000, initialDelay: 1000 },
 		loop: false,
 		touch: true,
-		velocity: 0.2,
-		animation: 'lazy'
+		velocity: 0.2
 	};
 	constructor(private cdr: ChangeDetectorRef) {}
 
