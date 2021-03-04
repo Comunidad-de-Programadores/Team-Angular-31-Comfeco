@@ -40,11 +40,11 @@ body {
 		outline: none;
 	}
 	height: 100vh;
-	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
 	color: $color-text;
 	input[type='text'] {
@@ -116,18 +116,18 @@ body {
 			margin-left: 3em;
 		}
 	}
-	.mat-snack-bar-container{
+	.mat-snack-bar-container {
 		color: white;
 		text-align: center;
 	}
-	.mat-simple-snackbar{
+	.mat-simple-snackbar {
 		justify-content: center;
 		font-size: 1em;
 	}
-	.snackbar-error{
+	.snackbar-error {
 		background-color: $color-error;
 	}
-	.snackbar-info{
+	.snackbar-info {
 		background-color: $color-secondary;
 	}
 	@media screen and (min-width: $web) {
