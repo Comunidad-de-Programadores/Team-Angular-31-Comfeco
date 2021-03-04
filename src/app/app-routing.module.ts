@@ -7,7 +7,10 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./pages/authentication/authentication.module').then((m) => m.AuthenticationModule)
 	},
-
+	{
+		path: 'principal',
+		loadChildren: () => import('./pages/principal/principal.module').then((m) => m.PrincipalModule)
+	},
 	{ path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
