@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Sponsor, TeamLeader } from '@team31/models/carousel';
+import { Sponsor } from '@team31/models/carousel';
 import { ITeamLeaderItem, Framework } from '@team31/models/interfaces/team-leader-item.interface';
 
 @Component({
