@@ -9,6 +9,8 @@ import { CounterComponent } from './counter/counter.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
+import { CarouselSponsorsComponent } from './carousel-sponsors/carousel-sponsors.component';
+import { NguCarouselModule } from '@ngu/carousel';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -16,15 +18,24 @@ import { TeamLeaderComponent } from './team-leader/team-leader.component';
 		CardContainerComponent,
 		ModalTerminosComponent,
 		CounterComponent,
-		TeamLeaderComponent
+		TeamLeaderComponent,
+		CarouselSponsorsComponent
 	],
-	imports: [MatDialogModule, CommonModule, MatButtonModule, RouterModule, MatCardModule],
+	imports: [
+		MatDialogModule,
+		CommonModule,
+		MatButtonModule,
+		RouterModule,
+		MatCardModule,
+		NguCarouselModule
+	],
 	exports: [
 		SocialLoginComponent,
 		CardContainerComponent,
 		ModalTerminosComponent,
 		CounterComponent,
-		TeamLeaderComponent
+		TeamLeaderComponent,
+		CarouselSponsorsComponent
 	]
 })
 export class AtomModule {}

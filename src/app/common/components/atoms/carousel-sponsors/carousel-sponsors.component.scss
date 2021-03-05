@@ -1,58 +1,20 @@
 @import './../../../../../assets/scss/variables.scss';
 
-// .team31{
-
-//   &__carousel{
-//     display: flex;
-//     // width: 1000px;
-//     height: 150px;
-//     // background-color: red;
-//     flex-direction: column;
-//   }
-
-//   &__items{
-//     border: 1px solid black;
-//   }
-
-//   &__buttonRight, &__buttonLeft{
-//     background-color: white;
-//     border: none;
-//     color: orange;
-//     font-size: 32px;
-//   }
-
-
-
-// }
-
-
-// .myPoint {
-//   list-style-type: none;
-//   text-align: center;
-//   padding: 12px;
-//   margin: 0;
-//   white-space: nowrap;
-//   overflow: auto;
-//   box-sizing: border-box;
-// }
-// .myPoint  li {
-//     display: inline-block;
-//     border-radius: 50%;
-//     border: 2px solid rgba(0, 0, 0, 0.55);
-//     padding: 4px;
-//     margin: 0 3px;
-//     transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
-//     transition: 0.4s;
-// }
-// .myPoint  li.active {
-//       background: #6b6b6b;
-//       transform: scale(1.2);
-//     }
+.ngucarousel{
+  max-width: 1000px;
+}
 
 .item {
   padding: 10px;
   box-sizing: border-box;
-  // width: 200px;
+}
+
+.image{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .tile {
@@ -107,8 +69,7 @@
 .myPoint  li {
     display: inline-block;
     border-radius: 50%;
-    // border: 2px solid rgba(0, 0, 0, 0.55);
-    border: 2px solid $color-secondary;
+    background: $color-shadow;
     padding: 4px;
     margin: 0 3px;
     transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -121,8 +82,15 @@
 
 .contenedor__carousel{
   width: 100%;
-  // border: 1px solid black;
+  max-width: 1440px;
+
+  .carousel__item{
+    display: flex;
+    align-content: center;
+    justify-content: center; 
+  }
 }
+
 
 .material-icons {
   font-size: 45px;

@@ -18,6 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 		UserProfileComponent
 	],
 	imports: [MatBadgeModule, MatIconModule, CommonModule, MatMenuModule],
+	providers: [],
 	exports: [HeaderComponent, FooterComponent]
 })
 export class HeaderBannerModule {}

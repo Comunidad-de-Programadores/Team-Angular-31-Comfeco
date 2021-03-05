@@ -1,5 +1,13 @@
 @import '../../../../../assets/scss/variables.scss';
 
+.mat-card {
+  padding: 0;
+}
+
+.mat-card-image:first-child{
+  margin-top: 0;
+}
+
 .card {
   display: flex;
 	flex-direction: column;
@@ -24,7 +32,9 @@
     padding-top: 1em;
     background: linear-gradient(349deg, $color-primary 19.5%, rgba(255, 87, 34, 0) 19.90%);
     border-radius: 0px 0px 19px 19px;
+    text-align: center;
     img{
+        
       width: 45px;
       height: 45px;
     }
