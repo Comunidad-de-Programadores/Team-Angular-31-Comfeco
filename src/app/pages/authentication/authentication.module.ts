@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
-import { MoleculesModule } from '@team31/components-molecules/molecules.module';
 import { AuthService } from '@team31/services/auth.service';
 import { AuthenticationRoutingModule } from './authentication.routing.module';
 import { CustomValidatorsService } from './common/service/custom-validators.service';
@@ -39,8 +38,7 @@ import { ResetPasswordPageComponent } from './reset-password/reset-password-page
 		MatCardModule,
 		ReactiveFormsModule,
 		MatSlideToggleModule,
-		AuthenticationRoutingModule,
-		MoleculesModule
+		AuthenticationRoutingModule
 	],
 	providers: [AuthService, CustomValidatorsService, ResetpasswordGuard]
 })

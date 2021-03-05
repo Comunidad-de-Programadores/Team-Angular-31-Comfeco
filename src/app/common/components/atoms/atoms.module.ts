@@ -4,13 +4,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
+import { NguCarouselModule } from '@ngu/carousel';
 import { CardContainerComponent } from './card-container/card-container.component';
+import { CarouselSponsorsComponent } from './carousel-sponsors/carousel-sponsors.component';
 import { CounterComponent } from './counter/counter.component';
+import { ItemCommunityComponent } from './item-community/item-community.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
-import { CarouselSponsorsComponent } from './carousel-sponsors/carousel-sponsors.component';
-import { NguCarouselModule } from '@ngu/carousel';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -19,7 +20,8 @@ import { NguCarouselModule } from '@ngu/carousel';
 		ModalTerminosComponent,
 		CounterComponent,
 		TeamLeaderComponent,
-		CarouselSponsorsComponent
+		CarouselSponsorsComponent,
+		ItemCommunityComponent
 	],
 	imports: [
 		MatDialogModule,
@@ -35,7 +37,8 @@ import { NguCarouselModule } from '@ngu/carousel';
 		ModalTerminosComponent,
 		CounterComponent,
 		TeamLeaderComponent,
-		CarouselSponsorsComponent
+		CarouselSponsorsComponent,
+		ItemCommunityComponent
 	]
 })
 export class AtomModule {}
