@@ -4,11 +4,11 @@ import { SPONSOR_ITEMS, TEAM_LEADER_ITEMS } from '@team31/models/constants/team-
 import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.interface';
 
 @Component({
-	selector: 'app-principal',
-	templateUrl: './principal.component.html',
-	styleUrls: ['./principal.component.scss']
+	selector: 'app-home-page',
+	templateUrl: './home-page.component.html',
+	styleUrls: ['./home-page.component.scss']
 })
-export class PrincipalComponent implements OnInit {
+export class HomePageComponent implements OnInit {
 	sourceTeamLeader: Array<ITeamLeaderItem> = [];
 	sourceSponsor: Array<Sponsor> = [];
 

@@ -6,6 +6,6 @@
 	</div>
 </div>
 <mat-menu #profile="matMenu" yPosition="below">
-	<button mat-menu-item>Mi Perfil</button>
-	<button mat-menu-item>Cerrar Sesión</button>
+	<button mat-menu-item (click)="clickGoProfile()">Mi Perfil</button>
+	<button mat-menu-item (click)="clickCloseSession()">Cerrar Sesión</button>
 </mat-menu>
