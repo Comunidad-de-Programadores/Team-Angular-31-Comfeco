@@ -1,5 +1,6 @@
 import { Sponsor } from '../carousel';
 import { Framework, ITeamLeaderItem } from '../interfaces/team-leader-item.interface';
+import { IEvent } from './../carousel';
 
 export const TEAM_LEADER_ITEMS: ITeamLeaderItem[] = [
 	{
@@ -148,4 +149,22 @@ export const SPONSOR_ITEMS: Sponsor[] = [
 	{ photo: 'assets/images/sponsors/LeonidasEsteban.jpg', name: 'Leonidas Esteban' },
 	{ photo: 'assets/images/sponsors/StacklyCode.jpg', name: 'StacklyCode' },
 	{ photo: 'assets/images/sponsors/tekki.jpg', name: 'Tekki' }
+];
+
+export const EVENT_ITEMS: IEvent[] = [
+	{
+		photo: 'assets/images/sponsors/CodelyTV.jpg',
+		name: 'CodelyTV Fest and Code',
+		url: 'www.google.com'
+	},
+	{
+		photo: 'assets/images/sponsors/CodelyTV.jpg',
+		name: 'CodelyTV Fest and Code',
+		url: 'www.google.com'
+	},
+	{
+		photo: 'assets/images/sponsors/CodelyTV.jpg',
+		name: 'CodelyTV Fest and Code',
+		url: 'www.google.com'
+	}
 ];

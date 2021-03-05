@@ -15,7 +15,10 @@
       ],
       "@team31/services/*": [
         "src/app/common/services/*"
-      ]
+      ],
+      "@team31/static/*": [
+        "src/app/common/static/*"
+      ],
     },
     "outDir": "./dist/out-tsc",
     "allowSyntheticDefaultImports": true,

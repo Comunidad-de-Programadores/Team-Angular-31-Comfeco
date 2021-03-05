@@ -1,0 +1,12 @@
+<div class="container">
+	<div
+		[ngStyle]="{ 'background-image': 'url(' + item.photo + ')' }"
+		alt=""
+		class="container__image"
+	></div>
+	<span>{{ item.name }}</span>
+	<div class="container__actions">
+		<button mat-stroked-button color="warn">Abandonar</button>
+		<button mat-raised-button color="primary">Más información</button>
+	</div>
+</div>
