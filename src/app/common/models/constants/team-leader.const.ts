@@ -1,6 +1,7 @@
+import { Sponsor } from '../carousel';
 import { Framework, ITeamLeaderItem } from '../interfaces/team-leader-item.interface';
 
-export const teamLeaderItems: ITeamLeaderItem[] = [
+export const TEAM_LEADER_ITEMS: ITeamLeaderItem[] = [
 	{
 		id: 1,
 		leader_name: 'Anartz Mugika Ledo',
@@ -133,4 +134,18 @@ export const teamLeaderItems: ITeamLeaderItem[] = [
 		image: 'assets/images/team-leaders/leaders2022-sacha-lifszyc.jpg',
 		type: Framework.Leaders2022
 	}
+];
+
+export const SPONSOR_ITEMS: Sponsor[] = [
+	{ photo: 'assets/images/sponsors/CodelyTV.jpg', name: 'Codely Tv' },
+	{ photo: 'assets/images/sponsors/codigofacilito.jpg', name: 'Codigo facilito' },
+	{ photo: 'assets/images/sponsors/DominiCode.jpg', name: 'Domini Code' },
+	{ photo: 'assets/images/sponsors/Egghead.jpg', name: 'Egghead' },
+	{ photo: 'assets/images/sponsors/FernandoHerrera.jpg', name: 'Fernando Herrera' },
+	{ photo: 'assets/images/sponsors/huawei.jpg', name: 'Huawei' },
+	{ photo: 'assets/images/sponsors/JoseDimasLujan.jpg', name: 'Jose Dimas Lujan' },
+	{ photo: 'assets/images/sponsors/LatamDev.jpg', name: 'LatamDev' },
+	{ photo: 'assets/images/sponsors/LeonidasEsteban.jpg', name: 'Leonidas Esteban' },
+	{ photo: 'assets/images/sponsors/StacklyCode.jpg', name: 'StacklyCode' },
+	{ photo: 'assets/images/sponsors/tekki.jpg', name: 'Tekki' }
 ];

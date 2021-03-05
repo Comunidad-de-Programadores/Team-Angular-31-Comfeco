@@ -8,12 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { MoleculesModule } from '@team31/components-molecules/molecules.module';
 import { AuthService } from '@team31/services/auth.service';
-import { MessageService } from '../../common/services/message.service';
-import { ModalService } from '../../common/services/modal.service';
 import { AuthenticationRoutingModule } from './authentication.routing.module';
 import { CustomValidatorsService } from './common/service/custom-validators.service';
 import { ResetpasswordGuard } from './guards/resetpassword.guard';
@@ -42,16 +39,9 @@ import { ResetPasswordPageComponent } from './reset-password/reset-password-page
 		MatCardModule,
 		ReactiveFormsModule,
 		MatSlideToggleModule,
-		MatSnackBarModule,
 		AuthenticationRoutingModule,
 		MoleculesModule
 	],
-	providers: [
-		AuthService,
-		CustomValidatorsService,
-		ModalService,
-		ResetpasswordGuard,
-		MessageService
-	]
+	providers: [AuthService, CustomValidatorsService, ResetpasswordGuard]
 })
 export class AuthenticationModule {}

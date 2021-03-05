@@ -1,15 +1,20 @@
 @import './../../../../../assets/scss/variables.scss';
 
+.ngucarousel{
+  max-width: 1000px;
+}
+
 .item {
   padding: 10px;
   box-sizing: border-box;
-  // width: 200px;
 }
 
 .image{
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .tile {
@@ -77,8 +82,15 @@
 
 .contenedor__carousel{
   width: 100%;
-  // border: 1px solid black;
+  max-width: 1440px;
+
+  .carousel__item{
+    display: flex;
+    align-content: center;
+    justify-content: center; 
+  }
 }
+
 
 .material-icons {
   font-size: 45px;

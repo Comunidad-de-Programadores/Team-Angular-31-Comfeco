@@ -19,21 +19,18 @@ export class CarouselComponent implements AfterViewInit {
 	carouselConfig: NguCarouselConfig = {
 		grid: { xs: 1, sm: 3, md: 3, lg: 4, xl: 4, all: 0 },
 		// gridBreakpoints: { sm: 768, md: 992, lg: 1200, xl: 1400 },
-		// slide: ,
+		slide: 4,
 		interval: { timing: 3000, initialDelay: 1000 },
-		loop: false,
+		loop: true,
 		touch: true,
 		velocity: 0.2,
-		animation: 'lazy'
+		load: 4
+		// animation: 'lazy'
 	};
 	constructor(private cdr: ChangeDetectorRef) {}
 
 	ngAfterViewInit(): void {
 		this.cdr.detectChanges();
-	}
-
-	reset(): void {
-		this.myCarousel?.reset(!this.resetAnim);
 	}
 
 	moveTo(slide: number): void {

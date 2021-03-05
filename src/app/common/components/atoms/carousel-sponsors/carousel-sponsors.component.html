@@ -1,7 +1,14 @@
 <div class="contenedor__carousel">
 	<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
 		<div *nguCarouselDef="let item" class="item">
-			<img [src]="item.photo" alt="" class="image" />
+			<!-- <img [src]="item.photo" alt="" class="image" /> -->
+			<div class="carousel__item">
+				<div
+					[ngStyle]="{ 'background-image': 'url(' + item.photo + ')' }"
+					alt=""
+					class="image"
+				></div>
+			</div>
 		</div>
 		<button NguCarouselNext class="rightRs material-icons">
 			<span class="material-icons"> keyboard_arrow_right </span>
