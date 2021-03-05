@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'team-angular31-comfeco';
-	demo() {
-		console.log('*****');
-	}
 }
