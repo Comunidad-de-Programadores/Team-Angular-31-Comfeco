@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import firebase from 'firebase/app';
 import { Observable } from 'rxjs';
-import { first, map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
