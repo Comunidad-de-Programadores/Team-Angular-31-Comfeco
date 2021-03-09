@@ -2,7 +2,6 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
