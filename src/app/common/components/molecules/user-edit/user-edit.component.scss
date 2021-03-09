@@ -1,0 +1,99 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.card {
+  display: flex;
+	flex-direction: column;
+  width: 800px;
+  // height: 800px;
+  box-shadow: 0px 4px 17px 5px #B6B7B7;
+  border-radius: 19px;
+
+  &__header{
+    display: flex;
+    width: 100%;
+    // border: 1px solid red;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: .5em;
+
+    .card_user_image{
+      width: 150px;
+      border-radius: 50%;
+    }
+
+    .camera{
+      font-size: 40px;
+      color: $color-primary;
+      cursor: pointer;
+    }
+    margin: 2em 0;
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-content: center;
+    gap: 1em;
+    
+    &-uno{
+      // border: 1px solid red;
+      display: grid;
+      // gap: 3em;
+      justify-content: space-between;
+      grid-template-columns: 48% 48%;
+    }
+
+    &-dos{
+      // border: 1px solid red;
+      display: grid;
+      grid-template-columns: 32% 32% 32%;
+      justify-content: space-between;
+    }
+
+    &-tres{
+      display: grid;
+      grid-template-columns: 100%;
+    }
+
+    &-password{
+      display: grid;
+
+      .actual-password{
+        display: flex;
+        width: 50%;
+        height: 35px;
+        // border: 1px solid red;
+        // justify-content: space-evenly;
+        gap: 2em;
+      }
+      .passwords{
+        margin-top: 1.5em;
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: 48% 48%;
+      }
+    }
+
+    &-social{
+      display: grid;
+      grid-template-columns: 48% 48%;
+      justify-content: space-between;
+    }
+
+    &-biography{
+      // width: 100%;
+      display: grid;
+      grid-template-columns: 100%;
+    }
+
+    &-buttons{
+      text-align: right;
+      margin-bottom: 2em;
+    }
+
+  }
+}

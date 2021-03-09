@@ -65,7 +65,7 @@ export class RegisterPageComponent {
 				this.registerForm.controls['pass'].value
 			);
 			if (newUser) {
-				await this._authService.setUsername(this.registerForm.controls['userName'].value);
+				await this._authService.createProfileData(this.registerForm.controls['userName'].value);
 				// this._messageService.openSnackBar('Usuario registrado exitosamente', 'start', 'top');
 				this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
 				void this.router.navigate(['/login']);

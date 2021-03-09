@@ -1,18 +1,43 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { NguCarouselModule } from '@ngu/carousel';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { CarouselComponent } from './carousel-leaders/carousel.component';
 import { EventsComponent } from './events/events.component';
 import { MenuCommunityComponent } from './menu-community/menu-community.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [CarouselComponent, MenuCommunityComponent, EventsComponent],
-	imports: [NguCarouselModule, CommonModule, AtomModule, MatIconModule],
+	declarations: [CarouselComponent, MenuCommunityComponent, EventsComponent, UserEditComponent],
+	imports: [
+		NguCarouselModule,
+		CommonModule,
+		AtomModule,
+		MatIconModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatCardModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
+		MatSelectModule,
+		MatSlideToggleModule,
+		MatButtonModule,
+		FormsModule,
+		ReactiveFormsModule
+	],
 
-	exports: [CarouselComponent, MenuCommunityComponent, EventsComponent],
-	providers: []
+	exports: [CarouselComponent, MenuCommunityComponent, EventsComponent, UserEditComponent],
+	providers: [MatDatepickerModule]
 })
 export class MoleculesModule {}
