@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
@@ -14,7 +15,8 @@ import { MessageService } from '@team31/services/message.service';
 export class UserEditComponent implements OnInit {
 	show = false;
 	uidProfile = '';
-
+	changePassword = false;
+	hidePassword = true;
 	profileForm: FormGroup;
 
 	constructor(
@@ -30,6 +32,7 @@ export class UserEditComponent implements OnInit {
 			dateB: ['', [Validators.required]],
 			country: ['', [Validators.required]],
 			area: ['', [Validators.required]],
+			changePassword: ['', []],
 			facebook: ['', [Validators.required]],
 			github: ['', [Validators.required]],
 			linkedin: ['', [Validators.required]],
@@ -72,11 +75,6 @@ export class UserEditComponent implements OnInit {
 
 	showToggle(): void {
 		this.show = !this.show;
-		const dateB = formatDate(this.profileFormControl['dateB'].value, 'M/d/yy', 'EN');
-		this.profileFormControl['dateB'].setValue(dateB);
-		// console.log(this.profileForm.value);
-		// this._authService.test(this.uidProfile);
-		this._authService.updateProfileData(this.uidProfile, this.profileForm.value);
 	}
 
 	saveProfile(): void {

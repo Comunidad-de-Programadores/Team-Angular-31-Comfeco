@@ -68,22 +68,34 @@
 				</div>
 
 				<div class="card__form-password">
-					<mat-slide-toggle>Cambiar contraseña</mat-slide-toggle>
-					<div class="actual-password">
-						<mat-form-field>
-							<mat-label>Contraseña</mat-label>
-							<input matInput placeholder="Contraseña" name="password" />
-							<mat-icon matSuffix>visibility</mat-icon>
-						</mat-form-field>
+					<mat-slide-toggle formControlName="changePassword">Cambiar contraseña</mat-slide-toggle>
 
-						<button mat-raised-button color="primary" (click)="showToggle()">Verificar</button>
+					<div *ngIf="profileFormControl['changePassword'].value">
+						<div class="actual-password">
+							<mat-form-field>
+								<mat-label>Contraseña</mat-label>
+								<input
+									matInput
+									placeholder="Contraseña"
+									name="password"
+									[type]="hidePassword ? 'password' : 'text'"
+								/>
+								<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
+									hidePassword ? 'visibility' : 'visibility_off'
+								}}</mat-icon>
+							</mat-form-field>
+
+							<button mat-raised-button color="primary" (click)="showToggle()">Verificar</button>
+						</div>
 					</div>
 
 					<div class="passwords" *ngIf="show">
 						<mat-form-field>
 							<mat-label>Contraseña</mat-label>
 							<input matInput placeholder="Contraseña" name="password" />
-							<mat-icon matSuffix>visibility</mat-icon>
+							<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
+								hidePassword ? 'visibility' : 'visibility_off'
+							}}</mat-icon>
 						</mat-form-field>
 
 						<mat-form-field>
