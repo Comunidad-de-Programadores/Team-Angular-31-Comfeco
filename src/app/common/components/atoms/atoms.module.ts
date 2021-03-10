@@ -13,6 +13,7 @@ import { ItemEventComponent } from './item-event/item-event.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
+import { ItemActivityComponent } from './item-activity/item-activity.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -23,7 +24,8 @@ import { TeamLeaderComponent } from './team-leader/team-leader.component';
 		TeamLeaderComponent,
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
-		ItemEventComponent
+		ItemEventComponent,
+		ItemActivityComponent
 	],
 	imports: [
 		MatDialogModule,
@@ -41,7 +43,8 @@ import { TeamLeaderComponent } from './team-leader/team-leader.component';
 		TeamLeaderComponent,
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
-		ItemEventComponent
+		ItemEventComponent,
+		ItemActivityComponent
 	]
 })
 export class AtomModule {}
