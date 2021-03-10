@@ -1,51 +1,45 @@
 @import '../../../../../assets/scss/variables.scss';
-mat-card {
-    width: 27em;
-}
-
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 21em;
     border-radius: 25px;
     box-shadow: 0px 4px 17px 5px $color-shadow;
     background: linear-gradient(165deg, $color-primary 24.53%, rgba(255, 105, 68, 0) 25%);
-}
-
-.navbar-brand__item-logo {
-    margin-left: 4.3em;
-}
-
-hr {
-    border: 0 none $color-primary;
-    border-top: 1px solid $color-primary;
-    height: 1px;
-    width: 17.5em;
-    display: block;
-    clear: both;
-}
-
-.label {
-    margin-left: 11.5em;
-    color: $color-secondary;
-    cursor: pointer;
-}
-
-.red {
-    margin-left: 5em;
-}
-
-.red-icon {
-    margin: 1em;
-    cursor: pointer;
-}
-
-.name {
-    margin-left: 4.5em;
-    margin-top: 1em;
-}
-
-.title {
-    padding: 1em;
-}
-
-.sub-title {
-    margin-left: 4.3em;
+    gap: 0.625em;
+    .name {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.875em;
+    }
+    .red {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .red-icon {
+            padding: 1em;
+            cursor: pointer;
+        }
+    }
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        hr {
+            border: 0 none $color-primary;
+            border-top: 1px solid $color-primary;
+            height: 1px;
+            width: 15em;
+            display: block;
+            clear: both;
+        }
+        .label {
+            color: $color-secondary;
+            cursor: pointer;
+        }
+    }
 }

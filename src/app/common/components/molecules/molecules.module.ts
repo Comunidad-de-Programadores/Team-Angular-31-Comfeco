@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NguCarouselModule } from '@ngu/carousel';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { CarouselComponent } from './carousel-leaders/carousel.component';
+import { CardProfileComponent } from './card-profile/card-profile.component';
 import { EventsComponent } from './events/events.component';
 import { MenuCommunityComponent } from './menu-community/menu-community.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
@@ -19,7 +20,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [CarouselComponent, MenuCommunityComponent, EventsComponent, UserEditComponent],
+	declarations: [
+		CarouselComponent,
+		MenuCommunityComponent,
+		EventsComponent,
+		UserEditComponent,
+		CardProfileComponent
+	],
 	imports: [
 		NguCarouselModule,
 		CommonModule,
@@ -37,7 +44,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		ReactiveFormsModule
 	],
 
-	exports: [CarouselComponent, MenuCommunityComponent, EventsComponent, UserEditComponent],
+	exports: [
+		CarouselComponent,
+		MenuCommunityComponent,
+		EventsComponent,
+		UserEditComponent,
+		CardProfileComponent
+	],
 	providers: [MatDatepickerModule]
 })
 export class MoleculesModule {}
