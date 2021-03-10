@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { MoleculesModule } from '@team31/components-molecules/molecules.module';
 import { AuthService } from '@team31/services/auth.service';
@@ -11,7 +13,14 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [HomePageComponent, ProfilePageComponent],
-	imports: [PrincipalRoutingModule, MoleculesModule, AtomModule],
+	imports: [
+		PrincipalRoutingModule,
+		MoleculesModule,
+		AtomModule,
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule
+	],
 	exports: [],
 	providers: [AuthService, CustomValidatorsService, MessageService]
 })

@@ -23,13 +23,12 @@ export class AuthGuard implements CanActivate {
 			take(1),
 			// eslint-disable-next-line @typescript-eslint/require-await
 			switchMap(async (authState) => {
-				console.log(authState);
+				// console.log(authState);
 				if (authState) {
 					return true;
 				} else {
 					void this.router.navigate(['/login']);
-					console.log('No autenticado');
-					this._messageService.openError('', 'end', 'top');
+					this._messageService.openError('Primero inicia sesión	', 'end', 'top');
 					return false;
 				}
 			})
