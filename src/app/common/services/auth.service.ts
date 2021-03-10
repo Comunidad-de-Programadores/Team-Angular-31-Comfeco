@@ -52,13 +52,6 @@ export class AuthService {
 		void this._authService.signOut();
 	}
 
-	// createProfileDataa(uid: string): void {
-	// 	const tutorialsRef = this._fireStore.collection('users').doc(uid);
-	// 	void tutorialsRef.set({
-	// 		uid
-	// 	});
-	// }
-
 	loadProfileData(uid: string): Observable<IUserProfile[]> {
 		this.usersCollection = this._fireStore.collection<IUserProfile>('users', (ref) =>
 			ref.where('uid', '==', uid).limit(1)
@@ -96,5 +89,16 @@ export class AuthService {
 			twitter: 'twitter.com',
 			biography: 'bio'
 		});
+	}
+
+	async verifyPassword(password: string): Promise<firebase.auth.UserCredential | undefined> {
+		const currentUser = await this._authService.currentUser;
+		if (currentUser && currentUser.email) {
+			const validated = await currentUser.reauthenticateWithCredential(
+				firebase.auth.EmailAuthProvider.credential(currentUser.email, password)
+			);
+			return validated;
+		}
+		return undefined;
 	}
 }

@@ -12,3 +12,12 @@ export interface IUserProfile {
 	biography?: string;
 	uid?: string;
 }
+
+export interface IUserData {
+	email: string;
+	uid: string;
+	facebook?: string;
+	github?: string;
+	linkedin?: string;
+	twitter?: string;
+}

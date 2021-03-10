@@ -17,6 +17,16 @@
 						<mat-label>Nick</mat-label>
 						<input matInput formControlName="nick" />
 						<!-- <mat-hint align="end">{{ input.value?.length || 0 }}/10</mat-hint> -->
+						<mat-error
+							*ngIf="profileFormControl.nick.touched && profileFormControl.nick.errors?.required"
+						>
+							Nick es requerido
+						</mat-error>
+						<mat-error
+							*ngIf="profileFormControl.nick.touched && profileFormControl.nick.errors?.minlength"
+						>
+							Nick no válido. Mínimo 4 caracteres
+						</mat-error>
 					</mat-form-field>
 
 					<mat-form-field appearance="legacy" class="card__form-nick">
@@ -79,30 +89,71 @@
 									placeholder="Contraseña"
 									name="password"
 									[type]="hidePassword ? 'password' : 'text'"
+									formControlName="password"
 								/>
 								<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
 									hidePassword ? 'visibility' : 'visibility_off'
 								}}</mat-icon>
 							</mat-form-field>
 
-							<button mat-raised-button color="primary" (click)="showToggle()">Verificar</button>
+							<button mat-raised-button color="primary" type="button" (click)="verifyPassword()">
+								Verificar
+							</button>
 						</div>
 					</div>
 
 					<div class="passwords" *ngIf="show">
 						<mat-form-field>
 							<mat-label>Contraseña</mat-label>
-							<input matInput placeholder="Contraseña" name="password" />
-							<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
-								hidePassword ? 'visibility' : 'visibility_off'
+							<input
+								matInput
+								placeholder="Contraseña"
+								name="password"
+								formControlName="newPassword"
+								[type]="hideNewPassword ? 'password' : 'text'"
+							/>
+							<mat-icon matSuffix (click)="hideNewPassword = !hideNewPassword">{{
+								hideNewPassword ? 'visibility' : 'visibility_off'
 							}}</mat-icon>
+							<mat-error
+								*ngIf="
+									profileFormControl.newPassword.touched &&
+									profileFormControl.newPassword.errors?.minlength
+								"
+							>
+								La contraseña debe tener mínimo 6 caracteres
+							</mat-error>
 						</mat-form-field>
 
 						<mat-form-field>
 							<mat-label>Contraseña</mat-label>
-							<input matInput placeholder="Contraseña" name="password" />
-							<mat-icon matSuffix>visibility</mat-icon>
+							<input
+								matInput
+								placeholder="Contraseña"
+								name="password"
+								formControlName="confirmPassword"
+								[type]="hideConfirmPassword ? 'password' : 'text'"
+							/>
+							<mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{
+								hideNewPassword ? 'visibility' : 'visibility_off'
+							}}</mat-icon>
+							<mat-error
+								*ngIf="
+									profileFormControl.confirmPassword.touched &&
+									profileFormControl.confirmPassword.errors?.minlength
+								"
+							>
+								La contraseña debe tener mínimo 6 caracteres
+							</mat-error>
 						</mat-form-field>
+						<mat-error
+							*ngIf="
+								profileFormControl.confirmPassword.touched &&
+								profileFormControl.confirmPassword.errors?.passwordMismatch
+							"
+						>
+							Las contraseñas no coindicen
+						</mat-error>
 					</div>
 				</div>
 
@@ -160,7 +211,9 @@
 				</div>
 
 				<div class="card__form-buttons">
-					<button mat-raised-button color="primary" type="submit">Guardar cambios</button>
+					<button mat-raised-button color="primary" [disabled]="!profileForm.valid" type="submit">
+						Guardar cambios
+					</button>
 				</div>
 			</div>
 		</form>
