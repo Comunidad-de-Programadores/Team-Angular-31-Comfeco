@@ -11,6 +11,7 @@ export class CarouselComponent implements AfterViewInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 	// @Input() type: string | undefined;
 	@Input() carouselItems: Array<ITeamLeaderItem> | undefined;
+
 	name = 'Angular';
 	slideNo = 0;
 	withAnim = true;
