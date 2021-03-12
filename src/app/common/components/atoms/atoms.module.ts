@@ -14,6 +14,7 @@ import { ModalTerminosComponent } from './modal-terminos/modal-terminos.componen
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
 import { ItemActivityComponent } from './item-activity/item-activity.component';
+import { InsigniaComponent } from './insignia/insignia.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -25,7 +26,8 @@ import { ItemActivityComponent } from './item-activity/item-activity.component';
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
 		ItemEventComponent,
-		ItemActivityComponent
+		ItemActivityComponent,
+		InsigniaComponent
 	],
 	imports: [
 		MatDialogModule,
@@ -44,7 +46,8 @@ import { ItemActivityComponent } from './item-activity/item-activity.component';
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
 		ItemEventComponent,
-		ItemActivityComponent
+		ItemActivityComponent,
+		InsigniaComponent
 	]
 })
 export class AtomModule {}

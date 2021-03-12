@@ -6,7 +6,7 @@
     align-items: center;
     width: 21em;
     border-radius: 25px;
-    box-shadow: 0px 4px 17px 5px $color-shadow;
+    box-shadow: $value-shadow $color-shadow;
     background: linear-gradient(165deg, $color-primary 24.53%, rgba(255, 105, 68, 0) 25%);
     gap: 0.625em;
     .name {
