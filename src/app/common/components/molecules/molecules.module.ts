@@ -18,6 +18,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivitiesComponent } from './activities/activities.component';
+import { EventsUserComponent } from './events-user/events-user.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -27,7 +28,8 @@ import { ActivitiesComponent } from './activities/activities.component';
 		EventsComponent,
 		UserEditComponent,
 		CardProfileComponent,
-		ActivitiesComponent
+		ActivitiesComponent,
+		EventsUserComponent
 	],
 	imports: [
 		NguCarouselModule,
