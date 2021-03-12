@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		MenuCommunityComponent,
 		EventsComponent,
 		UserEditComponent,
-		CardProfileComponent
+		CardProfileComponent,
+		ActivitiesComponent
 	],
 	imports: [
 		NguCarouselModule,
@@ -43,13 +45,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		FormsModule,
 		ReactiveFormsModule
 	],
-
 	exports: [
 		CarouselComponent,
 		MenuCommunityComponent,
 		EventsComponent,
 		UserEditComponent,
-		CardProfileComponent
+		CardProfileComponent,
+		ActivitiesComponent
 	],
 	providers: [MatDatepickerModule]
 })

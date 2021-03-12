@@ -50,7 +50,10 @@ body {
 	input[type='text'] {
 		color: $color-text;
 	}
-	$web: 993px;
+  .card {
+    box-shadow: 0px 4px 17px 5px #B6B7B7 !important;
+    border-radius: 20px;
+  }
 	.cdk-overlay-dark-backdrop {
 		background: rgba(0, 0, 0, 0);
 	}
@@ -131,14 +134,6 @@ body {
 		background-color: $color-secondary;
 	}
 
-	@media screen and (min-width: $web) {
-		.modal-terms {
-			.mat-dialog-container {
-				width: 380px;
-				height: 500px;
-			}
-		}
-	}
 }
 .no-select {
 	-webkit-touch-callout: none; /* iOS Safari */
