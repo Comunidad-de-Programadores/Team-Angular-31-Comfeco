@@ -8,11 +8,13 @@ import { MessageService } from '@team31/services/message.service';
 import { CustomValidatorsService } from '../authentication/common/service/custom-validators.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PrincipalRoutingModule } from './principal-routing.module';
+import { ProfileService } from './profile-page/common/services/profile.service';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { SubmoduleEventsComponent } from './profile-page/common/components/submodule-events/submodule-events.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [HomePageComponent, ProfilePageComponent],
+	declarations: [HomePageComponent, ProfilePageComponent, SubmoduleEventsComponent],
 	imports: [
 		PrincipalRoutingModule,
 		MoleculesModule,
@@ -22,6 +24,6 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 		ReactiveFormsModule
 	],
 	exports: [],
-	providers: [AuthService, CustomValidatorsService, MessageService]
+	providers: [AuthService, CustomValidatorsService, MessageService, ProfileService]
 })
 export class PrincipalModule {}

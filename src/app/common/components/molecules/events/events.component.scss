@@ -1,0 +1,13 @@
+@import '../../../../../assets/scss/variables.scss';
+.card {
+	width: 512px;
+
+	&__actions {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.mat-button {
+	color: $color-url;
+}

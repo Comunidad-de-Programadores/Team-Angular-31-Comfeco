@@ -53,7 +53,8 @@ import { EventsUserComponent } from './events-user/events-user.component';
 		EventsComponent,
 		UserEditComponent,
 		CardProfileComponent,
-		ActivitiesComponent
+		ActivitiesComponent,
+		EventsUserComponent
 	],
 	providers: [MatDatepickerModule]
 })
