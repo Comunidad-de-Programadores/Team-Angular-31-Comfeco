@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.interface';
+import { IActivities } from '../../../models/interfaces/activities-item.interface';
 
 @Component({
 	selector: 'app-carousel',
@@ -11,6 +12,7 @@ export class CarouselComponent implements AfterViewInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 	// @Input() type: string | undefined;
 	@Input() carouselItems: Array<ITeamLeaderItem> | undefined;
+
 	name = 'Angular';
 	slideNo = 0;
 	withAnim = true;
