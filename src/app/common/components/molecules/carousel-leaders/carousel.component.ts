@@ -1,7 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.interface';
-import { IActivities } from '../../../models/interfaces/activities-item.interface';
 
 @Component({
 	selector: 'app-carousel',
