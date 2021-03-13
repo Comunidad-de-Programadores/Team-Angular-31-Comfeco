@@ -1,6 +1,17 @@
 @import '../../../../../assets/scss/variables.scss';
 .card {
-	width: 512px;
+	max-width: 512px;
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		.title {
+			color: $color-text-alternative;
+			font-size: 18px;
+			font-weight: 400;
+		}
+	}
 
 	&__actions {
 		display: flex;
