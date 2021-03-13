@@ -36,8 +36,9 @@ export class LoginPageComponent implements OnDestroy {
 					.loadProfileData(singIn.user.uid)
 					.subscribe((user: IUserProfile[]) => {
 						this.userDataService.setUserProfileData = this.updateProfileData(userProfile, user[0]);
+						console.log(this.userDataService.getUserProfileData);
+						void this.router.navigateByUrl('/principal');
 					});
-				void this.router.navigateByUrl('/principal');
 			}
 		} catch (error) {
 			this._messageService.openError(error, 'end', 'top');

@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
@@ -20,7 +21,7 @@ export class UserEditComponent implements OnInit {
 	hideNewPassword = true;
 	hideConfirmPassword = true;
 	profileForm: FormGroup;
-
+	currentUser: IUserProfile;
 	constructor(
 		private fb: FormBuilder,
 		public authFirebase: AngularFireAuth,
@@ -29,28 +30,8 @@ export class UserEditComponent implements OnInit {
 		private _messageService: MessageService,
 		private userDataService: UserdataService
 	) {
-		this.profileForm = this.fb.group(
-			{
-				nick: ['', [Validators.required, Validators.minLength(4)]],
-				gender: ['', [Validators.required]],
-				email: [{ value: '', disabled: true }, [Validators.required]],
-				dateB: ['', [Validators.required]],
-				country: ['', [Validators.required]],
-				area: ['', [Validators.required]],
-				changePassword: ['', []],
-				password: ['', []],
-				facebook: ['', [Validators.required]],
-				github: ['', [Validators.required]],
-				linkedin: ['', [Validators.required]],
-				twitter: ['', [Validators.required]],
-				biography: ['', [Validators.required]],
-				newPassword: ['', [Validators.minLength(6)]],
-				confirmPassword: ['', [Validators.minLength(6)]]
-			},
-			{
-				validator: this.customvalidators.MatchPassword('newPassword', 'confirmPassword')
-			}
-		);
+		this.currentUser = this.userDataService.getUserProfileData;
+		this.profileForm = this.createForm();
 	}
 
 	ngOnInit(): void {
@@ -85,18 +66,43 @@ export class UserEditComponent implements OnInit {
 		// 	});
 		// });
 
-		const currentUser = this.userDataService.getUserProfileData;
-		this.profileFormControl['nick'].setValue(currentUser.nick);
-		this.profileFormControl['email'].setValue(currentUser.email);
-		this.profileFormControl['gender'].setValue(currentUser.gender);
-		this.profileFormControl['dateB'].setValue(new Date(currentUser.dateB || ''));
-		this.profileFormControl['country'].setValue(currentUser.country);
-		this.profileFormControl['area'].setValue(currentUser.area);
-		this.profileFormControl['facebook'].setValue(currentUser.facebook);
-		this.profileFormControl['github'].setValue(currentUser.github);
-		this.profileFormControl['linkedin'].setValue(currentUser.linkedin);
-		this.profileFormControl['twitter'].setValue(currentUser.twitter);
-		this.profileFormControl['biography'].setValue(currentUser.biography);
+		console.log(this.currentUser);
+		this.profileFormControl['nick'].setValue(this.currentUser.nick);
+		this.profileFormControl['email'].setValue(this.currentUser.email);
+		this.profileFormControl['gender'].setValue(this.currentUser.gender);
+		this.profileFormControl['dateB'].setValue(new Date(this.currentUser.dateB || ''));
+		this.profileFormControl['country'].setValue(this.currentUser.country);
+		this.profileFormControl['area'].setValue(this.currentUser.area);
+		this.profileFormControl['facebook'].setValue(this.currentUser.facebook);
+		this.profileFormControl['github'].setValue(this.currentUser.github);
+		this.profileFormControl['linkedin'].setValue(this.currentUser.linkedin);
+		this.profileFormControl['twitter'].setValue(this.currentUser.twitter);
+		this.profileFormControl['biography'].setValue(this.currentUser.biography);
+	}
+
+	createForm(): FormGroup {
+		return this.fb.group(
+			{
+				nick: ['', [Validators.required, Validators.minLength(4)]],
+				gender: ['', [Validators.required]],
+				email: [{ value: '', disabled: true }, [Validators.required]],
+				dateB: ['', [Validators.required]],
+				country: ['', [Validators.required]],
+				area: ['', [Validators.required]],
+				changePassword: ['', []],
+				password: ['', []],
+				facebook: ['', [Validators.required]],
+				github: ['', [Validators.required]],
+				linkedin: ['', [Validators.required]],
+				twitter: ['', [Validators.required]],
+				biography: ['', [Validators.required]],
+				newPassword: ['', [Validators.minLength(6)]],
+				confirmPassword: ['', [Validators.minLength(6)]]
+			},
+			{
+				validator: this.customvalidators.MatchPassword('newPassword', 'confirmPassword')
+			}
+		);
 	}
 
 	showToggle(): void {
@@ -112,8 +118,8 @@ export class UserEditComponent implements OnInit {
 		try {
 			const dateB = formatDate(this.profileFormControl['dateB'].value, 'M/d/yy', 'EN');
 			this.profileFormControl['dateB'].setValue(dateB);
-			this._authService.updateProfileData(this.uidProfile, this.profileForm.value);
-			this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
+			this._authService.updateProfileData(this.currentUser.uid, this.profileForm.value);
+			this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
 		} catch (error) {
 			this._messageService.openError(error, 'end', 'top');
 		}

@@ -10,7 +10,7 @@ export interface IUserProfile {
 	linkedin?: string;
 	twitter?: string;
 	biography?: string;
-	uid?: string;
+	uid: string;
 }
 
 export interface IUserData {
