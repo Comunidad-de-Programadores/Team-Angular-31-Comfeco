@@ -1,0 +1,8 @@
+<div class="container">
+	<app-events
+		*ngFor="let item of listEvents"
+		[title]="item.name"
+		[description]="item.description"
+		[image]="item.urlImage"
+	></app-events>
+</div>
