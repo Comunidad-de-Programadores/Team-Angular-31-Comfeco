@@ -1,17 +1,26 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { take, switchMap } from 'rxjs/internal/operators';
 import { CanActivate, Router } from '@angular/router';
 import { MessageService } from '@team31/services/message.service';
+import { UserdataService } from '@team31/services/userdata.service';
+import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+	@HostListener('window:beforeunload', ['$event'])
+	setCurrentUserData(): void {
+		// sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+		console.log('xd');
+	}
+
 	constructor(
 		private router: Router,
 		private auth: AngularFireAuth,
-		private _messageService: MessageService
+		private _messageService: MessageService,
+		private userDataService: UserdataService
 	) {}
 
 	async canActivate(): Promise<boolean> {
@@ -21,6 +30,13 @@ export class AuthGuard implements CanActivate {
 				// eslint-disable-next-line @typescript-eslint/require-await
 				switchMap(async (authState) => {
 					if (authState) {
+						if (!this.userDataService.getUserProfileData) {
+							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+							this.userDataService.setUserProfileData = JSON.parse(
+								sessionStorage.getItem('currentUser') || '{}'
+							);
+							sessionStorage.removeItem('currentUser');
+						}
 						return true;
 					} else {
 						void this.router.navigate(['/login']);
@@ -30,6 +46,7 @@ export class AuthGuard implements CanActivate {
 				})
 			)
 			.toPromise();
+		this.detechRefreshPage();
 		return response;
 	}
 
@@ -39,5 +56,14 @@ export class AuthGuard implements CanActivate {
 		// navigation is the first attempt to reconcile the application state with the
 		// URL state. Meaning, this is a page refresh.
 		return !this.router.navigated;
+	}
+
+	private detechRefreshPage() {
+		window.onbeforeunload = () => {
+			sessionStorage.setItem(
+				'currentUser',
+				JSON.stringify(this.userDataService.getUserProfileData)
+			);
+		};
 	}
 }

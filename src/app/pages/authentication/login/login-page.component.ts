@@ -35,7 +35,10 @@ export class LoginPageComponent implements OnDestroy {
 				this.dataSubscription = this.authFirebase
 					.loadProfileData(singIn.user.uid)
 					.subscribe((user: IUserProfile[]) => {
-						this.userDataService.setUserProfileData = this.updateProfileData(userProfile, user[0]);
+						this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
+							userProfile,
+							user[0]
+						);
 						console.log(this.userDataService.getUserProfileData);
 						void this.router.navigateByUrl('/principal');
 					});
