@@ -4,7 +4,6 @@ import { take, switchMap } from 'rxjs/internal/operators';
 import { CanActivate, Router } from '@angular/router';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
-import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 
 @Injectable({
 	providedIn: 'root'
