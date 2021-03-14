@@ -1,0 +1,78 @@
+@import './../../../../../assets/scss/variables.scss';
+
+.container {
+  display: flex;
+}
+
+.mat-card-header{
+  display: flex;
+  flex-direction: column;
+  gap:3em;
+}
+
+.mat-card {
+  width: 412px;
+  height: 823px;
+  box-shadow: 0px 4px 17px 5px #b6b7b7;
+  border-radius: 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+
+.mat-card-content {
+  display: block;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  line-height: 0;
+  gap: 11em;
+  &__migrupo {
+    font-size: 18px;
+    color: $color-text-alternative
+  }
+  &__iralgrupo {
+    font-size: 16px;
+    color: $color-url
+  }
+}
+
+.rectangle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $color-primary;
+  border-radius: 30px;
+  width: 342px;
+  height: 52px;
+  align-self: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  &__text {
+    font-size: 16px;
+    color: #FFFF;
+  }
+  &__image {
+    width: 25.18px;
+    height: 24.93px;
+    border-radius: 50%;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  &__buttonabandonar {
+    border-color: #E63780;
+    width: 113px;
+    height: 36px;
+  }
+  &__buttoniralchat {
+    width: 113px;
+    height: 36px;
+  }
+}
