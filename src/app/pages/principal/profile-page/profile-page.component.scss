@@ -1,0 +1,12 @@
+@import '../../../../assets/scss/variables.scss';
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: center;
+
+	&__title-submenu {
+		font-size: 18px;
+		color: $color-blue-metalic;
+	}
+}

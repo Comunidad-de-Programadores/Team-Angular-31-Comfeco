@@ -8,13 +8,19 @@ import { MessageService } from '@team31/services/message.service';
 import { CustomValidatorsService } from '../authentication/common/service/custom-validators.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PrincipalRoutingModule } from './principal-routing.module';
+import { SubMenuComponent } from './profile-page/common/components/sub-menu/sub-menu.component';
+import { SubmoduleEventsComponent } from './profile-page/common/components/submodule-events/submodule-events.component';
 import { ProfileService } from './profile-page/common/services/profile.service';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { SubmoduleEventsComponent } from './profile-page/common/components/submodule-events/submodule-events.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [HomePageComponent, ProfilePageComponent, SubmoduleEventsComponent],
+	declarations: [
+		HomePageComponent,
+		ProfilePageComponent,
+		SubmoduleEventsComponent,
+		SubMenuComponent
+	],
 	imports: [
 		PrincipalRoutingModule,
 		MoleculesModule,
