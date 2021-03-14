@@ -11,8 +11,15 @@ export interface IUserProfile {
 	twitter?: string;
 	biography?: string;
 	uid?: string;
+	insignias?: IInsignia[];
 }
 
+interface IInsignia {
+	urlImage: string;
+	name: string;
+	description: string;
+	howToWin: string;
+}
 export interface IUserData {
 	email: string;
 	uid: string;

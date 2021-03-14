@@ -59,7 +59,6 @@ export class AuthService {
 
 		return this.usersCollection.valueChanges();
 	}
-
 	updateProfileData(uid: string, data: IUserProfile): void {
 		const profileData = this._fireStore.collection('users').doc(uid);
 		void profileData.update(data);
