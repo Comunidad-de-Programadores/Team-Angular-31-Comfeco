@@ -16,6 +16,7 @@ import { TeamLeaderComponent } from './team-leader/team-leader.component';
 import { ItemActivityComponent } from './item-activity/item-activity.component';
 import { InsigniaComponent } from './insignia/insignia.component';
 import { MemberComponent } from './member/member.component';
+import { CardGroupComponent } from './card-group/card-group.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -29,7 +30,8 @@ import { MemberComponent } from './member/member.component';
 		ItemEventUserComponent,
 		ItemActivityComponent,
 		InsigniaComponent,
-		MemberComponent
+		MemberComponent,
+		CardGroupComponent
 	],
 	imports: [
 		MatDialogModule,
@@ -50,7 +52,8 @@ import { MemberComponent } from './member/member.component';
 		ItemEventUserComponent,
 		ItemActivityComponent,
 		InsigniaComponent,
-		MemberComponent
+		MemberComponent,
+		CardGroupComponent
 	]
 })
 export class AtomModule {}

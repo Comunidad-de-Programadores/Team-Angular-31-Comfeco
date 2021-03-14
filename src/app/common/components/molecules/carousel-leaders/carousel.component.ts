@@ -1,6 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
-import { IMember } from '@team31/models/interfaces/member.interface';
 import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.interface';
 
 @Component({

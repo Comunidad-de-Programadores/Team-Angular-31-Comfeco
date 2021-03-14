@@ -101,4 +101,9 @@ export class AuthService {
 		}
 		return undefined;
 	}
+
+	async updatePassword(newPassword: string): Promise<void> {
+		const currentUser = await this._authService.currentUser;
+		return currentUser?.updatePassword(newPassword);
+	}
 }
