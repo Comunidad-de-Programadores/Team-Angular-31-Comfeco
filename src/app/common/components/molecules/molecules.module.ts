@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivitiesComponent } from './activities/activities.component';
 import { EventsUserComponent } from './events-user/events-user.component';
 import { MyGroupComponent } from './my-group/my-group.component';
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -31,7 +32,8 @@ import { MyGroupComponent } from './my-group/my-group.component';
 		CardProfileComponent,
 		ActivitiesComponent,
 		EventsUserComponent,
-		MyGroupComponent
+		MyGroupComponent,
+		GroupsComponent
 	],
 	imports: [
 		NguCarouselModule,
@@ -57,7 +59,8 @@ import { MyGroupComponent } from './my-group/my-group.component';
 		CardProfileComponent,
 		ActivitiesComponent,
 		EventsUserComponent,
-		MyGroupComponent
+		MyGroupComponent,
+		GroupsComponent
 	],
 	providers: [MatDatepickerModule]
 })
