@@ -9,7 +9,7 @@ import { CardContainerComponent } from './card-container/card-container.componen
 import { CarouselSponsorsComponent } from './carousel-sponsors/carousel-sponsors.component';
 import { CounterComponent } from './counter/counter.component';
 import { ItemCommunityComponent } from './item-community/item-community.component';
-import { ItemEventComponent } from './item-event/item-event.component';
+import { ItemEventUserComponent } from './item-event-user/item-event-user.component';
 import { ModalTerminosComponent } from './modal-terminos/modal-terminos.component';
 import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
@@ -25,7 +25,7 @@ import { InsigniaComponent } from './insignia/insignia.component';
 		TeamLeaderComponent,
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
-		ItemEventComponent,
+		ItemEventUserComponent,
 		ItemActivityComponent,
 		InsigniaComponent
 	],
@@ -45,7 +45,7 @@ import { InsigniaComponent } from './insignia/insignia.component';
 		TeamLeaderComponent,
 		CarouselSponsorsComponent,
 		ItemCommunityComponent,
-		ItemEventComponent,
+		ItemEventUserComponent,
 		ItemActivityComponent,
 		InsigniaComponent
 	]

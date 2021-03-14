@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { IEvent } from '@team31/models/carousel';
-import { EVENT_ITEMS } from '@team31/models/constants/team-leader.const';
+import { Component, Input } from '@angular/core';
 
 @Component({
 	selector: 'app-events',
@@ -8,5 +6,7 @@ import { EVENT_ITEMS } from '@team31/models/constants/team-leader.const';
 	styleUrls: ['./events.component.scss']
 })
 export class EventsComponent {
-	listEvents: IEvent[] = EVENT_ITEMS;
+	@Input() image = '';
+	@Input() title = '';
+	@Input() description = '';
 }
