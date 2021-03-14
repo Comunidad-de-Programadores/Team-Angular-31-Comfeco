@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivitiesComponent } from './activities/activities.component';
 import { EventsUserComponent } from './events-user/events-user.component';
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -29,7 +30,8 @@ import { EventsUserComponent } from './events-user/events-user.component';
 		UserEditComponent,
 		CardProfileComponent,
 		ActivitiesComponent,
-		EventsUserComponent
+		EventsUserComponent,
+		GroupsComponent
 	],
 	imports: [
 		NguCarouselModule,
@@ -54,7 +56,8 @@ import { EventsUserComponent } from './events-user/events-user.component';
 		UserEditComponent,
 		CardProfileComponent,
 		ActivitiesComponent,
-		EventsUserComponent
+		EventsUserComponent,
+		GroupsComponent
 	],
 	providers: [MatDatepickerModule]
 })

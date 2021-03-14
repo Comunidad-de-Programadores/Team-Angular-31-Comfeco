@@ -1,0 +1,7 @@
+.groups-grid{
+  display: grid;
+  grid-template: repeat(2,auto) / repeat(4,auto);
+  grid-gap: 1em;
+  border: 1px solid black;
+  overflow: hidden;
+}
