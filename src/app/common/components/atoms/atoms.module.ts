@@ -15,6 +15,8 @@ import { SocialLoginComponent } from './social-login/social-login.component';
 import { TeamLeaderComponent } from './team-leader/team-leader.component';
 import { ItemActivityComponent } from './item-activity/item-activity.component';
 import { InsigniaComponent } from './insignia/insignia.component';
+import { MemberComponent } from './member/member.component';
+import { CardGroupComponent } from './card-group/card-group.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	declarations: [
@@ -27,7 +29,9 @@ import { InsigniaComponent } from './insignia/insignia.component';
 		ItemCommunityComponent,
 		ItemEventUserComponent,
 		ItemActivityComponent,
-		InsigniaComponent
+		InsigniaComponent,
+		MemberComponent,
+		CardGroupComponent
 	],
 	imports: [
 		MatDialogModule,
@@ -47,7 +51,9 @@ import { InsigniaComponent } from './insignia/insignia.component';
 		ItemCommunityComponent,
 		ItemEventUserComponent,
 		ItemActivityComponent,
-		InsigniaComponent
+		InsigniaComponent,
+		MemberComponent,
+		CardGroupComponent
 	]
 })
 export class AtomModule {}

@@ -16,14 +16,17 @@
 					<mat-form-field class="card__form-nick">
 						<mat-label>Nick</mat-label>
 						<input matInput formControlName="nick" />
-						<!-- <mat-hint align="end">{{ input.value?.length || 0 }}/10</mat-hint> -->
 						<mat-error
-							*ngIf="profileFormControl.nick.touched && profileFormControl.nick.errors?.required"
+							*ngIf="
+								getProfileFormControl.nick.touched && getProfileFormControl.nick.errors?.required
+							"
 						>
 							Nick es requerido
 						</mat-error>
 						<mat-error
-							*ngIf="profileFormControl.nick.touched && profileFormControl.nick.errors?.minlength"
+							*ngIf="
+								getProfileFormControl.nick.touched && getProfileFormControl.nick.errors?.minlength
+							"
 						>
 							Nick no válido. Mínimo 4 caracteres
 						</mat-error>
@@ -33,14 +36,13 @@
 						<mat-label>Correo</mat-label>
 						<input matInput placeholder="Placeholder" formControlName="email" />
 						<mat-icon matSuffix>alternate_email</mat-icon>
-						<!-- <mat-hint>Hint</mat-hint> -->
 					</mat-form-field>
 				</div>
 
 				<div class="card__form-dos">
 					<mat-form-field>
 						<mat-label>Genero</mat-label>
-						<select matNativeControl formControlName="gender" required>
+						<select matNativeControl formControlName="idGender" required>
 							<option value="1">Masculino</option>
 							<option value="2">Femenino</option>
 							<option value="3">Otro</option>
@@ -56,11 +58,27 @@
 
 					<mat-form-field>
 						<mat-label>País</mat-label>
-						<select matNativeControl formControlName="country" required>
-							<option value="1">Perú</option>
-							<option value="2">Brazil</option>
-							<option value="3">Colombia</option>
-							<option value="4">Venezuela</option>
+						<select matNativeControl formControlName="idCountry" required>
+							<option value="1">Argentina</option>
+							<option value="2">Bolivia</option>
+							<option value="3">Brasil</option>
+							<option value="4">Chile</option>
+							<option value="5">Colombia</option>
+							<option value="6">Costa Rica</option>
+							<option value="7">Cuba</option>
+							<option value="8">Ecuador</option>
+							<option value="9">El Salvador</option>
+							<option value="10">Guatemala</option>
+							<option value="11">Haití</option>
+							<option value="12">Honduras</option>
+							<option value="13">México</option>
+							<option value="14">Nicaragua</option>
+							<option value="15">Panamá</option>
+							<option value="16">Paraguay</option>
+							<option value="17">Perú</option>
+							<option value="18">República Dominicana</option>
+							<option value="19">Uruguay</option>
+							<option value="20">Venezuela</option>
 						</select>
 					</mat-form-field>
 				</div>
@@ -68,93 +86,99 @@
 				<div class="card__form-tres">
 					<mat-form-field>
 						<mat-label>Área de conocimiento</mat-label>
-						<select matNativeControl formControlName="area" required>
+						<select matNativeControl formControlName="idArea" required>
 							<option value="1">FronEnd</option>
 							<option value="2">BackEnd</option>
-							<option value="3">UI/UX</option>
-							<option value="4">Machine Learning</option>
+							<option value="3">DevOps</option>
+							<option value="4">Video Game Developers</option>
+							<option value="4">UI/UX</option>
+							<option value="4">Database Developer</option>
+							<option value="4">Cloud Computing</option>
 						</select>
 					</mat-form-field>
 				</div>
 
 				<div class="card__form-password">
-					<mat-slide-toggle formControlName="changePassword">Cambiar contraseña</mat-slide-toggle>
+					<mat-slide-toggle (change)="toggleVerifyPassword($event)"
+						>Cambiar contraseña</mat-slide-toggle
+					>
+					<form [formGroup]="passwordsForm">
+						<div *ngIf="showVerifyPassword">
+							<div class="actual-password">
+								<mat-form-field>
+									<mat-label>Contraseña</mat-label>
+									<input
+										matInput
+										placeholder="Contraseña"
+										name="password"
+										formControlName="password"
+										[type]="hidePassword ? 'password' : 'text'"
+									/>
+									<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
+										hidePassword ? 'visibility' : 'visibility_off'
+									}}</mat-icon>
+								</mat-form-field>
 
-					<div *ngIf="profileFormControl['changePassword'].value">
-						<div class="actual-password">
+								<button mat-raised-button color="primary" type="button" (click)="verifyPassword()">
+									Verificar
+								</button>
+							</div>
+						</div>
+
+						<div class="passwords" *ngIf="showNewPassword">
 							<mat-form-field>
 								<mat-label>Contraseña</mat-label>
 								<input
 									matInput
 									placeholder="Contraseña"
 									name="password"
-									[type]="hidePassword ? 'password' : 'text'"
-									formControlName="password"
+									formControlName="newPassword"
+									[type]="hideNewPassword ? 'password' : 'text'"
 								/>
-								<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
-									hidePassword ? 'visibility' : 'visibility_off'
+								<mat-icon matSuffix (click)="hideNewPassword = !hideNewPassword">{{
+									hideNewPassword ? 'visibility' : 'visibility_off'
 								}}</mat-icon>
+								<mat-error
+									*ngIf="
+										getPasswordsFormControl.newPassword.touched &&
+										getPasswordsFormControl.newPassword.errors?.minlength
+									"
+								>
+									La contraseña debe tener mínimo 6 caracteres
+								</mat-error>
 							</mat-form-field>
 
-							<button mat-raised-button color="primary" type="button" (click)="verifyPassword()">
-								Verificar
-							</button>
+							<mat-form-field>
+								<mat-label>Contraseña</mat-label>
+								<input
+									matInput
+									placeholder="Contraseña"
+									name="password"
+									formControlName="confirmPassword"
+									[type]="hideConfirmPassword ? 'password' : 'text'"
+								/>
+								<mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{
+									hideNewPassword ? 'visibility' : 'visibility_off'
+								}}</mat-icon>
+								<mat-error
+									*ngIf="
+										getPasswordsFormControl.confirmPassword.touched &&
+										getPasswordsFormControl.confirmPassword.errors?.minlength
+									"
+								>
+									La contraseña debe tener mínimo 6 caracteres
+								</mat-error>
+							</mat-form-field>
+							<mat-error
+								*ngIf="
+									getPasswordsFormControl.confirmPassword.touched &&
+									getPasswordsFormControl.confirmPassword.errors?.passwordMismatch
+								"
+							>
+								Las contraseñas no coindicen
+							</mat-error>
 						</div>
-					</div>
-
-					<div class="passwords" *ngIf="show">
-						<mat-form-field>
-							<mat-label>Contraseña</mat-label>
-							<input
-								matInput
-								placeholder="Contraseña"
-								name="password"
-								formControlName="newPassword"
-								[type]="hideNewPassword ? 'password' : 'text'"
-							/>
-							<mat-icon matSuffix (click)="hideNewPassword = !hideNewPassword">{{
-								hideNewPassword ? 'visibility' : 'visibility_off'
-							}}</mat-icon>
-							<mat-error
-								*ngIf="
-									profileFormControl.newPassword.touched &&
-									profileFormControl.newPassword.errors?.minlength
-								"
-							>
-								La contraseña debe tener mínimo 6 caracteres
-							</mat-error>
-						</mat-form-field>
-
-						<mat-form-field>
-							<mat-label>Contraseña</mat-label>
-							<input
-								matInput
-								placeholder="Contraseña"
-								name="password"
-								formControlName="confirmPassword"
-								[type]="hideConfirmPassword ? 'password' : 'text'"
-							/>
-							<mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{
-								hideNewPassword ? 'visibility' : 'visibility_off'
-							}}</mat-icon>
-							<mat-error
-								*ngIf="
-									profileFormControl.confirmPassword.touched &&
-									profileFormControl.confirmPassword.errors?.minlength
-								"
-							>
-								La contraseña debe tener mínimo 6 caracteres
-							</mat-error>
-						</mat-form-field>
-						<mat-error
-							*ngIf="
-								profileFormControl.confirmPassword.touched &&
-								profileFormControl.confirmPassword.errors?.passwordMismatch
-							"
-						>
-							Las contraseñas no coindicen
-						</mat-error>
-					</div>
+					</form>
 				</div>
 
 				<div class="card__form-social">
@@ -211,7 +235,12 @@
 				</div>
 
 				<div class="card__form-buttons">
-					<button mat-raised-button color="primary" [disabled]="!profileForm.valid" type="submit">
+					<button
+						mat-raised-button
+						color="primary"
+						[disabled]="!profileForm.valid || (this.showNewPassword && !this.passwordsForm.valid)"
+						type="submit"
+					>
 						Guardar cambios
 					</button>
 				</div>
@@ -219,12 +248,3 @@
 		</form>
 	</mat-card-content>
 </mat-card>
-
-<br />
-<!-- 
-<mat-card>
-	<div *ngIf="auth.user | async as user">
-		<h1>Hello {{ user.displayName }}!</h1>
-		<pre style="width: 500px"> {{ user | json }}</pre>
-	</div>
-</mat-card> -->

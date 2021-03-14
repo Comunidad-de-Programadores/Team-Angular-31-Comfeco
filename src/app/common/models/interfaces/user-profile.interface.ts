@@ -1,17 +1,17 @@
+import { Timestamp } from '@firebase/firestore-types';
 export interface IUserProfile {
 	nick?: string;
 	email?: string;
-	gender?: number;
-	dateB?: string;
-	country?: number;
-	area?: number;
+	idGender?: number;
+	dateB?: Timestamp;
+	idCountry?: number;
+	idArea?: number;
 	facebook?: string;
 	github?: string;
 	linkedin?: string;
 	twitter?: string;
 	biography?: string;
-	uid?: string;
-	insignias?: IInsignia[];
+	uid: string;
 }
 
 interface IInsignia {

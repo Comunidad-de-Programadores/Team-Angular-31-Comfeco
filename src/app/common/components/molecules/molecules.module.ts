@@ -17,7 +17,9 @@ import { CardProfileComponent } from './card-profile/card-profile.component';
 import { CarouselComponent } from './carousel-leaders/carousel.component';
 import { EventsUserComponent } from './events-user/events-user.component';
 import { EventsComponent } from './events/events.component';
+import { GroupsComponent } from './groups/groups.component';
 import { MenuCommunityComponent } from './menu-community/menu-community.component';
+import { MyGroupComponent } from './my-group/my-group.component';
 import { MyInsigniaComponent } from './my-insignia/my-insignia.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 
@@ -31,7 +33,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 		CardProfileComponent,
 		ActivitiesComponent,
 		EventsUserComponent,
-		MyInsigniaComponent
+		MyInsigniaComponent,
+		MyGroupComponent,
+		GroupsComponent
 	],
 	imports: [
 		NguCarouselModule,
@@ -57,7 +61,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 		CardProfileComponent,
 		ActivitiesComponent,
 		EventsUserComponent,
-		MyInsigniaComponent
+		MyInsigniaComponent,
+		MyGroupComponent,
+		GroupsComponent
 	],
 	providers: [MatDatepickerModule]
 })

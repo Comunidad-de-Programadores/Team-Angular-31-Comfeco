@@ -1,0 +1,48 @@
+@import '../../../../../assets/scss/variables.scss';
+
+.container {
+  display: flex;
+	flex-direction: column;
+		.member {
+			display: flex;
+			align-items: center;
+      justify-content: space-evenly;
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        .image {
+          border-radius: 50%;
+          width: 50.86px;
+          height: 50.86px;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+        .align{
+          display: flex;
+          flex-direction: column;
+          line-height: 8px;
+          &__name{
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: $color-blue-metalic;
+          }
+          &__experience{
+            font-size: 14px;
+            font-weight: bold;
+            color: $color-text;
+          }
+        }
+      }
+      &__type{
+        font-size: 16px;
+        font-weight: bold;
+        color: $color-blue-metalic;
+      }
+		}
+	hr {
+		border: 1px solid #FF6E40;
+		width: 304.23px;
+	}
+}
