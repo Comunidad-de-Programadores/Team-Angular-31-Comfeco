@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AREA_ITEMS } from '@team31/models/constants/team-leader.const';
 import { ICardProfile } from '@team31/models/interfaces/user-profile.interface';
 import { UserdataService } from '@team31/services/userdata.service';
-import { AREA_ITEMS } from './../../../../../../common/models/constants/team-leader.const';
 
 @Component({
 	selector: 'app-submodule-profile',

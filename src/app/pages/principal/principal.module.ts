@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AtomModule } from '@team31/components-atoms/atoms.module';
 import { MoleculesModule } from '@team31/components-molecules/molecules.module';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
@@ -27,6 +28,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 	imports: [
 		PrincipalRoutingModule,
 		MoleculesModule,
+		AtomModule,
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule
