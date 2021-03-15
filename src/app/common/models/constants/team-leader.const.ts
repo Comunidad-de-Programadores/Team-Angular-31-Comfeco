@@ -197,17 +197,17 @@ export const COUNTRY_ITEMS: IOptionSelect[] = [
 	{ id: 7, value: 'Cuba' },
 	{ id: 8, value: 'Ecuador' },
 	{ id: 9, value: 'El Salvador' },
-	{ id: 10, value: '>Guatemala' },
-	{ id: 11, value: '>Haití' },
-	{ id: 12, value: '>Honduras' },
-	{ id: 13, value: '>México' },
-	{ id: 14, value: '>Nicaragua' },
-	{ id: 15, value: '>Panamá' },
-	{ id: 16, value: '>Paraguay' },
-	{ id: 17, value: '>Perú' },
-	{ id: 18, value: '>República Dominicana' },
-	{ id: 19, value: '>Uruguay' },
-	{ id: 20, value: '>Venezuela' }
+	{ id: 10, value: 'Guatemala' },
+	{ id: 11, value: 'Haití' },
+	{ id: 12, value: 'Honduras' },
+	{ id: 13, value: 'México' },
+	{ id: 14, value: 'Nicaragua' },
+	{ id: 15, value: 'Panamá' },
+	{ id: 16, value: 'Paraguay' },
+	{ id: 17, value: 'Perú' },
+	{ id: 18, value: 'República Dominicana' },
+	{ id: 19, value: 'Uruguay' },
+	{ id: 20, value: 'Venezuela' }
 ];
 
 export const AREA_ITEMS: IOptionSelect[] = [

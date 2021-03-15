@@ -1,25 +1,21 @@
-import { HostListener, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { take, switchMap } from 'rxjs/internal/operators';
 import { CanActivate, Router } from '@angular/router';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
+import { HeaderService } from '@team31/services/header.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-	@HostListener('window:beforeunload', ['$event'])
-	setCurrentUserData(): void {
-		// sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-		console.log('xd');
-	}
-
 	constructor(
 		private router: Router,
 		private auth: AngularFireAuth,
 		private _messageService: MessageService,
-		private userDataService: UserdataService
+		private userDataService: UserdataService,
+		private headerService: HeaderService
 	) {}
 
 	async canActivate(): Promise<boolean> {
@@ -45,16 +41,14 @@ export class AuthGuard implements CanActivate {
 				})
 			)
 			.toPromise();
+
+		const showHeader = sessionStorage.getItem('showHeader');
+		if (showHeader && showHeader.includes('/principal')) {
+			this.headerService.showMenu(true);
+			sessionStorage.removeItem('showHeader');
+		}
 		this.detechRefreshPage();
 		return response;
-	}
-
-	// I determine if the current route-request is part of a page refresh.
-	private isPageRefresh(): boolean {
-		// If the router has yet to establish a single navigation, it means that this
-		// navigation is the first attempt to reconcile the application state with the
-		// URL state. Meaning, this is a page refresh.
-		return !this.router.navigated;
 	}
 
 	private detechRefreshPage() {
@@ -63,6 +57,7 @@ export class AuthGuard implements CanActivate {
 				'currentUser',
 				JSON.stringify(this.userDataService.getUserProfileData)
 			);
+			sessionStorage.setItem('showHeader', this.router.url);
 		};
 	}
 }

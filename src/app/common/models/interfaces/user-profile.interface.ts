@@ -7,7 +7,7 @@ export interface IUserProfile {
 	events?: IUserEvents[];
 }
 
-interface IUser {
+export interface IUser {
 	nick?: string;
 	email?: string;
 	idGender?: number;

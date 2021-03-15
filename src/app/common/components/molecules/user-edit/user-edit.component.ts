@@ -8,7 +8,7 @@ import {
 	COUNTRY_ITEMS,
 	GENDER_ITEMS
 } from '@team31/models/constants/team-leader.const';
-import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
+import { IUser, IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
@@ -109,25 +109,25 @@ export class UserEditComponent implements OnInit {
 
 	saveProfile(): void {
 		try {
-			console.log(this.profileForm.value);
 			if (this.currentUser.profile.uid) {
 				this._authService.updateProfileData(
 					this.currentUser.profile.uid,
-					<IUserProfile>this.profileForm.value
+					<IUser>this.profileForm.value
 				);
+
 				if (this.showNewPassword) {
 					void this._authService.updatePassword(
 						this.getPasswordsFormControl['confirmPassword'].value
 					);
 				}
+
 				if (this.userDataService.getUserProfileData) {
-					// const userProfile = { profile: this.profileForm.value };
-					this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
-						this.userDataService.getUserProfileData,
-						this.profileForm.value
-					);
+					const dataUserForm: IUser = this.profileForm.value as IUser;
+					const dataservice = this.userDataService.getUserProfileData.profile;
+					const dataUser = { ...dataservice, ...dataUserForm };
+					this.userDataService.getUserProfileData.profile = dataUser;
 				}
-				console.log(this.userDataService.getUserProfileData);
+
 				this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
 			}
 		} catch (error) {

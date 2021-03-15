@@ -32,15 +32,13 @@ export class LoginPageComponent implements OnDestroy {
 		try {
 			const singIn = await this.authFirebase.singInWithEmailAndPassword(this.email, this.password);
 			if (singIn && singIn.user) {
-				const userProfile: IUserProfile = { profile: { uid: singIn.user.uid, email: this.email } };
-				const user = await this.authFirebase.loadProfileData(singIn.user.uid);
-				console.log(this.userDataService.getUserProfileData);
-				if (user) {
-					this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
-						user,
-						userProfile
-					);
-					console.log(this.userDataService.getUserProfileData);
+				const userDataService = await this.authFirebase.loadProfileData(singIn.user.uid);
+				if (userDataService) {
+					userDataService.profile.uid = singIn.user.uid;
+					userDataService.profile.email = this.email;
+
+					this.userDataService.setUserProfileData = userDataService;
+
 					void this.router.navigateByUrl('/principal');
 					this.headerService.showMenu(true);
 				}
