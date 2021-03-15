@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
+import { HeaderService } from '@team31/services/header.service';
 import { UserdataService } from '@team31/services/userdata.service';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../../../common/services/message.service';
@@ -19,7 +20,8 @@ export class LoginPageComponent implements OnDestroy {
 		private authFirebase: AuthService,
 		private _messageService: MessageService,
 		private router: Router,
-		private userDataService: UserdataService
+		private userDataService: UserdataService,
+		private headerService: HeaderService
 	) {}
 
 	ngOnDestroy(): void {
@@ -31,7 +33,7 @@ export class LoginPageComponent implements OnDestroy {
 			const singIn = await this.authFirebase.singInWithEmailAndPassword(this.email, this.password);
 			if (singIn && singIn.user) {
 				// const profileData = await this.authFirebase.loadProfileData(singIn.user.uid).toPromise();
-				const userProfile: IUserProfile = { uid: singIn.user.uid, email: this.email };
+				const userProfile: IUserProfile = { profile: { uid: singIn.user.uid, email: this.email } };
 				this.dataSubscription = this.authFirebase
 					.loadProfileData(singIn.user.uid)
 					.subscribe((user: IUserProfile[]) => {
@@ -41,6 +43,7 @@ export class LoginPageComponent implements OnDestroy {
 						);
 						console.log(this.userDataService.getUserProfileData);
 						void this.router.navigateByUrl('/principal');
+						this.headerService.showMenu(true);
 					});
 			}
 		} catch (error) {

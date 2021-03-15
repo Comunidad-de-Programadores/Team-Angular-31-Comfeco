@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class HeaderService {
-	private subject = new BehaviorSubject(true);
+	private subject = new BehaviorSubject(false);
 
 	showMenu(showMenu: boolean): void {
 		this.subject.next(showMenu);

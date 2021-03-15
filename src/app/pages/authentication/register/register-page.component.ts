@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { IDataDialog } from '@team31/models/interfaces/data-dialog.interface';
 import { IRegister } from '@team31/models/interfaces/register.interface';
 import { ModalService } from '@team31/services/modal.service';
-import { MatDialog } from '@angular/material/dialog';
-import { CustomValidatorsService } from '../common/service/custom-validators.service';
-import { VariableStatic } from '../../../common/static/variable-static';
 import { AuthService } from '../../../common/services/auth.service';
 import { MessageService } from '../../../common/services/message.service';
-import { Router } from '@angular/router';
+import { VariableStatic } from '../../../common/static/variable-static';
+import { CustomValidatorsService } from '../common/service/custom-validators.service';
 
 @Component({
 	selector: 'app-register-page',
@@ -66,7 +66,6 @@ export class RegisterPageComponent {
 			);
 			if (newUser) {
 				await this._authService.createProfileData(this.registerForm.controls['userName'].value);
-				// this._messageService.openSnackBar('Usuario registrado exitosamente', 'start', 'top');
 				this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
 				void this.router.navigate(['/login']);
 			}

@@ -40,61 +40,40 @@
 				</div>
 
 				<div class="card__form-dos">
-					<mat-form-field>
+					<mat-form-field appearance="fill">
 						<mat-label>Genero</mat-label>
-						<select matNativeControl formControlName="idGender" required>
-							<option value="1">Masculino</option>
-							<option value="2">Femenino</option>
-							<option value="3">Otro</option>
-						</select>
+						<mat-select formControlName="idGender" required>
+							<mat-option *ngFor="let gender of listGender" [value]="gender.id">{{
+								gender.value
+							}}</mat-option>
+						</mat-select>
 					</mat-form-field>
 
-					<mat-form-field>
+					<mat-form-field appearance="fill">
 						<mat-label>Fecha de nacimiento</mat-label>
 						<input matInput [matDatepicker]="picker" formControlName="dateB" />
 						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 						<mat-datepicker #picker></mat-datepicker>
 					</mat-form-field>
 
-					<mat-form-field>
+					<mat-form-field appearance="fill">
 						<mat-label>País</mat-label>
-						<select matNativeControl formControlName="idCountry" required>
-							<option value="1">Argentina</option>
-							<option value="2">Bolivia</option>
-							<option value="3">Brasil</option>
-							<option value="4">Chile</option>
-							<option value="5">Colombia</option>
-							<option value="6">Costa Rica</option>
-							<option value="7">Cuba</option>
-							<option value="8">Ecuador</option>
-							<option value="9">El Salvador</option>
-							<option value="10">Guatemala</option>
-							<option value="11">Haití</option>
-							<option value="12">Honduras</option>
-							<option value="13">México</option>
-							<option value="14">Nicaragua</option>
-							<option value="15">Panamá</option>
-							<option value="16">Paraguay</option>
-							<option value="17">Perú</option>
-							<option value="18">República Dominicana</option>
-							<option value="19">Uruguay</option>
-							<option value="20">Venezuela</option>
-						</select>
+						<mat-select formControlName="idCountry" required>
+							<mat-option *ngFor="let country of listCountry" [value]="country.id">{{
+								country.value
+							}}</mat-option>
+						</mat-select>
 					</mat-form-field>
 				</div>
 
 				<div class="card__form-tres">
-					<mat-form-field>
+					<mat-form-field appearance="fill">
 						<mat-label>Área de conocimiento</mat-label>
-						<select matNativeControl formControlName="idArea" required>
-							<option value="1">FronEnd</option>
-							<option value="2">BackEnd</option>
-							<option value="3">DevOps</option>
-							<option value="4">Video Game Developers</option>
-							<option value="4">UI/UX</option>
-							<option value="4">Database Developer</option>
-							<option value="4">Cloud Computing</option>
-						</select>
+						<mat-select formControlName="idArea" required>
+							<mat-option *ngFor="let area of listArea" [value]="area.id">{{
+								area.value
+							}}</mat-option>
+						</mat-select>
 					</mat-form-field>
 				</div>
 

@@ -42,9 +42,11 @@ export class AuthService {
 		const uid = currentUser?.uid;
 		const tutorialsRef = this._fireStore.collection('users').doc(uid);
 		void tutorialsRef.set({
-			uid,
-			nick: username,
-			email: currentUser?.email
+			profile: {
+				uid,
+				nick: username,
+				email: currentUser?.email
+			}
 		});
 	}
 

@@ -1,6 +1,7 @@
 import { Sponsor } from '../carousel';
 import { Framework, ITeamLeaderItem } from '../interfaces/team-leader-item.interface';
 import { IEvent } from './../carousel';
+import { IOptionSelect } from './../interfaces/register.interface';
 
 export const TEAM_LEADER_ITEMS: ITeamLeaderItem[] = [
 	{
@@ -167,4 +168,52 @@ export const EVENT_ITEMS: IEvent[] = [
 		name: 'CodelyTV Fest and Code',
 		url: 'www.google.com'
 	}
+];
+
+export const GENDER_ITEMS: IOptionSelect[] = [
+	{
+		id: 1,
+		value: 'Masculino'
+	},
+	{
+		id: 2,
+		value: 'Femenino'
+	},
+	{
+		id: 3,
+		value: 'Otro'
+	}
+];
+
+export const COUNTRY_ITEMS: IOptionSelect[] = [
+	{ id: 1, value: 'Argentina' },
+	{ id: 2, value: 'Bolivia' },
+	{ id: 3, value: 'Brasil' },
+	{ id: 4, value: 'Chile' },
+	{ id: 5, value: 'Colombia' },
+	{ id: 6, value: 'Costa Rica' },
+	{ id: 7, value: 'Cuba' },
+	{ id: 8, value: 'Ecuador' },
+	{ id: 9, value: 'El Salvador' },
+	{ id: 10, value: '>Guatemala' },
+	{ id: 11, value: '>Haití' },
+	{ id: 12, value: '>Honduras' },
+	{ id: 13, value: '>México' },
+	{ id: 14, value: '>Nicaragua' },
+	{ id: 15, value: '>Panamá' },
+	{ id: 16, value: '>Paraguay' },
+	{ id: 17, value: '>Perú' },
+	{ id: 18, value: '>República Dominicana' },
+	{ id: 19, value: '>Uruguay' },
+	{ id: 20, value: '>Venezuela' }
+];
+
+export const AREA_ITEMS: IOptionSelect[] = [
+	{ id: 1, value: 'FronEnd' },
+	{ id: 2, value: 'BackEnd' },
+	{ id: 3, value: 'DevOps' },
+	{ id: 4, value: 'Video Game Developers' },
+	{ id: 5, value: 'UI/UX' },
+	{ id: 6, value: 'Database Developer' },
+	{ id: 7, value: 'Cloud Computing' }
 ];

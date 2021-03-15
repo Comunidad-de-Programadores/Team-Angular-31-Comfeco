@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ChannelProfileService } from '@team31/services/channel-submenus.service';
 import { ISubMenu } from './../../models/profile.interface';
 
 @Component({
@@ -7,8 +8,7 @@ import { ISubMenu } from './../../models/profile.interface';
 	styleUrls: ['./sub-menu.component.scss']
 })
 export class SubMenuComponent implements OnInit {
-	@Output() clickMenu = new EventEmitter<ISubMenu>();
-
+	constructor(private channelProfileService: ChannelProfileService) {}
 	menuSelected = false;
 	listSubMenu: ISubMenu[] = [];
 
@@ -17,7 +17,7 @@ export class SubMenuComponent implements OnInit {
 			{
 				pathImage: 'assets/svg/profile_submenu.svg',
 				name: 'Mi Perfil',
-				select: false
+				select: true
 			},
 			{
 				pathImage: 'assets/svg/insignia_submenu.svg',
@@ -40,6 +40,6 @@ export class SubMenuComponent implements OnInit {
 	onClickMenu(menu: ISubMenu): void {
 		this.listSubMenu.forEach((menu) => (menu.select = false));
 		menu.select = true;
-		this.clickMenu.emit(menu);
+		this.channelProfileService.showComponent(menu.name);
 	}
 }

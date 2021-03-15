@@ -1,3 +1,5 @@
+import { TypeNameSubMenu } from '@team31/models/types';
+
 export interface IEvents {
 	urlImage: string;
 	name: string;
@@ -9,5 +11,3 @@ export interface ISubMenu {
 	name: TypeNameSubMenu;
 	select: boolean;
 }
-
-type TypeNameSubMenu = 'Mi Perfil' | 'Insignias' | 'Grupos' | 'Eventos';

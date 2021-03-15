@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import {
+	AREA_ITEMS,
+	COUNTRY_ITEMS,
+	GENDER_ITEMS
+} from '@team31/models/constants/team-leader.const';
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { MessageService } from '@team31/services/message.service';
@@ -26,6 +31,9 @@ export class UserEditComponent implements OnInit {
 	passwordsForm: FormGroup;
 	currentUser: IUserProfile = <IUserProfile>{};
 
+	listGender = GENDER_ITEMS;
+	listCountry = COUNTRY_ITEMS;
+	listArea = AREA_ITEMS;
 	constructor(
 		private fb: FormBuilder,
 		public authFirebase: AngularFireAuth,
@@ -64,25 +72,33 @@ export class UserEditComponent implements OnInit {
 
 	loadProfileData(): void {
 		if (Object.keys(this.currentUser).length > 0) {
-			this.getProfileFormControl['nick'].setValue(this.currentUser.nick);
-			this.getProfileFormControl['email'].setValue(this.currentUser.email);
-			this.getProfileFormControl['idGender'].setValue(this.currentUser.idGender);
+			this.getProfileFormControl['nick'].setValue(this.currentUser.profile.nick);
+			this.getProfileFormControl['email'].setValue(this.currentUser.profile.email);
+			this.getProfileFormControl['idGender'].setValue(this.currentUser.profile.idGender);
 
-			if (this.currentUser.dateB) {
-				const dateB = new Date(this.currentUser.dateB?.seconds * 1000);
+			if (this.currentUser.profile.dateB) {
+				const dateB = new Date(this.currentUser.profile.dateB?.seconds * 1000);
 				this.getProfileFormControl['dateB'].setValue(dateB);
-				if (typeof this.currentUser.dateB === 'string') {
-					const dateString = formatDate(this.currentUser.dateB, 'MM/dd/yyyy', 'EN');
+				if (typeof this.currentUser.profile.dateB === 'string') {
+					const dateString = formatDate(this.currentUser.profile.dateB, 'MM/dd/yyyy', 'EN');
 					this.getProfileFormControl['dateB'].setValue(new Date(dateString));
 				}
 			}
-			this.getProfileFormControl['idCountry'].setValue(this.currentUser.idCountry);
-			this.getProfileFormControl['idArea'].setValue(this.currentUser.idArea);
-			this.getProfileFormControl['facebook'].setValue(this.currentUser.facebook);
-			this.getProfileFormControl['github'].setValue(this.currentUser.github);
-			this.getProfileFormControl['linkedin'].setValue(this.currentUser.linkedin);
-			this.getProfileFormControl['twitter'].setValue(this.currentUser.twitter);
-			this.getProfileFormControl['biography'].setValue(this.currentUser.biography);
+			this.getProfileFormControl['idCountry'].setValue(this.currentUser.profile.idCountry);
+			this.getProfileFormControl['idArea'].setValue(this.currentUser.profile.idArea);
+
+			if (this.currentUser.profile.redSocial) {
+				this.getProfileFormControl['facebook'].setValue(
+					this.currentUser.profile.redSocial.facebook
+				);
+				this.getProfileFormControl['github'].setValue(this.currentUser.profile.redSocial.github);
+				this.getProfileFormControl['linkedin'].setValue(
+					this.currentUser.profile.redSocial.linkedin
+				);
+				this.getProfileFormControl['twitter'].setValue(this.currentUser.profile.redSocial.twitter);
+			}
+
+			this.getProfileFormControl['biography'].setValue(this.currentUser.profile.biography);
 		}
 	}
 
@@ -118,19 +134,21 @@ export class UserEditComponent implements OnInit {
 
 	saveProfile(): void {
 		try {
-			this._authService.updateProfileData(this.currentUser.uid, this.profileForm.value);
-			if (this.showNewPassword) {
-				void this._authService.updatePassword(
-					this.getPasswordsFormControl['confirmPassword'].value
-				);
-			}
-			if (this.userDataService.getUserProfileData) {
-				this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
-					this.userDataService.getUserProfileData,
-					<IUserProfile>this.profileForm.value
-				);
-			}
-			this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
+			console.log(this.profileForm.value);
+
+			// this._authService.updateProfileData(this.currentUser.profile.uid, this.profileForm.value);
+			// if (this.showNewPassword) {
+			// 	void this._authService.updatePassword(
+			// 		this.getPasswordsFormControl['confirmPassword'].value
+			// 	);
+			// }
+			// if (this.userDataService.getUserProfileData) {
+			// 	this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
+			// 		this.userDataService.getUserProfileData,
+			// 		<IUserProfile>this.profileForm.value
+			// 	);
+			// }
+			// this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
 		} catch (error) {
 			this._messageService.openError(error, 'end', 'top');
 		}

@@ -1,99 +1,100 @@
 @import '../../../../../assets/scss/variables.scss';
-
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+	background-color: #fff;
+}
 .card {
-  display: flex;
+	display: flex;
 	flex-direction: column;
-  width: 800px;
-  // height: 800px;
-  box-shadow: 0px 4px 17px 5px #B6B7B7;
-  border-radius: 19px;
+	width: 800px;
+	// height: 800px;
+	box-shadow: 0px 4px 17px 5px #b6b7b7;
+	border-radius: 19px;
 
-  &__header{
-    display: flex;
-    width: 100%;
-    // border: 1px solid red;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    gap: .5em;
+	&__header {
+		display: flex;
+		width: 100%;
+		// border: 1px solid red;
+		flex-direction: column;
+		justify-items: center;
+		align-items: center;
+		gap: 0.5em;
 
-    .card_user_image{
-      width: 150px;
-      border-radius: 50%;
-    }
+		.card_user_image {
+			width: 150px;
+			border-radius: 50%;
+		}
 
-    .camera{
-      font-size: 40px;
-      color: $color-primary;
-      cursor: pointer;
-    }
-    margin: 2em 0;
-  }
+		.camera {
+			font-size: 40px;
+			color: $color-primary;
+			cursor: pointer;
+		}
+		margin: 2em 0;
+	}
 
-  &__form{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: auto;
-    justify-content: center;
-    align-content: center;
-    gap: 1em;
-    
-    &-uno{
-      // border: 1px solid red;
-      display: grid;
-      // gap: 3em;
-      justify-content: space-between;
-      grid-template-columns: 48% 48%;
-    }
+	&__form {
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+		margin: auto;
+		justify-content: center;
+		align-content: center;
+		gap: 1em;
 
-    &-dos{
-      // border: 1px solid red;
-      display: grid;
-      grid-template-columns: 32% 32% 32%;
-      justify-content: space-between;
-    }
+		&-uno {
+			// border: 1px solid red;
+			display: grid;
+			// gap: 3em;
+			justify-content: space-between;
+			grid-template-columns: 48% 48%;
+		}
 
-    &-tres{
-      display: grid;
-      grid-template-columns: 100%;
-    }
+		&-dos {
+			// border: 1px solid red;
+			display: grid;
+			grid-template-columns: 32% 32% 32%;
+			justify-content: space-between;
+		}
 
-    &-password{
-      display: grid;
+		&-tres {
+			display: grid;
+			grid-template-columns: 100%;
+		}
 
-      .actual-password{
-        display: flex;
-        width: 50%;
-        height: 35px;
-        // border: 1px solid red;
-        // justify-content: space-evenly;
-        gap: 2em;
-      }
-      .passwords{
-        margin-top: 1.5em;
-        display: grid;
-        justify-content: space-between;
-        grid-template-columns: 48% 48%;
-      }
-    }
+		&-password {
+			display: grid;
 
-    &-social{
-      display: grid;
-      grid-template-columns: 48% 48%;
-      justify-content: space-between;
-    }
+			.actual-password {
+				display: flex;
+				width: 50%;
+				height: 35px;
+				// border: 1px solid red;
+				// justify-content: space-evenly;
+				gap: 2em;
+			}
+			.passwords {
+				margin-top: 1.5em;
+				display: grid;
+				justify-content: space-between;
+				grid-template-columns: 48% 48%;
+			}
+		}
 
-    &-biography{
-      // width: 100%;
-      display: grid;
-      grid-template-columns: 100%;
-    }
+		&-social {
+			display: grid;
+			grid-template-columns: 48% 48%;
+			justify-content: space-between;
+		}
 
-    &-buttons{
-      text-align: right;
-      margin-bottom: 2em;
-    }
+		&-biography {
+			// width: 100%;
+			display: grid;
+			grid-template-columns: 100%;
+		}
 
-  }
+		&-buttons {
+			text-align: right;
+			margin-bottom: 2em;
+		}
+	}
 }

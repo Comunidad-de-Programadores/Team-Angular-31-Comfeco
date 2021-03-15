@@ -11,3 +11,8 @@ export interface IInputs {
 	value: string;
 	img: string;
 }
+
+export interface IOptionSelect {
+	id: number;
+	value: string;
+}
