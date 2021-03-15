@@ -32,27 +32,22 @@ export class LoginPageComponent implements OnDestroy {
 		try {
 			const singIn = await this.authFirebase.singInWithEmailAndPassword(this.email, this.password);
 			if (singIn && singIn.user) {
-				// const profileData = await this.authFirebase.loadProfileData(singIn.user.uid).toPromise();
 				const userProfile: IUserProfile = { profile: { uid: singIn.user.uid, email: this.email } };
-				this.dataSubscription = this.authFirebase
-					.loadProfileData(singIn.user.uid)
-					.subscribe((user: IUserProfile[]) => {
-						this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
-							userProfile,
-							user[0]
-						);
-						console.log(this.userDataService.getUserProfileData);
-						void this.router.navigateByUrl('/principal');
-						this.headerService.showMenu(true);
-					});
+				const user = await this.authFirebase.loadProfileData(singIn.user.uid);
+				console.log(this.userDataService.getUserProfileData);
+				if (user) {
+					this.userDataService.setUserProfileData = this.userDataService.updateProfileData(
+						user,
+						userProfile
+					);
+					console.log(this.userDataService.getUserProfileData);
+					void this.router.navigateByUrl('/principal');
+					this.headerService.showMenu(true);
+				}
 			}
 		} catch (error) {
 			this._messageService.openError(error, 'end', 'top');
 			console.error('Error cl:', error);
 		}
-	}
-
-	updateProfileData(data: IUserProfile, updateData: Partial<IUserProfile>): IUserProfile {
-		return { ...data, ...updateData };
 	}
 }

@@ -58,7 +58,6 @@ export class RegisterPageComponent {
 	}
 
 	async newUser(): Promise<void> {
-		// console.log(this.registerForm.controls['email'].value, this.registerForm.controls['pass'].value);
 		try {
 			const newUser = await this._authService.createUser(
 				this.registerForm.controls['email'].value,

@@ -42,7 +42,7 @@
 				<div class="card__form-dos">
 					<mat-form-field appearance="fill">
 						<mat-label>Genero</mat-label>
-						<mat-select formControlName="idGender" required>
+						<mat-select formControlName="idGender">
 							<mat-option *ngFor="let gender of listGender" [value]="gender.id">{{
 								gender.value
 							}}</mat-option>
@@ -58,7 +58,7 @@
 
 					<mat-form-field appearance="fill">
 						<mat-label>País</mat-label>
-						<mat-select formControlName="idCountry" required>
+						<mat-select formControlName="idCountry">
 							<mat-option *ngFor="let country of listCountry" [value]="country.id">{{
 								country.value
 							}}</mat-option>
@@ -69,7 +69,7 @@
 				<div class="card__form-tres">
 					<mat-form-field appearance="fill">
 						<mat-label>Área de conocimiento</mat-label>
-						<mat-select formControlName="idArea" required>
+						<mat-select formControlName="idArea">
 							<mat-option *ngFor="let area of listArea" [value]="area.id">{{
 								area.value
 							}}</mat-option>
@@ -160,7 +160,7 @@
 					</form>
 				</div>
 
-				<div class="card__form-social">
+				<div class="card__form-social" formGroupName="redSocial">
 					<mat-form-field>
 						<mat-label>&nbsp; Facebook</mat-label>
 
@@ -168,7 +168,7 @@
 							<mat-icon>facebook</mat-icon>
 							<strong>facebook.com/</strong>
 						</span>
-						<input type="tel" matInput formControlName="facebook" />
+						<input type="text" matInput formControlName="facebook" />
 					</mat-form-field>
 
 					<mat-form-field>
@@ -209,21 +209,17 @@
 							matInput
 							placeholder="¡Queremos saber más de ti!"
 							formControlName="biography"
+							type="text"
 						></textarea>
 					</mat-form-field>
 				</div>
 
 				<div class="card__form-buttons">
-					<button
-						mat-raised-button
-						color="primary"
-						[disabled]="!profileForm.valid || (this.showNewPassword && !this.passwordsForm.valid)"
-						type="submit"
-					>
-						Guardar cambios
-					</button>
+					<button mat-raised-button color="primary" type="submit">Guardar cambios</button>
 				</div>
 			</div>
 		</form>
 	</mat-card-content>
 </mat-card>
+
+<!-- [disabled]="!profileForm.valid || (this.showNewPassword && this.passwordsForm.valid)" -->
