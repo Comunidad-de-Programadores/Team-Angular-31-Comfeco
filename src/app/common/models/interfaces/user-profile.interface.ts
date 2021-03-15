@@ -9,14 +9,14 @@ export interface IUserProfile {
 
 interface IUser {
 	nick?: string;
-	email: string;
+	email?: string;
 	idGender?: number;
 	dateB?: Timestamp;
 	idCountry?: number;
 	idArea?: number;
 	redSocial?: IRedSocial;
 	biography?: string;
-	uid: string;
+	uid?: string;
 }
 
 interface IUserInsignia {

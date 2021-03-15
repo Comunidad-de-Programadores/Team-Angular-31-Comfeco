@@ -171,6 +171,7 @@ export const EVENT_ITEMS: IEvent[] = [
 ];
 
 export const GENDER_ITEMS: IOptionSelect[] = [
+	{ id: 0, value: 'Seleccione género' },
 	{
 		id: 1,
 		value: 'Masculino'
@@ -186,6 +187,7 @@ export const GENDER_ITEMS: IOptionSelect[] = [
 ];
 
 export const COUNTRY_ITEMS: IOptionSelect[] = [
+	{ id: 0, value: 'Seleccione país' },
 	{ id: 1, value: 'Argentina' },
 	{ id: 2, value: 'Bolivia' },
 	{ id: 3, value: 'Brasil' },
@@ -209,6 +211,7 @@ export const COUNTRY_ITEMS: IOptionSelect[] = [
 ];
 
 export const AREA_ITEMS: IOptionSelect[] = [
+	{ id: 0, value: 'Seleccione area' },
 	{ id: 1, value: 'FronEnd' },
 	{ id: 2, value: 'BackEnd' },
 	{ id: 3, value: 'DevOps' },

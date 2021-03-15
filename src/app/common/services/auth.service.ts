@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import firebase from 'firebase/app';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
 	constructor(private _authService: AngularFireAuth, private _fireStore: AngularFirestore) {}
 
-	usersCollection: AngularFirestoreCollection<IUserProfile> | undefined;
+	// usersCollection: AngularFirestoreCollection<IUserProfile> | undefined;
+	// usersCollection: AngularFirestoreCollection<IUserProfile> | undefined;
 
 	singInWithEmailAndPassword(
 		email: string,
@@ -54,16 +54,20 @@ export class AuthService {
 		void this._authService.signOut();
 	}
 
-	loadProfileData(uid: string): Observable<IUserProfile[]> {
-		this.usersCollection = this._fireStore.collection<IUserProfile>('users', (ref) =>
-			ref.where('uid', '==', uid).limit(1)
-		);
-
-		return this.usersCollection.valueChanges();
+	async loadProfileData(uid: string): Promise<IUserProfile> {
+		// this.usersCollection = this._fireStore.collection<IUserProfile>('users', (ref) =>
+		// 	ref.where('uid', '==', uid).limit(1)
+		// );
+		const userDocument = await this._fireStore.collection('users').doc(uid).get().toPromise();
+		return <IUserProfile>userDocument.data();
+		// return this.usersCollection.d;
+		// return <Observable<firebase.firestore.DocumentSnapshot<IUserProfile>>>(
+		// 	this._fireStore.collection('users').doc(uid).get()
+		// );
 	}
 	updateProfileData(uid: string, data: IUserProfile): void {
 		const profileData = this._fireStore.collection('users').doc(uid);
-		void profileData.update(data);
+		void profileData.update({ profile: data });
 	}
 
 	test(uid: string): void {
