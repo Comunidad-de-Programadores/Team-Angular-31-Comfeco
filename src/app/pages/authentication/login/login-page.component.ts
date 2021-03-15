@@ -1,6 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
 import { HeaderService } from '@team31/services/header.service';
 import { UserdataService } from '@team31/services/userdata.service';
