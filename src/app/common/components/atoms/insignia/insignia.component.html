@@ -1,18 +1,15 @@
 <mat-card class="card">
-	<img src="assets/images/person.png" class="navbar-brand__item-logo" alt="Team Angular 31" />
+	<img [src]="item.urlImage" class="image" alt="Team Angular 31" />
 	<div class="name">
-		<mat-card-title>Descripción</mat-card-title>
-		<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+		<mat-card-title>{{ item.name }}</mat-card-title>
+		<p>{{ item.description }}</p>
 	</div>
 
 	<mat-card-content>
 		<hr />
 		<div class="how">
-			<mat-card-title>¿Como Ganarla?</mat-card-title>
-			<p>
-				The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
-				Japan. A s for hunting.
-			</p>
+			<mat-card-title>¿Cómo Ganarla?</mat-card-title>
+			<p [innerHTML]="item.howToWin"></p>
 		</div>
 	</mat-card-content>
 </mat-card>

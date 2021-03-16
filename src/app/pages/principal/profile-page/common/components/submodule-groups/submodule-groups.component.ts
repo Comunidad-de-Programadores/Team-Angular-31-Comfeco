@@ -12,7 +12,6 @@ export class SubmoduleGroupsComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.profileService.getGroups().subscribe((groups: IGroups[]) => {
-			console.log(groups);
 			groups.forEach((group) => {
 				console.log(JSON.parse(group.members.toString()));
 			});

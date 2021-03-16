@@ -1,11 +1,6 @@
 <header class="container">
 	<a href="https://www.comfeco.com/" class="container__logo" target="_blank">
-		<img
-			src="assets/svg/LogoComfeco.svg"
-			class="navbar-brand__item-logo"
-			alt="Logo de Comfeco"
-			title="Ir a Comfeco"
-		/>
+		<img src="assets/svg/LogoComfeco.svg" alt="Logo de Comfeco" title="Ir a Comfeco" />
 	</a>
 	<div class="container__menu" *ngIf="headerService.suscription() | async as boolean">
 		<app-nav-menu></app-nav-menu>

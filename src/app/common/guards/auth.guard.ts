@@ -4,6 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 import { HeaderService } from '@team31/services/header.service';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
+import { PathProject } from '@team31/static/path-project';
 import { switchMap, take } from 'rxjs/internal/operators';
 
 @Injectable({
@@ -37,7 +38,7 @@ export class AuthGuard implements CanActivate {
 						}
 						return true;
 					} else {
-						void this.router.navigate(['/login']);
+						void this.router.navigate([PathProject.LOGIN]);
 						this._messageService.openError('Primero inicia sesión	', 'end', 'top');
 						return false;
 					}
@@ -46,7 +47,7 @@ export class AuthGuard implements CanActivate {
 			.toPromise();
 
 		const showHeader = sessionStorage.getItem('showHeader');
-		if (showHeader && showHeader.includes('/principal')) {
+		if (showHeader && showHeader.includes(PathProject.PRINCIPAL)) {
 			this.headerService.showMenu(true);
 			sessionStorage.removeItem('showHeader');
 		}

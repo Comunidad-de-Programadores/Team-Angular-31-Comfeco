@@ -17,6 +17,7 @@ export class UserProfileComponent {
 
 	clickCloseSession(): void {
 		this.auth.logout();
+		sessionStorage.clear();
 		void this.route.navigateByUrl(PathProject.LOGIN);
 	}
 }

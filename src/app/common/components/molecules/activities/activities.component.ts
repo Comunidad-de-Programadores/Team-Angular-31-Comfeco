@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IActivities } from '@team31/models/interfaces/activities-item.interface';
+import { IActivities } from '@team31/models/interfaces/profile-module.interface';
 
 @Component({
 	selector: 'app-activities',

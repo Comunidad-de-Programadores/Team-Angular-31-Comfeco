@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IEvents } from '../../models/profile.interface';
+import { IEvents } from '@team31/models/interfaces/profile-module.interface';
 import { ProfileService } from '../../services/profile.service';
 
 @Component({
@@ -13,9 +13,7 @@ export class SubmoduleEventsComponent implements OnInit {
 	listEvents: IEvents[] = [];
 	ngOnInit(): void {
 		this.profileService.getEvents().subscribe((events) => {
-			this.listEvents = events.map((item) => {
-				return item.payload.doc.data();
-			});
+			this.listEvents = events;
 		});
 	}
 }

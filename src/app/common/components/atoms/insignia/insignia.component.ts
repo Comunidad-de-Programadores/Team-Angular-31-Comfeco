@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IInsignia } from '@team31/models/interfaces/profile-module.interface';
 
 @Component({
 	selector: 'app-insignia',
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
 	styleUrls: ['./insignia.component.scss']
 })
 export class InsigniaComponent {
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	constructor() {}
+	@Input() item: IInsignia = <IInsignia>{};
 }
