@@ -21,7 +21,9 @@
 		</mat-form-field>
 
 		<label class="url" [routerLink]="['/login/recovery']">¿Olvidaste tu contraseña?</label>
-		<button mat-raised-button color="primary" class="login-button">Log in</button>
+		<button mat-raised-button color="primary" [disabled]="isLoading" class="login-button">
+			Log in
+		</button>
 
 		<div class="login-slide">
 			<mat-slide-toggle>Mantener sesión</mat-slide-toggle>

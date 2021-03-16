@@ -10,6 +10,7 @@ import {
 } from '@team31/models/constants/team-leader.const';
 import { IUser, IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 import { AuthService } from '@team31/services/auth.service';
+import { ChannelProfileService } from '@team31/services/channel-submenus.service';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
 import { CustomValidatorsService } from 'src/app/pages/authentication/common/service/custom-validators.service';
@@ -20,13 +21,14 @@ import { CustomValidatorsService } from 'src/app/pages/authentication/common/ser
 	styleUrls: ['./user-edit.component.scss']
 })
 export class UserEditComponent implements OnInit {
+	uidProfile = '';
 	showVerifyPassword = false;
 	showNewPassword = false;
-	uidProfile = '';
 	changePassword = false;
 	hidePassword = true;
 	hideNewPassword = true;
 	hideConfirmPassword = true;
+	isLoading = false;
 	profileForm: FormGroup;
 	passwordsForm: FormGroup;
 	currentUser: IUserProfile = <IUserProfile>{};
@@ -40,7 +42,8 @@ export class UserEditComponent implements OnInit {
 		private _authService: AuthService,
 		private customvalidators: CustomValidatorsService,
 		private _messageService: MessageService,
-		private userDataService: UserdataService
+		private userDataService: UserdataService,
+		private channelProfileService: ChannelProfileService
 	) {
 		if (this.userDataService.getUserProfileData) {
 			this.currentUser = this.userDataService.getUserProfileData;
@@ -110,6 +113,7 @@ export class UserEditComponent implements OnInit {
 	saveProfile(): void {
 		try {
 			if (this.currentUser.profile.uid) {
+				this.isLoading = true;
 				this._authService.updateProfileData(
 					this.currentUser.profile.uid,
 					<IUser>this.profileForm.value
@@ -127,8 +131,10 @@ export class UserEditComponent implements OnInit {
 				this.userDataService.getUserProfileData.profile = dataUser;
 
 				this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
+				this.isLoading = false;
 			}
 		} catch (error) {
+			this.isLoading = false;
 			this._messageService.openError(error, 'end', 'top');
 		}
 	}
@@ -166,6 +172,10 @@ export class UserEditComponent implements OnInit {
 				validator: this.customvalidators.MatchPassword('newPassword', 'confirmPassword')
 			}
 		);
+	}
+
+	backToProfile(): void {
+		this.channelProfileService.showComponent('Mi Perfil');
 	}
 
 	get getProfileFormControl(): FormGroup['controls'] {
