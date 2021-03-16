@@ -5,13 +5,13 @@ import { IUserProfile } from '@team31/models/interfaces/user-profile.interface';
 	providedIn: 'root'
 })
 export class UserdataService {
-	userProfileData: IUserProfile | undefined;
+	userProfileData: IUserProfile = <IUserProfile>{};
 
 	set setUserProfileData(data: IUserProfile) {
 		this.userProfileData = data;
 	}
 
-	get getUserProfileData(): IUserProfile | undefined {
+	get getUserProfileData(): IUserProfile {
 		return this.userProfileData;
 	}
 

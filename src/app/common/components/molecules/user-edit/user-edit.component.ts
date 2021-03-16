@@ -121,12 +121,10 @@ export class UserEditComponent implements OnInit {
 					);
 				}
 
-				if (this.userDataService.getUserProfileData) {
-					const dataUserForm: IUser = this.profileForm.value as IUser;
-					const dataservice = this.userDataService.getUserProfileData.profile;
-					const dataUser = { ...dataservice, ...dataUserForm };
-					this.userDataService.getUserProfileData.profile = dataUser;
-				}
+				const dataUserForm: IUser = this.profileForm.value as IUser;
+				const dataservice = this.userDataService.getUserProfileData.profile;
+				const dataUser = { ...dataservice, ...dataUserForm };
+				this.userDataService.getUserProfileData.profile = dataUser;
 
 				this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
 			}
