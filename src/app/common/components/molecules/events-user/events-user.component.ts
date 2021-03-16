@@ -8,5 +8,6 @@ import { EVENT_ITEMS } from '@team31/models/constants/team-leader.const';
 	styleUrls: ['./events-user.component.scss']
 })
 export class EventsUserComponent {
+	// listEvents: IEvent[] = [<IEvent>{}];
 	listEvents: IEvent[] = EVENT_ITEMS;
 }

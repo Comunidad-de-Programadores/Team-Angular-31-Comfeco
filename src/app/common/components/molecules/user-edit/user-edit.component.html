@@ -1,6 +1,10 @@
 <mat-card class="card">
 	<mat-card-header>
 		<div class="card__header">
+			<span class="material-icons card__header-back" (click)="backToProfile()">
+				keyboard_backspace
+			</span>
+
 			<img
 				src="assets/images/team-leaders/angular-nicolas-molina.jpg"
 				alt=""
@@ -220,6 +224,7 @@
 						color="primary"
 						[disabled]="!profileForm.valid || (this.showNewPassword && !this.passwordsForm.valid)"
 						type="submit"
+						[disabled]="isLoading"
 					>
 						Guardar cambios
 					</button>
@@ -228,5 +233,3 @@
 		</form>
 	</mat-card-content>
 </mat-card>
-
-<!-- [disabled]="!profileForm.valid || (this.showNewPassword && this.passwordsForm.valid)" -->

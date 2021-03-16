@@ -11,6 +11,17 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
+	&__not-found{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-items: center;
+
+		.not-found-icon{
+			font-size: 5em;
+			color: $color-secondary;
+		}
+	}
 	&__actions {
 		display: flex;
 		gap: 10px;
