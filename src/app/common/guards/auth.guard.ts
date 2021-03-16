@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { take, switchMap } from 'rxjs/internal/operators';
 import { CanActivate, Router } from '@angular/router';
+import { HeaderService } from '@team31/services/header.service';
 import { MessageService } from '@team31/services/message.service';
 import { UserdataService } from '@team31/services/userdata.service';
-import { HeaderService } from '@team31/services/header.service';
+import { switchMap, take } from 'rxjs/internal/operators';
 
 @Injectable({
 	providedIn: 'root'
@@ -25,7 +25,10 @@ export class AuthGuard implements CanActivate {
 				// eslint-disable-next-line @typescript-eslint/require-await
 				switchMap(async (authState) => {
 					if (authState) {
-						if (!this.userDataService.getUserProfileData) {
+						if (
+							!this.userDataService.getUserProfileData ||
+							Object.keys(this.userDataService.getUserProfileData).length == 0
+						) {
 							// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 							this.userDataService.setUserProfileData = JSON.parse(
 								sessionStorage.getItem('currentUser') || '{}'
@@ -47,7 +50,9 @@ export class AuthGuard implements CanActivate {
 			this.headerService.showMenu(true);
 			sessionStorage.removeItem('showHeader');
 		}
+
 		this.detechRefreshPage();
+
 		return response;
 	}
 

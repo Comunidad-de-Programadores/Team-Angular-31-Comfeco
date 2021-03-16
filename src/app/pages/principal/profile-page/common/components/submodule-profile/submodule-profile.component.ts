@@ -18,6 +18,8 @@ export class SubmoduleProfileComponent implements OnInit {
 
 	loadDataCardProfile(): void {
 		const dataService = this.userdataService.getUserProfileData;
+		console.log(dataService);
+
 		if (dataService) {
 			this.dataProfile.area =
 				AREA_ITEMS.find((area) => area.id === dataService.profile.idArea)?.value ?? '';
