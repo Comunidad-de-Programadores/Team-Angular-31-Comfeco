@@ -215,7 +215,14 @@
 				</div>
 
 				<div class="card__form-buttons">
-					<button mat-raised-button color="primary" type="submit">Guardar cambios</button>
+					<button
+						mat-raised-button
+						color="primary"
+						[disabled]="!profileForm.valid || (this.showNewPassword && !this.passwordsForm.valid)"
+						type="submit"
+					>
+						Guardar cambios
+					</button>
 				</div>
 			</div>
 		</form>

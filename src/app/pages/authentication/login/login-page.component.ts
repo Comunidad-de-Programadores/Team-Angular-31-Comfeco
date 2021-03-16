@@ -15,6 +15,7 @@ export class LoginPageComponent implements OnDestroy {
 	password = '123456';
 	hidePassword = true;
 	dataSubscription: Subscription | undefined;
+	isLoading = false;
 	constructor(
 		private authFirebase: AuthService,
 		private _messageService: MessageService,
@@ -29,6 +30,7 @@ export class LoginPageComponent implements OnDestroy {
 
 	async login(): Promise<void> {
 		try {
+			this.isLoading = true;
 			const singIn = await this.authFirebase.singInWithEmailAndPassword(this.email, this.password);
 			if (singIn && singIn.user) {
 				const userDataService = await this.authFirebase.loadProfileData(singIn.user.uid);
@@ -43,6 +45,7 @@ export class LoginPageComponent implements OnDestroy {
 				}
 			}
 		} catch (error) {
+			this.isLoading = false;
 			this._messageService.openError(error, 'end', 'top');
 			console.error('Error cl:', error);
 		}
