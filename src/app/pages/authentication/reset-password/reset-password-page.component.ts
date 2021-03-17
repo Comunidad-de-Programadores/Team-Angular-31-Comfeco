@@ -40,11 +40,8 @@ export class ResetPasswordPageComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		console.log('On resetPassword');
 		this.activatedRoute.queryParams.subscribe((params: Params) => {
-			// if we didn't receive any parameters,
-			// we can't do anything
-			// if (params) void this.router.navigate(['/login']);
-
 			this.mode = String(params['mode']);
 			this.actionCode = String(params['oobCode']);
 
@@ -58,22 +55,16 @@ export class ResetPasswordPageComponent implements OnInit {
 					.catch((e) => {
 						// Invalid or expired action code
 						alert(e);
-						void this.router.navigate(['/login']);
+						// void this.router.navigate(['/login']);
 					});
 			}
 		});
 	}
 
-	get resetPasswordFormControl(): FormGroup['controls'] {
-		return this.resetPasswordForm.controls;
-	}
-
 	resetPassword(): void {
-		// Save the new password.
 		this.auth
 			.confirmPasswordReset(this.actionCode, this.resetPasswordForm.controls['pass'].value)
 			.then(() => {
-				// Password reset has been confirmed and new password updated.
 				this._messageService.openInfo(
 					'Su contraseña ha sido actualizada, puede iniciar sesión',
 					'end',
@@ -82,8 +73,11 @@ export class ResetPasswordPageComponent implements OnInit {
 				void this.router.navigate(['/login']);
 			})
 			.catch((e) => {
-				// Error occurred during confirmation.
 				alert(e);
 			});
+	}
+
+	get resetPasswordFormControl(): FormGroup['controls'] {
+		return this.resetPasswordForm.controls;
 	}
 }
