@@ -30,10 +30,10 @@ export class SubmoduleProfileComponent implements OnInit {
 
 	loadInsignia(): void {
 		const insignias = this.userdataService.getUserProfileData.insignia;
-		// if (insignias) {
-		// 	this.insignia.name = insignias[0].name;
-		// 	this.insignia.urlImage = insignias[0].urlImage;
-		// }
+		if (insignias) {
+			this.insignia.name = insignias[0].name;
+			this.insignia.urlImage = insignias[0].urlImage;
+		}
 	}
 
 	loadDataCardProfile(): void {
