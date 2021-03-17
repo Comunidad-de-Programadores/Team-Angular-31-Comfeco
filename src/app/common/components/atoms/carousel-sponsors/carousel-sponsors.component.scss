@@ -1,7 +1,7 @@
 @import './../../../../../assets/scss/variables.scss';
 
-.ngucarousel{
-  max-width: 1000px;
+.ngucarousel-items{
+  border: 1px solid red;
 }
 
 .item {
@@ -83,14 +83,14 @@
 .contenedor__carousel{
   width: 100%;
   max-width: 1440px;
-
+  min-width: 0;
+  
   .carousel__item{
     display: flex;
     align-content: center;
     justify-content: center; 
   }
 }
-
 
 .material-icons {
   font-size: 45px;
