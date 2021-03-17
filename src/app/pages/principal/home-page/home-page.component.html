@@ -8,13 +8,13 @@
 	</div>
 
 	<p class="principal__header">Ellos ya creen en esta iniciativa:</p>
-	<app-carousel [carouselItems]="sourceTeamLeader"></app-carousel>
+	<app-carousel class="carousel" [carouselItems]="sourceTeamLeader"></app-carousel>
 
 	<p class="principal__header">Sponsors</p>
-	<app-carousel-sponsors [carouselItems]="sourceSponsor"></app-carousel-sponsors>
+	<app-carousel-sponsors class="carousel" [carouselItems]="sourceSponsor"></app-carousel-sponsors>
 	<!-- <app-carousel
 	[carouselItems]="sourceSponsor"></app-carousel> -->
 	<p class="principal__header">Prepárate, lo bueno está por empezar</p>
+	<app-counter class="counter"></app-counter>
 </div>
-<app-counter></app-counter>
 <app-menu-community></app-menu-community>
