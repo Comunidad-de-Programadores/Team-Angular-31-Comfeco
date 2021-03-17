@@ -12,6 +12,7 @@ import { IUser, IUserProfile } from '@team31/models/interfaces/user-profile.inte
 import { AuthService } from '@team31/services/auth.service';
 import { ChannelProfileService } from '@team31/services/channel-submenus.service';
 import { MessageService } from '@team31/services/message.service';
+import { ProfileService } from '@team31/services/profile.service';
 import { UserdataService } from '@team31/services/userdata.service';
 import { CustomValidatorsService } from 'src/app/pages/authentication/common/service/custom-validators.service';
 
@@ -43,7 +44,8 @@ export class UserEditComponent implements OnInit {
 		private customvalidators: CustomValidatorsService,
 		private _messageService: MessageService,
 		private userDataService: UserdataService,
-		private channelProfileService: ChannelProfileService
+		private channelProfileService: ChannelProfileService,
+		private profileService: ProfileService
 	) {
 		if (this.userDataService.getUserProfileData) {
 			this.currentUser = this.userDataService.getUserProfileData;
@@ -114,7 +116,7 @@ export class UserEditComponent implements OnInit {
 		try {
 			if (this.currentUser.profile.uid) {
 				this.isLoading = true;
-				this._authService.updateProfileData(
+				this.profileService.updateProfileData(
 					this.currentUser.profile.uid,
 					<IUser>this.profileForm.value
 				);

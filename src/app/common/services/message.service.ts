@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackBarPositionHorizontal, SnackBarPositionVertical } from '@team31/models/types';
+import { TypeSnackBarPositionHorizontal, TypeSnackBarPositionVertical } from '@team31/models/types';
 @Injectable({
 	providedIn: 'root'
 })
@@ -12,8 +12,8 @@ export class MessageService {
 
 	openInfo(
 		message: string,
-		horizontal: SnackBarPositionHorizontal,
-		vertical: SnackBarPositionVertical,
+		horizontal: TypeSnackBarPositionHorizontal,
+		vertical: TypeSnackBarPositionVertical,
 		duration?: number
 	): void {
 		this.showSnackBar(message, horizontal, vertical, this.SNACKBAR_TYPE_INFO, duration);
@@ -21,8 +21,8 @@ export class MessageService {
 
 	openError(
 		message: string,
-		horizontal: SnackBarPositionHorizontal,
-		vertical: SnackBarPositionVertical,
+		horizontal: TypeSnackBarPositionHorizontal,
+		vertical: TypeSnackBarPositionVertical,
 		duration?: number
 	): void {
 		this.showSnackBar(message, horizontal, vertical, this.SNACKBAR_TYPE_ERROR, duration);
@@ -30,8 +30,8 @@ export class MessageService {
 
 	private showSnackBar(
 		message: string,
-		horizontal: SnackBarPositionHorizontal,
-		vertical: SnackBarPositionVertical,
+		horizontal: TypeSnackBarPositionHorizontal,
+		vertical: TypeSnackBarPositionVertical,
 		type: number,
 		duration?: number
 	) {

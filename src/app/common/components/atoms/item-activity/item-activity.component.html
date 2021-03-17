@@ -1,10 +1,6 @@
 <mat-card>
-	<div class="" *ngIf="itemActivity.titleMessage">
-		{{ itemActivity.titleMessage }}
+	<div class="" *ngIf="activity">
+		{{ activity }}
 		<img src="assets/svg/calendar.svg" />
-	</div>
-	<div class="empty" *ngIf="!itemActivity.titleMessage">
-		No tienes actividades recientes. <span class="url"> Ver eventos</span>
-		<img src="assets/svg/not-found-activity.svg" />
 	</div>
 </mat-card>

@@ -1,10 +1,12 @@
 import { Timestamp } from '@firebase/firestore-types';
+import { IEventUser } from './profile-module.interface';
 
 export interface IUserProfile {
 	profile: IUser;
 	insignia?: IUserInsignia[];
 	group?: IGroupUser;
-	events?: IUserEvents[];
+	events?: IEventUser[];
+	activities?: string[];
 }
 
 export interface IUser {
@@ -16,10 +18,10 @@ export interface IUser {
 	idArea?: number;
 	redSocial?: IRedSocial;
 	biography?: string;
-	uid?: string;
+	uid: string;
 }
 
-interface IUserInsignia {
+export interface IUserInsignia {
 	urlImage: string;
 	name: string;
 }
@@ -33,11 +35,6 @@ interface IGroupUser {
 interface IMemberGroup {
 	name: string;
 	level: string;
-}
-
-interface IUserEvents {
-	urlImage: string;
-	name: string;
 }
 
 export interface ICardProfile {

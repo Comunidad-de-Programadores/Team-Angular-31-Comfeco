@@ -10,15 +10,24 @@ import { UserdataService } from '@team31/services/userdata.service';
 })
 export class SubmoduleProfileComponent implements OnInit {
 	constructor(private userdataService: UserdataService) {}
+
 	dataProfile: ICardProfile = <ICardProfile>{};
+	listActivities: string[] = [];
 
 	ngOnInit(): void {
 		this.loadDataCardProfile();
+		this.loadActivities();
+	}
+
+	loadActivities(): void {
+		const dataService = this.userdataService.getUserProfileData;
+		if (dataService && dataService.activities) {
+			this.listActivities = dataService.activities;
+		}
 	}
 
 	loadDataCardProfile(): void {
 		const dataService = this.userdataService.getUserProfileData;
-		console.log(dataService);
 
 		if (dataService) {
 			this.dataProfile.area =

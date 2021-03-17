@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IGroups } from '../../models/group.interface';
-import { ProfileService } from '../../services/profile.service';
+import { IGroups } from '@team31/models/interfaces/profile-module.interface';
+import { ProfileService } from '@team31/services/profile.service';
 
 @Component({
 	selector: 'app-submodule-groups',

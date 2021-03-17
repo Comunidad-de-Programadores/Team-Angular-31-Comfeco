@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IActivities } from '@team31/models/interfaces/profile-module.interface';
 
 @Component({
 	selector: 'app-item-activity',
@@ -7,5 +6,5 @@ import { IActivities } from '@team31/models/interfaces/profile-module.interface'
 	styleUrls: ['./item-activity.component.scss']
 })
 export class ItemActivityComponent {
-	@Input() itemActivity: IActivities = <IActivities>{};
+	@Input() activity: string | undefined;
 }

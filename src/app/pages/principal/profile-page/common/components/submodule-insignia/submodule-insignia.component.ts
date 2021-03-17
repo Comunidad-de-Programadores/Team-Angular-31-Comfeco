@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IInsignia } from '@team31/models/interfaces/profile-module.interface';
 import { Subscription } from 'rxjs';
-import { ProfileService } from '../../services/profile.service';
+import { ProfileService } from '../../../../../../common/services/profile.service';
 
 @Component({
 	selector: 'app-submodule-insignia',

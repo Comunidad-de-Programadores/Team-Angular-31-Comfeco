@@ -1,9 +1,9 @@
 <div class="container">
 	<div
-		[ngStyle]="{ 'background-image': 'url(' + item.photo + ')' }"
+		[ngStyle]="{ 'background-image': 'url(' + item.urlImage + ')' }"
 		alt=""
 		class="container__image"
-		*ngIf="item.photo"
+		*ngIf="item.urlImage"
 	></div>
 	<div class="container__not-found" *ngIf="!item.name">
 		<span class="material-icons not-found-icon"> mood_bad </span>

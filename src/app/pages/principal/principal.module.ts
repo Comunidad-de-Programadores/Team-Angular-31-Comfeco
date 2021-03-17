@@ -11,10 +11,9 @@ import { PrincipalRoutingModule } from './principal-routing.module';
 import { SubMenuComponent } from './profile-page/common/components/sub-menu/sub-menu.component';
 import { SubmoduleEventsComponent } from './profile-page/common/components/submodule-events/submodule-events.component';
 import { SubmoduleGroupsComponent } from './profile-page/common/components/submodule-groups/submodule-groups.component';
-import { SubmoduleProfileComponent } from './profile-page/common/components/submodule-profile/submodule-profile.component';
-import { ProfileService } from './profile-page/common/services/profile.service';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { SubmoduleInsigniaComponent } from './profile-page/common/components/submodule-insignia/submodule-insignia.component';
+import { SubmoduleProfileComponent } from './profile-page/common/components/submodule-profile/submodule-profile.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -36,6 +35,6 @@ import { SubmoduleInsigniaComponent } from './profile-page/common/components/sub
 		ReactiveFormsModule
 	],
 	exports: [],
-	providers: [AuthService, CustomValidatorsService, MessageService, ProfileService]
+	providers: [AuthService, CustomValidatorsService, MessageService]
 })
 export class PrincipalModule {}

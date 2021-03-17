@@ -8,6 +8,13 @@
 
 	<mat-card-actions class="card__actions">
 		<button mat-button>Más información</button>
-		<button mat-raised-button color="primary" (click)="clickParticipate()">Participar</button>
+		<button
+			mat-raised-button
+			color="primary"
+			(click)="clickParticipate()"
+			[disabled]="item.disabled"
+		>
+			Participar
+		</button>
 	</mat-card-actions>
 </mat-card>

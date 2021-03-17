@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IEvent } from '../../../models/carousel';
+import { IEventUser } from '@team31/models/interfaces/profile-module.interface';
 
 @Component({
 	selector: 'app-item-event-user',
@@ -7,5 +7,5 @@ import { IEvent } from '../../../models/carousel';
 	styleUrls: ['./item-event-user.component.scss']
 })
 export class ItemEventUserComponent {
-	@Input() item: IEvent = <IEvent>{};
+	@Input() item: IEventUser = <IEventUser>{};
 }

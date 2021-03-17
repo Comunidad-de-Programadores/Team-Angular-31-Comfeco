@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IGroups } from 'src/app/pages/principal/profile-page/common/models/group.interface';
+import { IGroups } from '@team31/models/interfaces/profile-module.interface';
 
 @Component({
 	selector: 'app-groups',

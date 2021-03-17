@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
-import { IEvent } from '@team31/models/carousel';
-import { EVENT_ITEMS } from '@team31/models/constants/team-leader.const';
+import { Component, OnInit } from '@angular/core';
+import { IEventUser } from '@team31/models/interfaces/profile-module.interface';
+import { UserdataService } from '@team31/services/userdata.service';
 
 @Component({
 	selector: 'app-events-user',
 	templateUrl: './events-user.component.html',
 	styleUrls: ['./events-user.component.scss']
 })
-export class EventsUserComponent {
-	// listEvents: IEvent[] = [<IEvent>{}];
-	listEvents: IEvent[] = EVENT_ITEMS;
+export class EventsUserComponent implements OnInit {
+	constructor(private userdataService: UserdataService) {}
+	listEvents: IEventUser[] = [];
+
+	ngOnInit(): void {
+		if (this.userdataService.getUserProfileData.events) {
+			this.listEvents = this.userdataService.getUserProfileData.events;
+		}
+	}
 }

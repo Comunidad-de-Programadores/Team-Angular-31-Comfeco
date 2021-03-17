@@ -8,9 +8,3 @@ export interface Sponsor {
 	photo: string;
 	name?: string;
 }
-
-export interface IEvent {
-	photo: string;
-	name: string;
-	url: string;
-}

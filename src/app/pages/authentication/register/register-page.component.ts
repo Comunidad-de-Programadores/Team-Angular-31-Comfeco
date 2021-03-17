@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { IDataDialog } from '@team31/models/interfaces/data-dialog.interface';
 import { IRegister } from '@team31/models/interfaces/register.interface';
 import { ModalService } from '@team31/services/modal.service';
+import { ProfileService } from '@team31/services/profile.service';
 import { AuthService } from '../../../common/services/auth.service';
 import { MessageService } from '../../../common/services/message.service';
 import { VariableStatic } from '../../../common/static/variable-static';
@@ -33,7 +34,8 @@ export class RegisterPageComponent {
 		private customvalidators: CustomValidatorsService,
 		private _authService: AuthService,
 		private _messageService: MessageService,
-		private router: Router
+		private router: Router,
+		private profileService: ProfileService
 	) {
 		this.registerForm = this.fb.group(
 			{
@@ -64,7 +66,7 @@ export class RegisterPageComponent {
 				this.registerForm.controls['pass'].value
 			);
 			if (newUser) {
-				await this._authService.createProfileData(this.registerForm.controls['userName'].value);
+				await this.profileService.createProfileData(this.registerForm.controls['userName'].value);
 				this._messageService.openInfo('Usuario registrado exitosamente', 'end', 'top');
 				void this.router.navigate(['/login']);
 			}
