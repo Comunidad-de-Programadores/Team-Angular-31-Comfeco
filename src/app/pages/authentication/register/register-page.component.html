@@ -45,9 +45,9 @@
 					formControlName="pass"
 					[type]="hidePassword ? 'password' : 'text'"
 				/>
-				<mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
-					hidePassword ? 'visibility' : 'visibility_off'
-				}}</mat-icon>
+				<mat-icon matSuffix (click)="hidePassword = !hidePassword"
+					>{{ hidePassword ? 'visibility' : 'visibility_off' }}
+				</mat-icon>
 				<mat-error
 					*ngIf="registerFormControl.pass.touched && registerFormControl.pass.errors?.required"
 				>
@@ -70,9 +70,9 @@
 					formControlName="confirmPass"
 					[type]="hideConfirmPassword ? 'password' : 'text'"
 				/>
-				<mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">{{
-					hideConfirmPassword ? 'visibility' : 'visibility_off'
-				}}</mat-icon>
+				<mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
+					>{{ hideConfirmPassword ? 'visibility' : 'visibility_off' }}
+				</mat-icon>
 				<mat-error
 					*ngIf="
 						registerFormControl.confirmPass.touched &&
@@ -93,13 +93,7 @@
 
 			<div class="terms">
 				<section class="register__check">
-					<mat-checkbox color="primary" formControlName="termsCheck">
-						<!-- <p>
-							Acepto los <a (click)="clickModalTerms()">terminos y condiciones</a> de uso de la
-							politica de proteccion de datos. <br />
-							recibiras confirmacion del registro a traves del correo electronico.
-						</p> -->
-					</mat-checkbox>
+					<mat-checkbox color="primary" formControlName="termsCheck"> </mat-checkbox>
 					<p>
 						Acepto los
 						<a (click)="clickModalTerms()">
@@ -121,7 +115,7 @@
 				>
 					{{ declarations.button }}
 				</button>
-				<a href="#"> {{ declarations.enlace }} </a>
+				<a [routerLink]="['login']" class="back"> {{ declarations.enlace }} </a>
 			</div>
 		</form>
 		<app-social-login
