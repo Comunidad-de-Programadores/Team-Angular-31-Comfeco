@@ -5,4 +5,8 @@ export class Util {
 		const activity = `Te has unido al ${typeActivity} ${nameActivity}`;
 		return activity;
 	}
+
+	static propertiesEmpty<T>(obj: T): boolean {
+		return Object.values(obj).some((x) => x === null || x === undefined || x === '');
+	}
 }

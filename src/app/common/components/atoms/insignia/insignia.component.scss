@@ -2,9 +2,11 @@
 .card {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	max-width: 20em;
+	height: 35em;
+
 	border-radius: 25px;
 	box-shadow: $value-shadow $color-shadow;
 	background: linear-gradient(348deg, $color-primary 8.8%, rgba(255, 105, 68, 0) 9%);

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@team31/services/auth.service';
+import { UserdataService } from '@team31/services/userdata.service';
 import { PathProject } from '@team31/static/path-project';
 
 @Component({
@@ -8,9 +9,21 @@ import { PathProject } from '@team31/static/path-project';
 	templateUrl: './user-profile.component.html',
 	styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent {
-	constructor(private route: Router, private auth: AuthService) {}
+export class UserProfileComponent implements OnInit {
+	constructor(
+		private route: Router,
+		private auth: AuthService,
+		private userdataService: UserdataService
+	) {}
 
+	nameUser = 'Actualiza tu Nick';
+
+	ngOnInit(): void {
+		const nick = this.userdataService.getUserProfileData.profile.nick;
+		if (nick) {
+			this.nameUser = nick;
+		}
+	}
 	clickGoProfile(): void {
 		void this.route.navigateByUrl(PathProject.PROFILE);
 	}

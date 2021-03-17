@@ -15,6 +15,7 @@ import { MessageService } from '@team31/services/message.service';
 import { ProfileService } from '@team31/services/profile.service';
 import { UserdataService } from '@team31/services/userdata.service';
 import { CustomValidatorsService } from 'src/app/pages/authentication/common/service/custom-validators.service';
+import { Util } from './../../../static/util';
 
 @Component({
 	selector: 'app-user-edit',
@@ -128,16 +129,30 @@ export class UserEditComponent implements OnInit {
 				}
 
 				const dataUserForm: IUser = this.profileForm.value as IUser;
+
 				const dataservice = this.userDataService.getUserProfileData.profile;
 				const dataUser = { ...dataservice, ...dataUserForm };
 				this.userDataService.getUserProfileData.profile = dataUser;
 
+				this.giveInsignia(dataUserForm);
 				this._messageService.openInfo('Perfil actualizado exitosamente', 'end', 'top');
 				this.isLoading = false;
 			}
 		} catch (error) {
 			this.isLoading = false;
 			this._messageService.openError(error, 'end', 'top');
+		}
+	}
+
+	giveInsignia(data: IUser): void {
+		if (!Util.propertiesEmpty(data)) {
+			this.profileService.getInsigniaSociable().subscribe((data) => {
+				const insignia = data[0];
+				const uid = this.userDataService.getUserProfileData.profile.uid;
+				const insigniasUser = [{ urlImage: insignia.urlImage, name: insignia.name }];
+				this.profileService.updateInsigniasData(uid, insigniasUser);
+				this.userDataService.getUserProfileData.insignia = insigniasUser;
+			});
 		}
 	}
 

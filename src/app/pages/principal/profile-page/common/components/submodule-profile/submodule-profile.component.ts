@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AREA_ITEMS } from '@team31/models/constants/team-leader.const';
 import { ICardProfile } from '@team31/models/interfaces/user-profile.interface';
 import { UserdataService } from '@team31/services/userdata.service';
+import { IUserInsignia } from './../../../../../../common/models/interfaces/user-profile.interface';
 
 @Component({
 	selector: 'app-submodule-profile',
@@ -13,10 +14,11 @@ export class SubmoduleProfileComponent implements OnInit {
 
 	dataProfile: ICardProfile = <ICardProfile>{};
 	listActivities: string[] = [];
-
+	insignia: IUserInsignia = <IUserInsignia>{};
 	ngOnInit(): void {
 		this.loadDataCardProfile();
 		this.loadActivities();
+		this.loadInsignia();
 	}
 
 	loadActivities(): void {
@@ -24,6 +26,14 @@ export class SubmoduleProfileComponent implements OnInit {
 		if (dataService && dataService.activities) {
 			this.listActivities = dataService.activities;
 		}
+	}
+
+	loadInsignia(): void {
+		const insignias = this.userdataService.getUserProfileData.insignia;
+		// if (insignias) {
+		// 	this.insignia.name = insignias[0].name;
+		// 	this.insignia.urlImage = insignias[0].urlImage;
+		// }
 	}
 
 	loadDataCardProfile(): void {

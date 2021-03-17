@@ -2,7 +2,9 @@
 	<div class="profile__card">
 		<app-card-profile [profile]="dataProfile"></app-card-profile>
 	</div>
-	<div class="profile__badge"></div>
+	<div class="profile__badge">
+		<app-my-insignia [name]="insignia.name" [urlImage]="insignia.urlImage"></app-my-insignia>
+	</div>
 	<div class="profile__activities">
 		<app-activities></app-activities>
 	</div>

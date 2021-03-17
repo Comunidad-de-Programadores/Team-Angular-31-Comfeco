@@ -6,7 +6,11 @@ import {
 	IGroups,
 	IInsignia
 } from '@team31/models/interfaces/profile-module.interface';
-import { IUser, IUserProfile } from '@team31/models/interfaces/user-profile.interface';
+import {
+	IUser,
+	IUserInsignia,
+	IUserProfile
+} from '@team31/models/interfaces/user-profile.interface';
 import { Observable } from 'rxjs';
 import { IEventUser } from './../models/interfaces/profile-module.interface';
 import { TypeAttributeDataUser } from './../models/types';
@@ -29,6 +33,12 @@ export class ProfileService {
 		return this._fireStore.collection<IInsignia>('insignia').valueChanges();
 	}
 
+	getInsigniaSociable(): Observable<IInsignia[]> {
+		return this._fireStore
+			.collection<IInsignia>('insignia', (ref) => ref.where('name', '==', 'Sociable'))
+			.valueChanges();
+	}
+
 	async loadProfileData(uid: string): Promise<IUserProfile> {
 		const userDocument = await this._fireStore.collection('users').doc(uid).get().toPromise();
 		return <IUserProfile>userDocument.data();
@@ -44,6 +54,10 @@ export class ProfileService {
 
 	updateActivitiesData(uid: string, data: string[]): void {
 		this.updateDataUser(uid, 'activities', data);
+	}
+
+	updateInsigniasData(uid: string, data: IUserInsignia[]): void {
+		this.updateDataUser(uid, 'insignia', data);
 	}
 
 	private updateDataUser<T>(uid: string, attribute: TypeAttributeDataUser, data: T): void {
