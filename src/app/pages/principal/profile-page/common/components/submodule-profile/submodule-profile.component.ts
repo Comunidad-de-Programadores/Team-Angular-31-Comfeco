@@ -21,6 +21,7 @@ export class SubmoduleProfileComponent implements OnInit {
 		this.loadDataCardProfile();
 		this.loadActivities();
 		this.loadInsignia();
+
 		this.breackPointer.observe('(max-width: 698px)').subscribe((data) => {
 			this.showExpand = data.matches;
 			console.log(data.matches);
