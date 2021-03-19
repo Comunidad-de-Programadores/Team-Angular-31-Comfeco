@@ -32,3 +32,21 @@
 .mat-menu-item {
 	color: $color-text;
 }
+
+@media only screen and (max-width: 812px) {
+	.container {
+		gap: 18px;
+	}
+}
+
+@media only screen and (max-width: 945px) {
+	.container {
+		font-size: 19px;
+	}
+}
+
+@media only screen and (max-width: 860px) {
+	.container {
+		font-size: 16px;
+	}
+}

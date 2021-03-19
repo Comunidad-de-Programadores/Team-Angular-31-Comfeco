@@ -1,3 +1,4 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 //Modules
 import { AngularFireModule } from '@angular/fire';
@@ -24,7 +25,8 @@ import { AppComponent } from './app.component';
 		BrowserAnimationsModule,
 		HeaderBannerModule,
 		MatDialogModule,
-		MatSnackBarModule
+		MatSnackBarModule,
+		LayoutModule
 	],
 	providers: [HeaderService, ModalService, MessageService],
 	bootstrap: [AppComponent]

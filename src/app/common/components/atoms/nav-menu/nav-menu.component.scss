@@ -2,6 +2,7 @@
 	display: flex;
 	gap: 4em;
 	justify-content: space-between;
+	align-items: center;
 	a {
 		color: white;
 		text-decoration: none;
@@ -16,5 +17,25 @@
 	a.active {
 		font-size: 24px;
 		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width: 945px) {
+	.nav {
+		gap: 1em;
+		a:hover {
+			font-size: 19px;
+		}
+	}
+}
+
+@media only screen and (max-width: 860px) {
+	.nav {
+		a {
+			font-size: 16px;
+		}
+		a:hover {
+			font-size: 17px;
+		}
 	}
 }

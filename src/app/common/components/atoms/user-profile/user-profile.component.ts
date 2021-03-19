@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@team31/services/auth.service';
+import { HeaderService } from '@team31/services/header.service';
 import { UserdataService } from '@team31/services/userdata.service';
 import { PathProject } from '@team31/static/path-project';
 
@@ -13,7 +14,8 @@ export class UserProfileComponent implements OnInit {
 	constructor(
 		private route: Router,
 		private auth: AuthService,
-		private userdataService: UserdataService
+		private userdataService: UserdataService,
+		private headerService: HeaderService
 	) {}
 
 	nameUser = 'Actualiza tu Nick';
@@ -31,6 +33,7 @@ export class UserProfileComponent implements OnInit {
 	clickCloseSession(): void {
 		this.auth.logout();
 		sessionStorage.clear();
+		this.headerService.showMenu(false);
 		void this.route.navigateByUrl(PathProject.LOGIN);
 	}
 }
