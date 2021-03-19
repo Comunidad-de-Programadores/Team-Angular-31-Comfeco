@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AREA_ITEMS } from '@team31/models/constants/team-leader.const';
 import { ICardProfile } from '@team31/models/interfaces/user-profile.interface';
@@ -10,8 +11,9 @@ import { IUserInsignia } from './../../../../../../common/models/interfaces/user
 	styleUrls: ['./submodule-profile.component.scss']
 })
 export class SubmoduleProfileComponent implements OnInit {
-	constructor(private userdataService: UserdataService) {}
-
+	constructor(private userdataService: UserdataService, public breackPointer: BreakpointObserver) {}
+	showExpand = false;
+	panelOpenState = false;
 	dataProfile: ICardProfile = <ICardProfile>{};
 	listActivities: string[] = [];
 	insignia: IUserInsignia = <IUserInsignia>{};
@@ -19,6 +21,10 @@ export class SubmoduleProfileComponent implements OnInit {
 		this.loadDataCardProfile();
 		this.loadActivities();
 		this.loadInsignia();
+		this.breackPointer.observe('(max-width: 698px)').subscribe((data) => {
+			this.showExpand = data.matches;
+			console.log(data.matches);
+		});
 	}
 
 	loadActivities(): void {

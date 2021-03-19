@@ -17,6 +17,7 @@ import { ChannelProfileService } from '@team31/services/channel-submenus.service
 	]
 })
 export class ProfilePageComponent implements OnInit {
+	panelOpenState = false;
 	constructor(private channelProfileService: ChannelProfileService) {}
 	titleSubMenu = 'Mi Perfil';
 	nameComponeny = 'Mi Perfil';
