@@ -31,7 +31,6 @@ body {
     *:hover {
         outline: none;
     }
-    // height: 100vh;
     padding: 0;
     margin: 0;
 }
@@ -40,6 +39,7 @@ body {
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     color: $color-text;
     font-size: 12px;
+    border: 1px solid black;
     input[type='text'] {
         color: $color-text;
     }
@@ -102,6 +102,9 @@ body {
     }
     .snackbar-info {
         background-color: $color-secondary;
+    }
+    .mat-form-field-infix{
+        width: auto;
     }
 }
 
