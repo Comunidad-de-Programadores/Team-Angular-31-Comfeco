@@ -2,7 +2,11 @@
 	&__container {
 		// border: 1px solid red;
 		display: flex;
+<<<<<<< HEAD
 		width: auto;
+=======
+		// width: 1000px;
+>>>>>>> feature/funcionalidad-gruop
 		min-width: 0;
 		flex-direction: column;
 		justify-items: center;
@@ -16,6 +20,33 @@
 		.counter {
 			width: 100%;
 		}
+<<<<<<< HEAD
+=======
+
+		// @media screen and (max-width: 1400px){
+		// 	margin: auto;
+		// 	width: 70%;
+		// 	min-width: 0;
+		// }
+
+		// @media screen and (max-width: 1000px){
+		// 	margin: auto;
+		// 	width: 50%;
+		// 	min-width: 0;
+		// }
+
+		// @media screen and (max-width: 800px){
+		// 	margin: auto;
+		// 	width: 40%;
+		// 	min-width: 0;
+		// }
+
+		// @media screen and (max-width: 600px){
+		// 	margin: auto;
+		// 	width: 30%;
+		// 	min-width: 0;
+		// }
+>>>>>>> feature/funcionalidad-gruop
 	}
 
 	&__title {

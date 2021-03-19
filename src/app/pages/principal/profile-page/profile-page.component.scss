@@ -1,5 +1,6 @@
 @import '../../../../assets/scss/variables.scss';
 .container {
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -8,6 +9,17 @@
         font-size: 18px;
         color: $color-blue-metalic;
     }
+=======
+	display: flex;
+	flex-direction: column;
+	// gap: 2em;
+	align-items: center;
+
+	&__title-submenu {
+		font-size: 18px;
+		color: $color-blue-metalic;
+	}
+>>>>>>> feature/funcionalidad-gruop
 }
 
 .mat-form-field+.mat-form-field {

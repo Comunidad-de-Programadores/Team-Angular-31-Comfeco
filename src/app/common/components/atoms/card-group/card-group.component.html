@@ -3,12 +3,11 @@
 	<div class="card__shared">
 		<span class="material-icons"> share </span>
 	</div>
-	<p class="card__technology">Typescript</p>
+	<p class="card__technology">{{ group.nameTechnology }}</p>
 	<mat-card-content class="card__content">
-		<div class="card__content-title">Los crypt</div>
+		<div class="card__content-title">{{ group.nameGroup }}</div>
 		<p class="card__content-description">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam rerum dolores delectus
-			consequuntur. Corporis sequi eum distinctio maxime quas possimus!
+			{{ group.description }}
 		</p>
 		<button mat-raised-button color="primary" class="card__content-join">Unirse</button>
 	</mat-card-content>

@@ -10,7 +10,11 @@
 		*ngIf="nameComponeny === 'Eventos'"
 		[@inOutAnimation]
 	></app-submodule-events>
-	<app-submodule-groups *ngIf="nameComponeny === 'Grupos'" [@inOutAnimation]></app-submodule-groups>
+	<app-submodule-groups
+		class="groups"
+		*ngIf="nameComponeny === 'Grupos'"
+		[@inOutAnimation]
+	></app-submodule-groups>
 	<app-submodule-insignia
 		*ngIf="nameComponeny === 'Insignias'"
 		[@inOutAnimation]
