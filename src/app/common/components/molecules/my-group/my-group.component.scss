@@ -28,9 +28,8 @@
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-betweens;
   line-height: 0;
-  gap: 11em;
   &__migrupo {
     font-size: 1.2em;
     color: $color-text-alternative
