@@ -14,6 +14,7 @@ import { SubmoduleGroupsComponent } from './profile-page/common/components/submo
 import { SubmoduleInsigniaComponent } from './profile-page/common/components/submodule-insignia/submodule-insignia.component';
 import { SubmoduleProfileComponent } from './profile-page/common/components/submodule-profile/submodule-profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -32,7 +33,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 		AtomModule,
 		CommonModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		MatExpansionModule
 	],
 	exports: [],
 	providers: [AuthService, CustomValidatorsService, MessageService]
