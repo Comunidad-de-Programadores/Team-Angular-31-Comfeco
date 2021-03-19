@@ -1,7 +1,7 @@
 <mat-card class="card">
-	<ng-template *ngIf="activities && activities.length > 0">
+	<div *ngIf="activities && activities.length > 0" class="container-items">
 		<app-item-activity *ngFor="let item of activities" [activity]="item"></app-item-activity>
-	</ng-template>
+	</div>
 	<div class="empty" *ngIf="!activities || activities.length === 0">
 		No tienes actividades recientes. <span class="url"> Ver eventos</span>
 		<img src="assets/svg/not-found-activity.svg" />

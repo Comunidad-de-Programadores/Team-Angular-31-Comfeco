@@ -22,3 +22,19 @@
 .mat-button {
 	color: $color-url;
 }
+
+@media only screen and (max-width: 575px) {
+	.card {
+		max-width: 25em;
+	}
+}
+@media only screen and (max-width: 285px) {
+	.card {
+		max-width: 16em;
+		&__title {
+			.title {
+				font-size: 16px;
+			}
+		}
+	}
+}

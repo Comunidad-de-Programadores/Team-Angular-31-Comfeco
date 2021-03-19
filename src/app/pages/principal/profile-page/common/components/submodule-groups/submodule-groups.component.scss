@@ -1,14 +1,34 @@
-.container__groups{
-  display: grid;
-  grid-template-columns: 29% 70%;
-  gap: 2.5em;
-  justify-content: space-evenly;
-  &__right, &__left{
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-  @media screen and (max-width: 745px) {
-   grid-template-rows: repeat(2, 1fr); 
-  }
+@import '../../../../../../../assets/scss/variables.scss';
+
+.container__groups {
+	display: grid;
+	grid-template-columns: 29% 70%;
+	gap: 2.5em;
+	justify-content: space-evenly;
+	&__right,
+	&__left {
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+	}
+}
+.material-icons {
+	color: $color-primary;
+}
+
+.expand {
+	width: 49em;
+
+	.my-group,
+	.group {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 704px) {
+	.expand {
+		width: auto;
+	}
 }

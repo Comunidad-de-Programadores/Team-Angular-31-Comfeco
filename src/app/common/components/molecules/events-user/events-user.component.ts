@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IEventUser } from '@team31/models/interfaces/profile-module.interface';
 import { UserdataService } from '@team31/services/userdata.service';
 
@@ -10,7 +10,7 @@ import { UserdataService } from '@team31/services/userdata.service';
 export class EventsUserComponent implements OnInit {
 	constructor(private userdataService: UserdataService) {}
 	listEvents: IEventUser[] = [];
-
+	@Input() modeMovil = false;
 	ngOnInit(): void {
 		if (this.userdataService.getUserProfileData.events) {
 			this.listEvents = this.userdataService.getUserProfileData.events;

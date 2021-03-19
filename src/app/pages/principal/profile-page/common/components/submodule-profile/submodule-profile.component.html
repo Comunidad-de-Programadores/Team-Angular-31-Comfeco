@@ -6,14 +6,14 @@
 		<app-my-insignia [name]="insignia.name" [urlImage]="insignia.urlImage"></app-my-insignia>
 	</div>
 	<div class="profile__activities">
-		<app-activities></app-activities>
+		<app-activities [activities]="listActivities"></app-activities>
 	</div>
 	<div class="profile__events">
 		<app-events-user></app-events-user>
 	</div>
 </div>
 
-<div class="profile__form expand" *ngIf="showExpand">
+<div class="expand" *ngIf="showExpand">
 	<mat-accordion>
 		<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
 			<mat-expansion-panel-header>
@@ -24,9 +24,6 @@
 
 			<div class="profile__card">
 				<app-card-profile [profile]="dataProfile"></app-card-profile>
-				<br />
-				<hr />
-				<br />
 				<app-my-insignia [name]="insignia.name" [urlImage]="insignia.urlImage"></app-my-insignia>
 			</div>
 		</mat-expansion-panel>
@@ -38,7 +35,7 @@
 				</mat-panel-title>
 			</mat-expansion-panel-header>
 			<div class="profile__activities">
-				<app-activities></app-activities>
+				<app-activities [activities]="listActivities"></app-activities>
 			</div>
 		</mat-expansion-panel>
 
@@ -47,7 +44,7 @@
 				<mat-panel-title> <span class="material-icons"> stars </span> Eventos </mat-panel-title>
 			</mat-expansion-panel-header>
 			<div class="profile__events">
-				<app-events-user></app-events-user>
+				<app-events-user [modeMovil]="showExpand"></app-events-user>
 			</div>
 		</mat-expansion-panel>
 	</mat-accordion>

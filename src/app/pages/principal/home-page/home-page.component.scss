@@ -1,6 +1,5 @@
 .principal {
 	&__container {
-		// border: 1px solid red;
 		display: flex;
 		width: auto;
 		min-width: 0;
@@ -27,6 +26,7 @@
 
 	&__subtitle {
 		margin: 0;
+		text-align: center;
 	}
 
 	&__description {
@@ -40,5 +40,14 @@
 		margin: 0.5em;
 		font-weight: bold;
 		font-size: 20px;
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 416px) {
+	.principal {
+		&__header {
+			font-size: 18px;
+		}
 	}
 }

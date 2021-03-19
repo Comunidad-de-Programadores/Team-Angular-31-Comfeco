@@ -14,7 +14,7 @@
 		</mat-form-field>
 	</div>
 	<div class="groups__grid">
-		<div *ngFor="let group of groupsData">
+		<div *ngFor="let group of groupsData" class="item">
 			<app-card-group [group]="group"></app-card-group>
 		</div>
 	</div>

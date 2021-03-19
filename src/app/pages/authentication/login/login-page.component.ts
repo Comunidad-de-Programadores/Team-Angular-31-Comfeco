@@ -39,6 +39,7 @@ export class LoginPageComponent implements OnDestroy {
 			);
 			if (singIn && singIn.user) {
 				const userDataService = await this.profileService.loadProfileData(singIn.user.uid);
+
 				if (userDataService) {
 					userDataService.profile.uid = singIn.user.uid;
 					userDataService.profile.email = this.email;

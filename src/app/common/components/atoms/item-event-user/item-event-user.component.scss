@@ -10,14 +10,15 @@
 		max-height: 140px;
 		background-size: cover;
 		background-repeat: no-repeat;
+		border-radius: inherit;
 	}
-	&__not-found{
+	&__not-found {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-items: center;
 
-		.not-found-icon{
+		.not-found-icon {
 			font-size: 5em;
 			color: $color-secondary;
 		}
