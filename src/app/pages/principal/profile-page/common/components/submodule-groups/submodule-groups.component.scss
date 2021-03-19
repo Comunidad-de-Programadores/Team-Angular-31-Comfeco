@@ -1,6 +1,14 @@
 .container__groups{
-  width: 100%;
   display: grid;
-  grid-template-columns: 28% 70%;
-  justify-content: space-between;
+  grid-template-columns: 29% 70%;
+  gap: 2.5em;
+  justify-content: space-evenly;
+  &__right, &__left{
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  @media screen and (max-width: 745px) {
+   grid-template-rows: repeat(2, 1fr); 
+  }
 }
