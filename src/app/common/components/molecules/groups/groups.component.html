@@ -2,15 +2,15 @@
 	<div class="groups__search">
 		<mat-form-field>
 			<mat-label>Filtrar por lenguaje</mat-label>
-			<mat-select>
-				<mat-option value="option1">Javascript</mat-option>
-				<mat-option value="option2">Typescript</mat-option>
-				<mat-option value="option3">C#</mat-option>
+			<mat-select [(ngModel)]="languageFilter">
+				<mat-option *ngFor="let language of languagesList" [value]="language">{{
+					language
+				}}</mat-option>
 			</mat-select>
 		</mat-form-field>
 		<mat-form-field class="example-full-width">
 			<mat-label>Buscar grupo</mat-label>
-			<input matInput placeholder="Typescript" />
+			<input matInput placeholder="Typescript" (keyup)="filterGroups()" [(ngModel)]="textFilter" />
 		</mat-form-field>
 	</div>
 	<div class="groups__grid">

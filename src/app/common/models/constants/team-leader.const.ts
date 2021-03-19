@@ -201,3 +201,5 @@ export const AREA_ITEMS: IOptionSelect[] = [
 	{ id: 6, value: 'Database Developer' },
 	{ id: 7, value: 'Cloud Computing' }
 ];
+
+export const LANGUAGES = ['Javascript', 'Typescript', 'Java', 'C#', 'Dart'];
