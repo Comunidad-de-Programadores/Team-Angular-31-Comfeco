@@ -1,40 +1,34 @@
-// *{
-//   border: 1px solid black;
-// }
-.profile{
-  width: 100%;
-  height: 100%;
-  &__form{
-    display: grid;
-    grid-template: repeat(3, auto) / repeat(4,auto);
-    grid-gap: 1em;
+@import '../../../../../../../assets/scss/variables.scss';
+.profile {
+    width: 100%;
+    height: 100%;
+    &__form {
+        display: grid;
+        grid-template: repeat(3, auto) / repeat(4, auto);
+        grid-gap: 1em;
+    }
+    &__card {
+        margin: 0 auto;
+        grid-column: 1;
+        grid-row: 1;
+    }
+    &__activities {
+        margin: 0 auto;
+        grid-column: 2 / span 2;
+        grid-row: 1 / span 3;
+    }
+    &__badge {
+        margin: 0 auto;
+        grid-column: 1;
+        grid-row: 2 / span 1;
+    }
+    &__events {
+        margin: 0 auto;
+        grid-column: 4;
+        grid-row: 1 / span 3;
+    }
+}
 
-    // div{
-    //   background: gray;
-    // }
-  }
-
-  &__card{
-    margin: 0 auto;
-    grid-column: 1;
-    grid-row: 1;
-    // border: 1px solid black;
-  }
-
-  &__activities{
-    margin: 0 auto;
-    grid-column: 2 / span 2;
-    grid-row: 1 / span 3;
-  }
-
-  &__badge{
-    margin: 0 auto;
-    grid-column: 1;
-    grid-row: 2 / span 1;
-  }
-  &__events{
-    margin: 0 auto;
-    grid-column: 4;
-    grid-row: 1 / span 3;
-  }
+.material-icons {
+    color: $color-primary;
 }
