@@ -4,6 +4,7 @@ import {
 	Component,
 	HostListener,
 	Input,
+	OnInit,
 	ViewChild
 } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
@@ -14,7 +15,7 @@ import { ITeamLeaderItem } from '@team31/models/interfaces/team-leader-item.inte
 	templateUrl: './carousel.component.html',
 	styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselComponent implements AfterViewInit, OnInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 	// @Input() type: string | undefined;
 	@Input() carouselItems: Array<ITeamLeaderItem> | undefined;
@@ -36,6 +37,7 @@ export class CarouselComponent implements AfterViewInit {
 		// animation: 'lazy'
 	};
 	constructor(private cdr: ChangeDetectorRef) {}
+
 	responsiCarousel = '1440px';
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	@HostListener('window:resize', ['$event'])
@@ -46,6 +48,11 @@ export class CarouselComponent implements AfterViewInit {
 			this.responsiCarousel = '1440px';
 		}
 	}
+
+	ngOnInit(): void {
+		this.onResize();
+	}
+
 	ngAfterViewInit(): void {
 		this.cdr.detectChanges();
 	}

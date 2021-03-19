@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 		public breakpointObserver: BreakpointObserver
 	) {}
 	showMenuMovil = false;
+	hiddenAll = false;
 	showHeader = false;
 	ngOnInit(): void {
 		this.breakpointObserver.observe('(max-width: 698px)').subscribe((data) => {

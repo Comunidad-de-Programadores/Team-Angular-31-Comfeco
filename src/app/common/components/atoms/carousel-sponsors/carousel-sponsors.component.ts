@@ -5,6 +5,7 @@ import {
 	Component,
 	HostListener,
 	Input,
+	OnInit,
 	ViewChild
 } from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
@@ -15,7 +16,7 @@ import { Sponsor } from '@team31/models/carousel';
 	templateUrl: './carousel-sponsors.component.html',
 	styleUrls: ['./carousel-sponsors.component.scss']
 })
-export class CarouselSponsorsComponent implements AfterViewInit {
+export class CarouselSponsorsComponent implements AfterViewInit, OnInit {
 	@ViewChild('myCarousel') myCarousel: NguCarousel<unknown> | undefined;
 	// @Input() type: string | undefined;
 	@Input() carouselItems: Array<Sponsor> | undefined;
@@ -45,11 +46,10 @@ export class CarouselSponsorsComponent implements AfterViewInit {
 		} else {
 			this.responsiCarousel = '1440px';
 		}
-		// if (window.innerWidth >= 1190 && window.innerWidth <= 1470) {
-		// 	this.responsiCarousel = String(window.innerWidth) + 'px';
-		// } else {
-		// 	this.responsiCarousel = '1350px';
-		// }
+	}
+
+	ngOnInit(): void {
+		this.onResize();
 	}
 
 	ngAfterViewInit(): void {
