@@ -1,4 +1,12 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import {
+	AfterViewInit,
+	ChangeDetectorRef,
+	Component,
+	HostListener,
+	Input,
+	ViewChild
+} from '@angular/core';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 import { Sponsor } from '@team31/models/carousel';
 
@@ -25,7 +33,24 @@ export class CarouselSponsorsComponent implements AfterViewInit {
 		touch: true,
 		velocity: 0.2
 	};
-	constructor(private cdr: ChangeDetectorRef) {}
+	responsiCarousel = '1440px';
+
+	constructor(private cdr: ChangeDetectorRef, private breakpointObserver: BreakpointObserver) {}
+
+	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+	@HostListener('window:resize', ['$event'])
+	onResize() {
+		if (window.innerWidth <= 1470) {
+			this.responsiCarousel = String(window.innerWidth - 30) + 'px';
+		} else {
+			this.responsiCarousel = '1440px';
+		}
+		// if (window.innerWidth >= 1190 && window.innerWidth <= 1470) {
+		// 	this.responsiCarousel = String(window.innerWidth) + 'px';
+		// } else {
+		// 	this.responsiCarousel = '1350px';
+		// }
+	}
 
 	ngAfterViewInit(): void {
 		this.cdr.detectChanges();

@@ -1,4 +1,4 @@
-<div class="contenedor__carousel">
+<div class="contenedor__carousel" [ngStyle]="{ 'max-width': responsiCarousel }">
 	<ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
 		<div *nguCarouselDef="let item" class="item">
 			<app-team-leader [teamLeaders]="item"></app-team-leader>
