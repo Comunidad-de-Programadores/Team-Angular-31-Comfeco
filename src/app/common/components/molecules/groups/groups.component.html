@@ -1,19 +1,21 @@
-<div class="groups__search">
-	<mat-form-field>
-		<mat-label>Filtrar por lenguaje</mat-label>
-		<mat-select>
-			<mat-option value="option1">Javascript</mat-option>
-			<mat-option value="option2">Typescript</mat-option>
-			<mat-option value="option3">C#</mat-option>
-		</mat-select>
-	</mat-form-field>
-	<mat-form-field class="example-full-width">
-		<mat-label>Buscar grupo</mat-label>
-		<input matInput placeholder="Typescript" />
-	</mat-form-field>
-</div>
-<div class="groups__grid">
-	<div *ngFor="let group of groupsData">
-		<app-card-group [group]="group"></app-card-group>
+<div class="groups">
+	<div class="groups__search">
+		<mat-form-field>
+			<mat-label>Filtrar por lenguaje</mat-label>
+			<mat-select>
+				<mat-option value="option1">Javascript</mat-option>
+				<mat-option value="option2">Typescript</mat-option>
+				<mat-option value="option3">C#</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field class="example-full-width">
+			<mat-label>Buscar grupo</mat-label>
+			<input matInput placeholder="Typescript" />
+		</mat-form-field>
+	</div>
+	<div class="groups__grid">
+		<div *ngFor="let group of groupsData">
+			<app-card-group [group]="group"></app-card-group>
+		</div>
 	</div>
 </div>
