@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavMenuMovilComponent } from './nav-menu-movil/nav-menu-movil.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { SocialFooterComponent } from './social-footer/social-footer.component';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -19,10 +20,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 		SocialFooterComponent,
 		NavMenuComponent,
 		UserProfileComponent,
-		NavMenuMovilComponent
+		NavMenuMovilComponent,
+		SplashScreenComponent
 	],
 	imports: [MatBadgeModule, MatIconModule, CommonModule, MatMenuModule, MatTooltipModule],
 	providers: [AuthService],
-	exports: [HeaderComponent, FooterComponent]
+	exports: [HeaderComponent, FooterComponent, SplashScreenComponent]
 })
 export class HeaderBannerModule {}
