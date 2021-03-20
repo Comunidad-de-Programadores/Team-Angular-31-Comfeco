@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
@@ -38,6 +38,8 @@ export class UserEditComponent implements OnInit {
 	listGender = GENDER_ITEMS;
 	listCountry = COUNTRY_ITEMS;
 	listArea = AREA_ITEMS;
+
+	responsiveCard = '';
 	constructor(
 		private fb: FormBuilder,
 		public authFirebase: AngularFireAuth,
@@ -54,9 +56,18 @@ export class UserEditComponent implements OnInit {
 		this.profileForm = this.createProfileForm();
 		this.passwordsForm = this.createPasswordsForm();
 	}
+	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+	@HostListener('window:resize', ['$event'])
+	onResize() {
+		if (window.innerWidth <= 700) {
+			this.responsiveCard = String(window.innerWidth - 100) + 'px';
+		}
+		console.log('xd');
+	}
 
 	ngOnInit(): void {
 		this.loadProfileData();
+		this.onResize();
 	}
 
 	loadProfileData(): void {
