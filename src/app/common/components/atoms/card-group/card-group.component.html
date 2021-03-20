@@ -9,6 +9,8 @@
 		<p class="card__content-description">
 			{{ group.description }}
 		</p>
-		<button mat-raised-button color="primary" class="card__content-join">Unirse</button>
+		<button mat-raised-button color="primary" class="card__content-join" (click)="clickJoin()">
+			Unirse
+		</button>
 	</mat-card-content>
 </mat-card>
