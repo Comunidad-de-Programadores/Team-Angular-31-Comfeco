@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
@@ -14,6 +14,7 @@ import { ChannelProfileService } from '@team31/services/channel-submenus.service
 import { MessageService } from '@team31/services/message.service';
 import { ProfileService } from '@team31/services/profile.service';
 import { UserdataService } from '@team31/services/userdata.service';
+import { Subscription } from 'rxjs';
 import { CustomValidatorsService } from 'src/app/pages/authentication/common/service/custom-validators.service';
 import { Util } from './../../../static/util';
 
@@ -22,7 +23,7 @@ import { Util } from './../../../static/util';
 	templateUrl: './user-edit.component.html',
 	styleUrls: ['./user-edit.component.scss']
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent implements OnInit, OnDestroy {
 	uidProfile = '';
 	showVerifyPassword = false;
 	showNewPassword = false;
@@ -40,6 +41,7 @@ export class UserEditComponent implements OnInit {
 	listArea = AREA_ITEMS;
 
 	responsiveCard = '';
+	subscription!: Subscription;
 	constructor(
 		private fb: FormBuilder,
 		public authFirebase: AngularFireAuth,
@@ -56,6 +58,7 @@ export class UserEditComponent implements OnInit {
 		this.profileForm = this.createProfileForm();
 		this.passwordsForm = this.createPasswordsForm();
 	}
+
 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 	@HostListener('window:resize', ['$event'])
 	onResize() {
@@ -157,7 +160,7 @@ export class UserEditComponent implements OnInit {
 
 	giveInsignia(data: IUser): void {
 		if (!Util.propertiesEmpty(data)) {
-			this.profileService.getInsigniaSociable().subscribe((data) => {
+			this.subscription = this.profileService.getInsigniaSociable().subscribe((data) => {
 				const insignia = data[0];
 				const uid = this.userDataService.getUserProfileData.profile.uid;
 				const insigniasUser = [{ urlImage: insignia.urlImage, name: insignia.name }];
@@ -212,5 +215,9 @@ export class UserEditComponent implements OnInit {
 
 	get getPasswordsFormControl(): FormGroup['controls'] {
 		return this.passwordsForm.controls;
+	}
+
+	ngOnDestroy(): void {
+		if (this.subscription) this.subscription.unsubscribe();
 	}
 }
