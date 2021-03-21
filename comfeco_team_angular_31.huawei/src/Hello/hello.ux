@@ -1,0 +1,88 @@
+<template>
+  <div class="doc-page">
+    <!-- Replace the link to the HTML5 app -->
+    <web class="web-page" src="{{loadUrl}}" trustedurl="{{list}}" onpagestart="onPageStart" onpagefinish="onPageFinish"
+      onmessage="onMessage" ontitlereceive="onTitleReceive" onerror="onError" id="web" supportzoom="{{supportZoom}}"
+      wideviewport="{{wideViewport}}}" overviewmodeinload="{{overViewModeLoad}}" useragent="{{ua}}"
+      allowthirdpartycookies="{{allowThirdPartyCookies}}">
+    </web>
+  </div>
+</template>
+<style>
+  .doc-page {
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+  .web-page {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 100%;
+  }
+</style>
+<script>
+  import router from "@system.router";
+  export default {
+    props: ['websrc'],
+    data: {
+      title: "",
+      // TODO Replace the link to the H5 app
+      loadUrl: "https://comfeco-2021-team-angular-31.vercel.app/login",
+      // Attribute allowthirdpartycookies, indicates whether cookies can be delivered in cross-domain mode.
+      // If you need login Google Account or Other Account, Please set TRUE.
+      allowThirdPartyCookies: true,
+      //Attribute supportzoom, indicates whether the H5 page can be zoomed with gestures.
+      supportZoom: true,
+      wideViewport: true,
+      overViewModeLoad: true,
+      ua: "default",
+      // Here the allowlist settings, when the loading page has multiple addresses, such as the successful loading of the login address and the inconsistent entry address, it needs to set the allowlist to do so.
+      list: ["new RegExp('https?.*')"]
+    },
+    onInit() {
+      console.info('onInit: ');
+    },
+    onPageStart(e) {
+      console.info('pagestart: ' + e.url)
+    },
+    // Each page switch triggers
+    onPageFinish(e) {
+      console.info('pagefinish: ' + e.url, e.canBack, e.canForward);
+    },
+    onTitleReceive(e) {
+      this.title = e.title;
+    },
+    onError(e) {
+      console.info('pageError : ' + e.errorMsg)
+    },
+    onMessage(e) {
+      console.info('onmessage e = ' + e.message + ", url = " + e.url);
+    },
+    onShow: function () {
+      console.info(" onshow");
+    },
+    onHide: function () {
+      console.info("  onHide");
+    },
+    onBackPress() {
+      console.log('onBackPress')
+      this.$element('web').canBack({
+        callback: function (e) {
+          if (e) {
+            console.log('web back')
+            this.$element('web').back()
+          } else {
+            console.log('router back')
+            router.back()
+          }
+        }.bind(this)
+      })
+      return true
+    },
+  }
+</script>
