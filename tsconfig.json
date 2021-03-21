@@ -3,7 +3,26 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@team31/components-atoms/*": [
+        "src/app/common/components/atoms/*"
+      ],
+      "@team31/components-molecules/*": [
+        "src/app/common/components/molecules/*"
+      ],
+      "@team31/models/*": [
+        "src/app/common/models/*"
+      ],
+      "@team31/services/*": [
+        "src/app/common/services/*"
+      ],
+      "@team31/static/*": [
+        "src/app/common/static/*"
+      ],
+    },
     "outDir": "./dist/out-tsc",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -26,5 +45,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
 }

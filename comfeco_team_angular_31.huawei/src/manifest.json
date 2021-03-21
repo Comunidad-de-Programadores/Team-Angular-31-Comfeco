@@ -1,0 +1,32 @@
+{
+  "package": "comfeco_team_angular_31.huawei",
+  "name": "comfeco team angular 31",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "icon": "/Common/Angular_full_color_logo.svg.png",
+  "minPlatformVersion": 1066,
+  "features": [],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {},
+  "router": {
+    "entry": "Hello",
+    "pages": {
+      "Hello": {
+        "component": "hello"
+      }
+    }
+  },
+  "display": {
+    "pages": {
+      "Hello": {
+        "titleBar": false,
+        "menu": false,
+        "orientation":"auto"
+      }
+    }
+  }
+}

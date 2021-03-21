@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	height: 100%;
+	min-height: 100vh;
+}
+
+.header {
+	flex-shrink: 0;
+	flex-grow: 0;
+	background-image: url('../assets/svg/wave.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 11.5em;
+}
+
+.content {
+	flex: 1;
+	.outle {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.footer {
+	flex-shrink: 1;
+	flex-grow: 0;
+}
