@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IGroups, IGroupUser } from '@team31/models/interfaces/profile-module.interface';
 import { ChannelGroupService } from '@team31/services/channel-group.service';
 import { MessageService } from '@team31/services/message.service';
@@ -11,15 +11,21 @@ import { Util } from '@team31/static/util';
 	templateUrl: './card-group.component.html',
 	styleUrls: ['./card-group.component.scss']
 })
-export class CardGroupComponent {
+export class CardGroupComponent implements OnInit {
 	@Input() group: IGroups = <IGroups>{};
-
+	disabled = false;
 	constructor(
 		private userdataService: UserdataService,
 		private authService: ProfileService,
 		private messageService: MessageService,
 		private channelGroupData: ChannelGroupService
 	) {}
+	ngOnInit(): void {
+		const dataUser = { ...this.userdataService.getUserProfileData };
+		if (dataUser && dataUser.group) {
+			this.disabled = dataUser.group.name == this.group.nameGroup;
+		}
+	}
 	clickJoin(): void {
 		const dataUser = { ...this.userdataService.getUserProfileData };
 		const groupUser: IGroupUser = {
@@ -47,6 +53,7 @@ export class CardGroupComponent {
 
 			this.userdataService.setUserProfileData = dataUser;
 			this.channelGroupData.updateGroupCard(groupUser);
+			this.disabled = true;
 			this.messageService.openInfo('Gracias por unirte al grupo', 'end', 'top');
 		} catch (error) {
 			this.messageService.openError('Ups, ocurrio un error intenta nuevamente.', 'end', 'top');

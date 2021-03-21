@@ -41,7 +41,6 @@ export class ResetPasswordPageComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		console.log('On resetPassword');
 		this.subscription = this.activatedRoute.queryParams.subscribe((params: Params) => {
 			this.mode = String(params['mode']);
 			this.actionCode = String(params['oobCode']);

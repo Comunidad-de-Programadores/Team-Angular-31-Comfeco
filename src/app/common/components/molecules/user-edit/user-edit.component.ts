@@ -65,7 +65,6 @@ export class UserEditComponent implements OnInit, OnDestroy {
 		if (window.innerWidth <= 700) {
 			this.responsiveCard = String(window.innerWidth - 100) + 'px';
 		}
-		console.log('xd');
 	}
 
 	ngOnInit(): void {
