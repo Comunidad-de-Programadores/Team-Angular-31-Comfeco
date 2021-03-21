@@ -1,5 +1,5 @@
 {
     "workbench.devecoInspect.visible": true,
-    "workbench.devecoInspect.url": "inspectNotConnect.html",
+    "workbench.devecoInspect.url": "inspectOffline.html",
     "workbench.devecoModule.visible": false
 }
